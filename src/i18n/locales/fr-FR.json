@@ -1,0 +1,10 @@
+{
+  "header": {
+    "account": {
+      "hi": "Bonjour",
+      "profile": "Mon profil",
+      "parameters": "Mes Paramètres",
+      "logout": "Déconnexion"
+    }
+  }
+}
