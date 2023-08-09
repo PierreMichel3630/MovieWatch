@@ -39,7 +39,7 @@ export const AccountBadge = ({ user, onClick }: Props) => {
         mr={1}
         color="secondary"
       >
-        {user.firstname} {user.lastname}
+        {user.given_name} {user.family_name}
       </Typography>
       <BadgeAccountActive
         anchorOrigin={{
@@ -51,7 +51,7 @@ export const AccountBadge = ({ user, onClick }: Props) => {
       >
         <Avatar
           alt="Avatar"
-          src="/src/assets/man-avatar.svg"
+          src={user.picture ? user.picture : "/src/assets/man-avatar.svg"}
           sx={{ width: 28, height: 28 }}
         />
       </BadgeAccountActive>

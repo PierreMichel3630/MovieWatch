@@ -8,13 +8,14 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { style } from "typestyle";
 import { User } from "src/models/User";
 import { AccountBadge } from "../commun/AccountBadge";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useTranslation } from "react-i18next";
+import { UserContext } from "src/App";
 
 const divCss = style({
   display: "flex",
@@ -22,15 +23,17 @@ const divCss = style({
   alignItems: "center",
 });
 
-export const AccountMenu = () => {
-  const { t } = useTranslation();
+interface Props {
+  user: User;
+}
 
-  const user: User = {
-    firstname: "Pierre",
-    lastname: "Michel",
-    email: "pierremichel804@gmail.com",
-  };
-  const settings = [t("header.account.profile"), t("header.account.logout")];
+export const AccountMenu = ({ user }: Props) => {
+  const { t } = useTranslation();
+  const { setUser } = useContext(UserContext);
+  const settings = [
+    t("header.account.profile"),
+    t("header.account.parameters"),
+  ];
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -40,6 +43,11 @@ export const AccountMenu = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const logout = () => {
+    setUser(undefined);
+    handleCloseUserMenu();
   };
 
   return (
@@ -64,12 +72,12 @@ export const AccountMenu = () => {
         <div className={divCss}>
           <Avatar
             alt="Avatar"
-            src="/src/assets/man-avatar.svg"
+            src={user.picture ? user.picture : "/src/assets/man-avatar.svg"}
             sx={{ width: 35, height: 35, mr: 2 }}
           />
           <div>
             <Typography variant="h6">
-              {user.firstname} {user.lastname}
+              {user.given_name} {user.family_name}
             </Typography>
             <Typography component="small" variant="caption" color="secondary">
               {user.email}
@@ -83,7 +91,7 @@ export const AccountMenu = () => {
           </MenuItem>
         ))}
         <Divider />
-        <MenuItem onClick={handleCloseUserMenu}>
+        <MenuItem onClick={logout}>
           <ListItemIcon>
             <LogoutIcon fontSize="small" />
           </ListItemIcon>

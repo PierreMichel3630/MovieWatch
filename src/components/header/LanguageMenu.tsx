@@ -7,12 +7,11 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { DE, ES, FR, GB, US } from "country-flag-icons/react/1x1";
 import { percent } from "csx";
 
-import { Language } from "src/models/Language";
+import { LANGUAGES, Language } from "src/models/Language";
 import { style } from "typestyle";
-import { LanguageContext } from "src/App";
+import { UserContext } from "src/App";
 
 const divFlagCss = style({
   width: 24,
@@ -27,29 +26,7 @@ const flagCss = style({
 });
 
 export const LanguagesMenu = () => {
-  const { language, setLanguage } = useContext(LanguageContext);
-  const languages: Array<Language> = [
-    {
-      id: "en-GB",
-      name: "English",
-      flag: <GB title="English UK" />,
-    },
-    {
-      id: "fr-FR",
-      name: "Français",
-      flag: <FR title="France" />,
-    },
-    {
-      id: "es-ES",
-      name: "Español",
-      flag: <ES title="Español" />,
-    },
-    {
-      id: "de-DE",
-      name: "Deutsch",
-      flag: <DE title="Deutsch" />,
-    },
-  ];
+  const { language, setLanguage } = useContext(UserContext);
 
   const [anchor, setAnchor] = useState<null | HTMLElement>(null);
 
@@ -91,7 +68,7 @@ export const LanguagesMenu = () => {
         open={Boolean(anchor)}
         onClose={handleCloseMenu}
       >
-        {languages.map((language) => (
+        {LANGUAGES.map((language) => (
           <MenuItem key={language.id} onClick={() => selectLanguage(language)}>
             <ListItemIcon>
               <div className={flagCss}>{language.flag}</div>

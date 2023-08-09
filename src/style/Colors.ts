@@ -7,8 +7,9 @@ export const Colors = {
   grey3: "#d3e6f3",
   greyDarkMode: "#8ca3ba",
   greyLightMode: "#5f748d",
+  blue: "#1976d2",
 
   yellow: yellow[600],
   black: "#121f43",
-  white: "white",
+  white: "#fff",
 };

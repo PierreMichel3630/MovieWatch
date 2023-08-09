@@ -1,7 +1,5 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-// material-ui
-import { useTheme } from "@mui/material/styles";
 import {
   Box,
   Button,
@@ -17,21 +15,43 @@ import {
   OutlinedInput,
   Stack,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
-// third party
 import * as Yup from "yup";
 import { Formik } from "formik";
+import { border, padding } from "csx";
 
-// assets
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Google from "../../assets/social-google.svg";
+import { style } from "typestyle";
+import { useGoogleLogin } from "@react-oauth/google";
+import { getProfile } from "src/api/authentification";
+import { UserContext } from "src/App";
+import { User } from "src/models/User";
+import { useNavigate } from "react-router-dom";
+
+const formCss = style({ display: "flex", flexDirection: "column", gap: 10 });
 
 export const LoginForm = ({ ...others }) => {
-  const theme = useTheme();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { setUser } = useContext(UserContext);
+
+  const initialValue = {
+    email: "",
+    password: "",
+    submit: null,
+  };
+
+  const validation = Yup.object().shape({
+    email: Yup.string()
+      .email("Must be a valid email")
+      .max(255)
+      .required("Email is required"),
+    password: Yup.string().max(255).required("Password is required"),
+  });
 
   const [checked, setChecked] = useState(true);
 
@@ -44,9 +64,15 @@ export const LoginForm = ({ ...others }) => {
     event.preventDefault();
   };
 
-  const googleHandler = (event: any) => {
-    console.log(event);
-  };
+  const loginGoogle = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      getProfile(tokenResponse.access_token).then((res) => {
+        setUser(res as User);
+        navigate("/");
+      });
+    },
+    onError: (error) => console.log(error),
+  });
 
   return (
     <>
@@ -55,14 +81,9 @@ export const LoginForm = ({ ...others }) => {
           <Button
             disableElevation
             fullWidth
-            onClick={googleHandler}
+            onClick={() => loginGoogle()}
             size="large"
             variant="outlined"
-            sx={{
-              color: "grey.700",
-              backgroundColor: theme.palette.grey[50],
-              borderColor: theme.palette.grey[100],
-            }}
           >
             <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
               <img
@@ -70,10 +91,10 @@ export const LoginForm = ({ ...others }) => {
                 alt="google"
                 width={16}
                 height={16}
-                style={{ marginRight: matchDownSM ? 8 : 16 }}
+                style={{ marginRight: 8 }}
               />
             </Box>
-            Sign in with Google
+            <Typography variant="body1">{t("form.login.google")}</Typography>
           </Button>
         </Grid>
         <Grid item xs={12}>
@@ -84,24 +105,23 @@ export const LoginForm = ({ ...others }) => {
             }}
           >
             <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-
-            <Button
-              variant="outlined"
+            <Box
               sx={{
-                cursor: "unset",
-                m: 2,
-                py: 0.5,
-                px: 7,
-                borderColor: `${theme.palette.grey[100]} !important`,
-                color: `${theme.palette.grey[900]}!important`,
+                margin: 2,
+                border: border({
+                  width: 1,
+                  style: "solid",
+                  color: "rgba(0, 0, 0, 0.12)",
+                }),
+                padding: padding(5, 30),
                 fontWeight: 500,
-                borderRadius: `10px`,
+                borderRadius: 2,
               }}
-              disableRipple
-              disabled
             >
-              OR
-            </Button>
+              <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
+                {t("form.login.or")}
+              </Typography>
+            </Box>
             <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
           </Box>
         </Grid>
@@ -113,33 +133,23 @@ export const LoginForm = ({ ...others }) => {
           justifyContent="center"
         >
           <Box sx={{ mb: 2 }}>
-            <Typography variant="subtitle1">
-              Sign in with Email address
+            <Typography variant="h6" color="secondary">
+              {t("form.login.connectemail")}
             </Typography>
           </Box>
         </Grid>
       </Grid>
 
       <Formik
-        initialValues={{
-          email: "info@codedthemes.com",
-          password: "123456",
-          submit: null,
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string()
-            .email("Must be a valid email")
-            .max(255)
-            .required("Email is required"),
-          password: Yup.string().max(255).required("Password is required"),
-        })}
+        initialValues={initialValue}
+        validationSchema={validation}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             setStatus({ success: true });
             setSubmitting(false);
           } catch (err: any) {
             setStatus({ success: false });
-            setErrors({ submit: err.message });
+            //setErrors({ submit: err.message });
             setSubmitting(false);
           }
         }}
@@ -153,13 +163,18 @@ export const LoginForm = ({ ...others }) => {
           touched,
           values,
         }) => (
-          <form noValidate onSubmit={handleSubmit} {...others}>
+          <form
+            noValidate
+            onSubmit={handleSubmit}
+            {...others}
+            className={formCss}
+          >
             <FormControl
               fullWidth
               error={Boolean(touched.email && errors.email)}
             >
               <InputLabel htmlFor="outlined-adornment-email-login">
-                Email Address / Username
+                {t("form.login.email")}
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-email-login"
@@ -168,7 +183,7 @@ export const LoginForm = ({ ...others }) => {
                 name="email"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                label="Email Address / Username"
+                label={t("form.login.email")}
                 inputProps={{}}
               />
               {touched.email && errors.email && (
@@ -186,7 +201,7 @@ export const LoginForm = ({ ...others }) => {
               error={Boolean(touched.password && errors.password)}
             >
               <InputLabel htmlFor="outlined-adornment-password-login">
-                Password
+                {t("form.login.password")}
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password-login"
@@ -208,7 +223,7 @@ export const LoginForm = ({ ...others }) => {
                     </IconButton>
                   </InputAdornment>
                 }
-                label="Password"
+                label={t("form.login.password")}
                 inputProps={{}}
               />
               {touched.password && errors.password && (
@@ -235,14 +250,14 @@ export const LoginForm = ({ ...others }) => {
                     color="primary"
                   />
                 }
-                label="Remember me"
+                label={t("form.login.rememberme")}
               />
               <Typography
                 variant="subtitle1"
                 color="secondary"
                 sx={{ textDecoration: "none", cursor: "pointer" }}
               >
-                Forgot Password?
+                {t("form.login.forgotpassword")}
               </Typography>
             </Stack>
             {errors.submit && (
@@ -261,7 +276,7 @@ export const LoginForm = ({ ...others }) => {
                 variant="contained"
                 color="secondary"
               >
-                Sign in
+                {t("form.login.connect")}
               </Button>
             </Box>
           </form>

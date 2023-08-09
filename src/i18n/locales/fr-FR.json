@@ -5,6 +5,70 @@
       "profile": "Mon profil",
       "parameters": "Mes Paramètres",
       "logout": "Déconnexion"
+    },
+    "search": {
+      "input": "Rechercher un film, une série, un acteur ..."
+    },
+    "login": "Se Connecter"
+  },
+  "tmdb": {
+    "department": {
+      "acting": "Acteur",
+      "technical": "Équipe technique"
     }
+  },
+  "commun": {
+    "all": "Tous",
+    "backdrop": "Fond d'écran",
+    "cast": "Casting",
+    "datenotknow": "Date de sortie inconnu",
+    "episodes": "Épisodes",
+    "logo": "Logo",
+    "movies": "Films",
+    "person": "Personnes",
+    "photos": "Photos",
+    "poster": "Poster",
+    "profile": "Profil",
+    "season": "Saison",
+    "seasons": "Saisons",
+    "seeMore": "Afficher plus",
+    "seeLess": "Afficher moins",
+    "series": "Séries",
+    "trailer": "Bande annonce",
+    "trending": "Tendance",
+    "trendingmovie": "Tendance Films",
+    "trendingserie": "Tendance Séries",
+    "videos": "Vidéos"
+  },
+  "pages": {
+    "login": {
+      "hi": "Bienvenue",
+      "credential": "Entrez vos identifiants pour continuer"
+    },
+    "movie": {
+      "trailer": "Bande annonce",
+      "summary": "Résumé",
+      "minutes": "min"
+    },
+    "person": {
+      "biography": "Bio"
+    }
+  },
+  "form": {
+    "login": {
+      "google": "Se connecter via Google",
+      "connectemail": "Se connecter avec son email",
+      "email": "Adresse email",
+      "password": "Mot de passe",
+      "rememberme": "Se souvenir de moi",
+      "forgotpassword": "Mot de passe oublié ?",
+      "connect": "Se connecter",
+      "or": "ou",
+      "haveaccount": "Pas de compte ?"
+    }
+  },
+  "card": {
+    "summary": "Résumé",
+    "knowfor": "Connu pour"
   }
 }

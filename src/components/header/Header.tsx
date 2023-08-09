@@ -1,77 +1,113 @@
-import { AppBar, Box, InputBase, Toolbar } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { useContext } from "react";
 
-import SearchIcon from "@mui/icons-material/Search";
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-import { Colors } from "src/style/Colors";
 import { AccountMenu } from "./AccountMenu";
 import { NotificationsMenu } from "./NotificationsMenu";
 import { LanguagesMenu } from "./LanguageMenu";
 import { ModeMenu } from "./ModeMenu";
+import { UserContext } from "src/App";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { SearchContext } from "src/pages/Home";
+import { SearchInput } from "../commun/Input";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.common.white,
-  "&:hover": {
-    backgroundColor: theme.palette.common.white,
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import MovieIcon from "@mui/icons-material/Movie";
+import { viewWidth } from "csx";
+import { Colors } from "src/style/Colors";
 
 export const Header = () => {
+  const { query, setQuery } = useContext(SearchContext);
+
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { user } = useContext(UserContext);
+  const DEFAULTPAGE = 1;
+
+  const submitSearch = () => {
+    navigate({
+      pathname: "/search",
+      search: `?query=${query}&page=${DEFAULTPAGE}`,
+    });
+    setQuery("");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
         <Toolbar>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon sx={{ fill: Colors.grey }} />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: "flex", gap: 1 }}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="home"
+            sx={{ mr: 2 }}
+            onClick={() => navigate("/")}
+          >
+            <MovieIcon />
+          </IconButton>
+          <Box sx={{ flexGrow: 1 }}>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                marginRight: viewWidth(10),
+              }}
+            >
+              <SearchInput
+                onChange={(value) => setQuery(value)}
+                submit={submitSearch}
+                value={query}
+              />
+            </Box>
+          </Box>
+          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
             <ModeMenu />
             <LanguagesMenu />
             <NotificationsMenu />
-            <AccountMenu />
+            {user ? (
+              <AccountMenu user={user} />
+            ) : (
+              <>
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                  <Button
+                    variant="outlined"
+                    startIcon={<AccountCircleIcon />}
+                    onClick={() => navigate("login")}
+                  >
+                    <Typography variant="body1">{t("header.login")}</Typography>
+                  </Button>
+                </Box>
+                <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                  <IconButton
+                    aria-label="connection"
+                    color="inherit"
+                    onClick={() => navigate("login")}
+                  >
+                    <AccountCircleIcon
+                      sx={{ fill: Colors.blue, width: 30, height: 30 }}
+                    />
+                  </IconButton>
+                </Box>
+              </>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
+      <Box sx={{ display: { xs: "flex", md: "none" }, marginBottom: 1 }}>
+        <SearchInput
+          onChange={(value) => setQuery(value)}
+          submit={submitSearch}
+          value={query}
+        />
+      </Box>
     </Box>
   );
 };

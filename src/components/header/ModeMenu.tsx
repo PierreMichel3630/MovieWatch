@@ -6,10 +6,10 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 import { Colors } from "src/style/Colors";
-import { ModeContext } from "src/App";
+import { UserContext } from "src/App";
 
 export const ModeMenu = () => {
-  const { mode, setMode } = useContext(ModeContext);
+  const { mode, setMode } = useContext(UserContext);
   return (
     <IconButton
       aria-label="light mode"
