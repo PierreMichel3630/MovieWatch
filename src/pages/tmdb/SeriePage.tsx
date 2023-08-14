@@ -3,18 +3,12 @@ import { percent, viewHeight } from "csx";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
-import {
-  getTvCredit,
-  getTvDetails,
-  getTvImage,
-  getTvVideo,
-} from "src/api/tmdb/tv";
-import { CastsBlock } from "src/components/CastsBlock";
+import { getTvDetails, getTvImage, getTvVideo } from "src/api/tmdb/tv";
 import { PhotosBlock } from "src/components/PhotosBlock";
 import { VideosBlock } from "src/components/VideosBlock";
+import { CastsSerieBlock } from "src/components/serie/CastsSerieBlock";
 import { EpisodesBlock } from "src/components/serie/EpisodesBlock";
 import { HeaderSerie } from "src/components/serie/HeaderSerie";
-import { Cast } from "src/models/tmdb/commun/Cast";
 import { Image } from "src/models/tmdb/commun/Image";
 import { Video } from "src/models/tmdb/commun/Video";
 import { ImageType } from "src/models/tmdb/enum";
@@ -26,9 +20,12 @@ export const SeriePage = () => {
   const { language } = useContext(UserContext);
 
   const [detail, setDetail] = useState<undefined | SerieDetails>(undefined);
-  const [casts, setCasts] = useState<Array<Cast>>([]);
   const [images, setImages] = useState<Array<Image>>([]);
   const [videos, setVideos] = useState<Array<Video>>([]);
+
+  const [isLoadingDetail, setIsLoadingDetail] = useState(true);
+  const [isLoadingImage, setIsLoadingImage] = useState(true);
+  const [isLoadingVideo, setIsLoadingVideo] = useState(true);
 
   const backdropCss = style({
     width: percent(100),
@@ -59,22 +56,17 @@ export const SeriePage = () => {
   });
 
   useEffect(() => {
+    setIsLoadingDetail(true);
     if (id) {
       getTvDetails(Number(id), language.language).then((res) => {
         setDetail(res);
+        setIsLoadingDetail(false);
       });
     }
   }, [id, language]);
 
   useEffect(() => {
-    if (id) {
-      getTvCredit(Number(id), language.language).then((res) => {
-        setCasts(res.cast);
-      });
-    }
-  }, [id, language]);
-
-  useEffect(() => {
+    setIsLoadingImage(true);
     if (id) {
       getTvImage(Number(id), language.language).then((res) => {
         setImages([
@@ -82,14 +74,17 @@ export const SeriePage = () => {
           ...res.logos.map((el) => ({ ...el, type: ImageType.logo })),
           ...res.posters.map((el) => ({ ...el, type: ImageType.poster })),
         ]);
+        setIsLoadingImage(false);
       });
     }
   }, [id, language]);
 
   useEffect(() => {
+    setIsLoadingVideo(true);
     if (id) {
       getTvVideo(Number(id), language.language).then((res) => {
         setVideos(res.results);
+        setIsLoadingVideo(false);
       });
     }
   }, [id, language]);
@@ -98,22 +93,31 @@ export const SeriePage = () => {
     <Grid container>
       <Grid item xs={12} className={backdropCss}>
         <Container maxWidth="lg" sx={{ position: "relative" }}>
-          <HeaderSerie detail={detail} videos={videos} />
+          <HeaderSerie
+            detail={detail}
+            videos={videos}
+            isLoading={isLoadingDetail}
+          />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <CastsBlock casts={casts} />
+          <CastsSerieBlock />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <PhotosBlock images={images} hasFilter />
+          <PhotosBlock
+            name={detail?.name}
+            images={images}
+            isLoading={isLoadingImage}
+            hasFilter
+          />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <VideosBlock videos={videos} />
+          <VideosBlock videos={videos} isLoading={isLoadingVideo} />
         </Container>
       </Grid>
       <Grid item xs={12}>

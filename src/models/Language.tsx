@@ -7,6 +7,13 @@ export interface Language {
   language: string;
 }
 
+export const DEFAULT_LANGUAGE: Language = {
+  id: "fr-FR",
+  name: "Français",
+  flag: <FR title="France" />,
+  language: "fr",
+};
+
 export const LANGUAGES: Array<Language> = [
   {
     id: "en-GB",

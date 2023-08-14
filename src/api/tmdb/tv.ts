@@ -7,6 +7,8 @@ import { EpisodeDetail } from "src/models/tmdb/tv/EpisodeDetail";
 import { EpisodeImage } from "src/models/tmdb/tv/EpisodeImage";
 import { Videos } from "src/models/tmdb/commun/Videos";
 import { SearchResult } from "src/models/tmdb/commun/SearchResult";
+import { TvAggregateCredits } from "src/models/tmdb/tv/TvAggregateCredits";
+import { TimeTrending } from "src/models/tmdb/enum";
 
 export const getTvDetails = (
   id: number,
@@ -16,8 +18,11 @@ export const getTvDetails = (
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 
-export const getTvCredit = (id: number, language: string): Promise<Credits> => {
-  const url = `https://api.themoviedb.org/3/tv/${id}/credits?language=${language}`;
+export const getTvCredit = (
+  id: number,
+  language: string
+): Promise<TvAggregateCredits> => {
+  const url = `https://api.themoviedb.org/3/tv/${id}/aggregate_credits?language=${language}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 
@@ -75,9 +80,12 @@ export const getTvVideo = (id: number, language: string): Promise<Videos> => {
 
 export const getTvTrending = (
   page: number,
-  language: string
+  language: string,
+  time?: TimeTrending
 ): Promise<SearchResult> => {
-  const url = `https://api.themoviedb.org/3/trending/tv/week?language=${language}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/trending/tv/${
+    time ? time : TimeTrending.day
+  }?language=${language}&page=${page}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 

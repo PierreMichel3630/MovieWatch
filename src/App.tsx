@@ -1,3 +1,6 @@
+import "./App.css";
+import "./i18n/config";
+import moment from "moment";
 import { createContext, useEffect, useMemo, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import i18next from "i18next";
@@ -5,13 +8,9 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { Colors } from "./style/Colors";
-import { LANGUAGES, Language } from "./models/Language";
+import { DEFAULT_LANGUAGE, LANGUAGES, Language } from "./models/Language";
 import { User } from "./models/User";
 
-import { FR } from "country-flag-icons/react/1x1";
-
-import "./App.css";
-import "./i18n/config";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
@@ -21,17 +20,12 @@ import { SearchPage } from "./pages/tmdb/SearchPage";
 import { SeriePage } from "./pages/tmdb/SeriePage";
 import { EpisodePage } from "./pages/tmdb/EpisodePage";
 import { TrendingPage } from "./pages/tmdb/TrendingPage";
-import { SerieGenrePage } from "./pages/tmdb/SerieGenrePage";
-import { MovieGenrePage } from "./pages/tmdb/MovieGenrePage";
 import { TrendingSearchPage } from "./pages/tmdb/TrendingSearchPage";
+import { DiscoverPage } from "./pages/tmdb/DiscoverPage";
 
-// Language
-const DEFAULT_LANGUAGE: Language = {
-  id: "fr-FR",
-  name: "Français",
-  flag: <FR title="France" />,
-  language: "fr",
-};
+import "moment/dist/locale/fr";
+import "moment/dist/locale/de";
+import "moment/dist/locale/es";
 
 export const UserContext = createContext<{
   user: undefined | User;
@@ -69,6 +63,7 @@ function App() {
   );
 
   useEffect(() => {
+    moment.locale(language.language);
     changeLanguage(language.id);
   }, [language]);
 
@@ -120,7 +115,7 @@ function App() {
               }
             : {
                 secondary: {
-                  main: Colors.greyDarkMode,
+                  main: Colors.grey,
                 },
                 background: {
                   default: "#171c24",
@@ -186,10 +181,8 @@ function App() {
                 path="/serie/:id/season/:season/episode/:episode"
                 element={<EpisodePage />}
               />
-              <Route path="/genre/:id/movies" element={<MovieGenrePage />} />
-              <Route path="/genre/:id/series" element={<SerieGenrePage />} />
               <Route path="/trending" element={<TrendingSearchPage />} />
-              <Route path="/genres" element={<MovieGenrePage />} />
+              <Route path="/discover" element={<DiscoverPage />} />
             </Route>
           </Routes>
         </Router>

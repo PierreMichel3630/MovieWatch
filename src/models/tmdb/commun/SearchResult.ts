@@ -8,3 +8,10 @@ export interface SearchResult {
   total_pages: number;
   total_results: number;
 }
+
+export interface SearchResultGeneric<T> {
+  page: number;
+  results: Array<T>;
+  total_pages: number;
+  total_results: number;
+}

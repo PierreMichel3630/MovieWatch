@@ -4,17 +4,15 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
 import {
-  getMovieCredit,
   getMovieDetails,
   getMovieImage,
   getMovieVideo,
 } from "src/api/tmdb/movie";
-import { CastsBlock } from "src/components/CastsBlock";
 import { PhotosBlock } from "src/components/PhotosBlock";
 import { VideosBlock } from "src/components/VideosBlock";
+import { CastsBlockMovie } from "src/components/movie/CastsBlockMovie";
 import { HeaderMovie } from "src/components/movie/HeaderMovie";
 import { Backdrop } from "src/models/tmdb/commun/Backdrop";
-import { Cast } from "src/models/tmdb/commun/Cast";
 import { Image } from "src/models/tmdb/commun/Image";
 import { Video } from "src/models/tmdb/commun/Video";
 import { ImageType } from "src/models/tmdb/enum";
@@ -26,12 +24,13 @@ export const MoviePage = () => {
   const { language } = useContext(UserContext);
 
   const [detail, setDetail] = useState<undefined | MovieDetails>(undefined);
-  const [casts, setCasts] = useState<Array<Cast>>([]);
   const [images, setImages] = useState<Array<Image>>([]);
   const [videos, setVideos] = useState<Array<Video>>([]);
-
   const [backdrop, setBackdrop] = useState<undefined | Backdrop>(undefined);
-  const [poster, setPoster] = useState<undefined | Backdrop>(undefined);
+
+  const [isLoadingImage, setIsLoadingImage] = useState(true);
+  const [isLoadingVideo, setIsLoadingVideo] = useState(true);
+  const [isLoadingDetail, setIsLoadingDetail] = useState(true);
 
   const backdropCss = style({
     width: percent(100),
@@ -62,22 +61,17 @@ export const MoviePage = () => {
   });
 
   useEffect(() => {
+    setIsLoadingDetail(true);
     if (id) {
       getMovieDetails(Number(id), language.language).then((res) => {
         setDetail(res);
+        setIsLoadingDetail(false);
       });
     }
   }, [id, language]);
 
   useEffect(() => {
-    if (id) {
-      getMovieCredit(Number(id), language.language).then((res) => {
-        setCasts(res.cast);
-      });
-    }
-  }, [id, language]);
-
-  useEffect(() => {
+    setIsLoadingImage(true);
     if (id) {
       getMovieImage(Number(id), language.language).then((res) => {
         setImages([
@@ -86,15 +80,17 @@ export const MoviePage = () => {
           ...res.posters.map((el) => ({ ...el, type: ImageType.poster })),
         ]);
         setBackdrop(res.backdrops.length > 0 ? res.backdrops[0] : undefined);
-        setPoster(res.posters.length > 0 ? res.posters[0] : undefined);
+        setIsLoadingImage(false);
       });
     }
   }, [id, language]);
 
   useEffect(() => {
+    setIsLoadingVideo(true);
     if (id) {
       getMovieVideo(Number(id), language.language).then((res) => {
         setVideos(res.results);
+        setIsLoadingVideo(false);
       });
     }
   }, [id, language]);
@@ -103,22 +99,31 @@ export const MoviePage = () => {
     <Grid container>
       <Grid item xs={12} className={backdropCss}>
         <Container maxWidth="lg" sx={{ position: "relative" }}>
-          <HeaderMovie poster={poster} detail={detail} videos={videos} />
+          <HeaderMovie
+            detail={detail}
+            videos={videos}
+            isLoading={isLoadingDetail}
+          />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <CastsBlock casts={casts} />
+          <CastsBlockMovie />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <PhotosBlock images={images} hasFilter />
+          <PhotosBlock
+            name={detail?.title}
+            images={images}
+            hasFilter
+            isLoading={isLoadingImage}
+          />
         </Container>
       </Grid>
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
-          <VideosBlock videos={videos} />
+          <VideosBlock videos={videos} isLoading={isLoadingVideo} />
         </Container>
       </Grid>
     </Grid>

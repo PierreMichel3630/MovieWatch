@@ -1,4 +1,4 @@
-import { Chip, Container, Grid } from "@mui/material";
+import { Alert, Chip, Container, Grid } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "src/App";
 import { getTrending } from "src/api/tmdb/commun";
@@ -7,7 +7,6 @@ import { getPersonTrending } from "src/api/tmdb/person";
 import { getTvTrending } from "src/api/tmdb/tv";
 import { CardSearch } from "src/components/commun/CardSearch";
 import { useQuery } from "src/utils/hook";
-import { Loading } from "src/components/commun/Loading";
 import { useNavigate } from "react-router-dom";
 import { FixedBottomPagination } from "src/components/commun/Pagination";
 import { useTranslation } from "react-i18next";
@@ -16,6 +15,7 @@ import { MediaType } from "src/models/tmdb/enum";
 import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
+import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
 
 const divFilterCss = style({
   marginLeft: 15,
@@ -41,6 +41,7 @@ export const TrendingSearchPage = () => {
     Array<MovieSearchElement | PersonSearchElement | TvSearchElement>
   >([]);
   const [totalPage, setTotalPage] = useState<undefined | number>(undefined);
+  const [isNoResult, setIsNoResult] = useState(false);
 
   const search = () => {
     if (type === MediaType.tv) {
@@ -48,24 +49,28 @@ export const TrendingSearchPage = () => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
+        setIsNoResult(res.total_results === 0);
       });
     } else if (type === MediaType.movie) {
       getMovieTrending(page, language.language).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
+        setIsNoResult(res.total_results === 0);
       });
     } else if (type === MediaType.person) {
       getPersonTrending(page, language.language).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
+        setIsNoResult(res.total_results === 0);
       });
     } else {
       getTrending(page, language.language).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
+        setIsNoResult(res.total_results === 0);
       });
     }
   };
@@ -109,30 +114,50 @@ export const TrendingSearchPage = () => {
             onClick={() => selectFilter(MediaType.tv)}
           />
           <Chip
-            label={t("commun.person")}
+            label={t("commun.persons")}
             variant={type && type === MediaType.person ? "filled" : "outlined"}
             onClick={() => selectFilter(MediaType.person)}
           />
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={1} columns={20}>
-            {totalPage !== undefined && (
-              <FixedBottomPagination
-                page={page}
-                totalPage={totalPage}
-                onChange={changePage}
-              />
-            )}
-            {isLoading ? (
-              <Grid item xs={20} sx={{ minHeight: "75vh" }}>
-                <Loading />
+            {isNoResult ? (
+              <Grid item xs={20}>
+                <Alert severity="warning">{t("commun.noresult")}</Alert>
               </Grid>
             ) : (
-              results.map((el) => (
-                <Grid item key={el.id} xs={10} sm={5} md={5} lg={4} xl={4}>
-                  <CardSearch value={el} />
-                </Grid>
-              ))
+              <>
+                {totalPage !== undefined && (
+                  <FixedBottomPagination
+                    page={page}
+                    totalPage={totalPage}
+                    onChange={changePage}
+                  />
+                )}
+                {isLoading ? (
+                  Array.from(new Array(20)).map((el, index) => (
+                    <Grid key={index} item xs={10} sm={5} md={5} lg={4} xl={4}>
+                      <CardSearchSkeleton />
+                    </Grid>
+                  ))
+                ) : (
+                  <>
+                    {results.map((el) => (
+                      <Grid
+                        key={el.id}
+                        item
+                        xs={10}
+                        sm={5}
+                        md={5}
+                        lg={4}
+                        xl={4}
+                      >
+                        <CardSearch value={el} />
+                      </Grid>
+                    ))}
+                  </>
+                )}
+              </>
             )}
           </Grid>
         </Grid>

@@ -18,29 +18,83 @@
     }
   },
   "commun": {
+    "add": "Ajouter",
+    "addfilter": "Ajouter un filtre",
+    "after": "Après",
     "all": "Tous",
+    "actors": "Acteurs",
     "backdrop": "Fond d'écran",
+    "before": "Avant",
+    "birthday": "Date de naissance",
+    "cancel": "Annuler",
     "cast": "Casting",
     "datenotknow": "Date de sortie inconnu",
+    "deathday": "Date de décès",
+    "episode": "épisode",
     "episodes": "Épisodes",
+    "episodeprev": "Épisode précédent",
+    "episodenext": "Épisode suivant",
+    "exact": "Égale à",
+    "filter": "Filtrer",
+    "genre": "Genre",
+    "gueststars": "Vedettes invitées",
     "logo": "Logo",
+    "minutes": "minutes",
+    "min": "min",
     "movies": "Films",
-    "person": "Personnes",
+    "noresult": "Aucun résultat ne correspond à votre recherche.",
+    "noresultactor": "Aucun acteur n'a été renseigné.",
+    "noresultepisode": "Aucun épisode ne correspond à votre recherche.",
+    "noresultimage": "Aucune image n'a été renseignée.",
+    "noresultmovie": "Aucun film n'a été renseigné.",
+    "noresultserie": "Aucune série n'a été renseignée.",
+    "noresultvideo": "Aucune vidéo n'a été renseignée.",
+    "origincountry": "Pays d'origine",
+    "over": "Plus de",
+    "persons": "Personnes",
     "photos": "Photos",
+    "placeofbirth": "Lieu de naissance",
     "poster": "Poster",
     "profile": "Profil",
+    "runtime": "Durée",
+    "results": "Résultats",
+    "searchactor": "Rechercher un acteur",
     "season": "Saison",
     "seasons": "Saisons",
     "seeMore": "Afficher plus",
     "seeLess": "Afficher moins",
     "series": "Séries",
+    "sort": "Trier",
+    "today": "Aujourd'hui",
     "trailer": "Bande annonce",
     "trending": "Tendance",
     "trendingmovie": "Tendance Films",
     "trendingserie": "Tendance Séries",
-    "videos": "Vidéos"
+    "type": "Type",
+    "under": "Moins de",
+    "upcoming": "Prochainement",
+    "videos": "Vidéos",
+    "vote": "Vote",
+    "week": "Semaine",
+    "withgenres": "Avec genre",
+    "withoutgenres": "Sans genre",
+    "year": "Année",
+    "years": "ans"
+  },
+  "sort": {
+    "popularityAsc": "Popularité -/+",
+    "popularityDesc": "Popularité +/-",
+    "voteaverageAsc": "Notes -/+",
+    "voteaverageDesc": "Notes +/-",
+    "primaryreleasedateAsc": "Date de sortie -/+",
+    "primaryreleasedateDesc": "Date de sortie +/-",
+    "titleAsc": "Titre de A-Z",
+    "titleDesc": "Titre de Z-A"
   },
   "pages": {
+    "discover": {
+      "title": "Discover Page"
+    },
     "login": {
       "hi": "Bienvenue",
       "credential": "Entrez vos identifiants pour continuer"
@@ -51,7 +105,13 @@
       "minutes": "min"
     },
     "person": {
-      "biography": "Bio"
+      "biography": "Bio",
+      "searchmovie": "Rechercher un film",
+      "searchserie": "Rechercher une série"
+    },
+    "serie": {
+      "searchactor": "Rechercher un acteur ou personnage",
+      "noresultactor": "Aucun acteur n'a été renseigné."
     }
   },
   "form": {

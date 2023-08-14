@@ -1,4 +1,5 @@
 import {
+  Alert,
   Chip,
   Grid,
   ImageList,
@@ -12,6 +13,7 @@ import { getBreakpoint } from "src/utils/mediaQuery";
 import { ImageDialog } from "./commun/dialog/ImageDialog";
 import { style } from "typestyle";
 import { Image } from "src/models/tmdb/commun/Image";
+import { PhotoSkeleton } from "./commun/skeleton/Skeleton";
 
 const divFilterCss = style({ marginLeft: 15, display: "flex", gap: 10 });
 
@@ -26,9 +28,16 @@ enum Filter {
 interface Props {
   images: Array<Image>;
   hasFilter?: boolean;
+  name?: string;
+  isLoading?: boolean;
 }
 
-export const PhotosBlock = ({ images, hasFilter = false }: Props) => {
+export const PhotosBlock = ({
+  name,
+  images,
+  hasFilter = false,
+  isLoading = false,
+}: Props) => {
   const NUMBERLINESHOW = 2;
   const FILTERFALSE = {
     all: false,
@@ -42,7 +51,9 @@ export const PhotosBlock = ({ images, hasFilter = false }: Props) => {
 
   const [seeMore, setSeeMore] = useState(false);
   const [open, setOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<Image | undefined>(
+    undefined
+  );
   const [filter, setFilter] = useState({
     all: true,
     poster: false,
@@ -59,6 +70,7 @@ export const PhotosBlock = ({ images, hasFilter = false }: Props) => {
     lg: 3,
     xl: 3,
   }[breakpoint];
+  const itemPerLine = cols * NUMBERLINESHOW;
 
   const filterPhotos = (a: Image) => {
     let res = false;
@@ -74,8 +86,8 @@ export const PhotosBlock = ({ images, hasFilter = false }: Props) => {
     return res;
   };
 
-  const selectImage = (index: number) => {
-    setSelectedImage(index);
+  const selectImage = (value: Image) => {
+    setSelectedImage(value);
     setOpen(true);
   };
 
@@ -87,78 +99,92 @@ export const PhotosBlock = ({ images, hasFilter = false }: Props) => {
 
   const imagesDisplay = seeMore
     ? imagesFilter
-    : imagesFilter.slice(0, cols * NUMBERLINESHOW);
+    : imagesFilter.slice(0, itemPerLine);
 
   return (
-    images.length > 0 && (
-      <Grid container spacing={2}>
-        <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="h2">{t("commun.photos")}</Typography>
-          {hasFilter && (
-            <div className={divFilterCss}>
-              <Chip
-                label={t("commun.all")}
-                variant={filter.all ? "filled" : "outlined"}
-                onClick={() => selectFilter(Filter.all)}
-              />
-              <Chip
-                label={t("commun.backdrop")}
-                variant={filter.backdrop ? "filled" : "outlined"}
-                onClick={() => selectFilter(Filter.backdrop)}
-              />
-              <Chip
-                label={t("commun.logo")}
-                variant={filter.logo ? "filled" : "outlined"}
-                onClick={() => selectFilter(Filter.logo)}
-              />
-              <Chip
-                label={t("commun.poster")}
-                variant={filter.poster ? "filled" : "outlined"}
-                onClick={() => selectFilter(Filter.poster)}
-              />
-            </div>
-          )}
-        </Grid>
-        <Grid item xs={12}>
-          <ImageList variant="masonry" cols={cols} gap={5}>
-            {imagesDisplay.map((image, index) => (
-              <ImageListItem
-                key={index}
-                onClick={() => selectImage(index)}
-                sx={{ cursor: "pointer" }}
-              >
-                <img
-                  src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                  srcSet={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                  loading="lazy"
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </Grid>
-        {imagesFilter.length > cols * NUMBERLINESHOW && (
-          <Grid
-            item
-            xs={12}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <SeeMoreButton
-              seeMore={seeMore}
-              onClick={() => setSeeMore(!seeMore)}
+    <Grid container spacing={2}>
+      <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
+        <Typography variant="h2">{t("commun.photos")}</Typography>
+        {hasFilter && (
+          <div className={divFilterCss}>
+            <Chip
+              label={t("commun.all")}
+              variant={filter.all ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.all)}
             />
-          </Grid>
-        )}
-        {imagesDisplay.length > 0 && (
-          <ImageDialog
-            image={`https://image.tmdb.org/t/p/original${imagesDisplay[selectedImage].file_path}`}
-            onClose={() => setOpen(false)}
-            open={open}
-          />
+            <Chip
+              label={t("commun.backdrop")}
+              variant={filter.backdrop ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.backdrop)}
+            />
+            <Chip
+              label={t("commun.logo")}
+              variant={filter.logo ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.logo)}
+            />
+            <Chip
+              label={t("commun.poster")}
+              variant={filter.poster ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.poster)}
+            />
+          </div>
         )}
       </Grid>
-    )
+      {isLoading ? (
+        Array.from(new Array(itemPerLine)).map((el) => (
+          <Grid key={el} item xs={12 / cols}>
+            <PhotoSkeleton />
+          </Grid>
+        ))
+      ) : images.length > 0 ? (
+        <>
+          <Grid item xs={12}>
+            <ImageList variant="masonry" cols={cols} gap={5}>
+              {imagesDisplay.map((image, index) => (
+                <ImageListItem
+                  key={index}
+                  onClick={() => selectImage(image)}
+                  sx={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${image.file_path}`}
+                    srcSet={`https://image.tmdb.org/t/p/original${image.file_path}`}
+                    loading="lazy"
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          </Grid>
+          {imagesFilter.length > cols * NUMBERLINESHOW && (
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <SeeMoreButton
+                seeMore={seeMore}
+                onClick={() => setSeeMore(!seeMore)}
+              />
+            </Grid>
+          )}
+          {selectedImage && (
+            <ImageDialog
+              onClose={() => setOpen(false)}
+              open={open}
+              images={imagesFilter}
+              selected={selectedImage}
+              name={name ?? ""}
+            />
+          )}
+        </>
+      ) : (
+        <Grid item xs={12} sx={{ marginTop: 2 }}>
+          <Alert severity="warning">{t("commun.noresultimage")}</Alert>
+        </Grid>
+      )}
+    </Grid>
   );
 };

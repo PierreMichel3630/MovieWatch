@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { getListGenre } from "./Genre";
 
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { style } from "typestyle";
 import { percent } from "csx";
 import { ImageNotFoundBlock } from "./ImageBlock";
@@ -45,37 +45,42 @@ interface PropsMovieSearch {
 
 export const CardMovieSearch = ({ value }: PropsMovieSearch) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   return (
-    <Card onClick={() => navigate(`/movie/${value.id}`)} className={cardCss}>
-      {value.poster_path !== null ? (
-        <CardMedia
-          sx={{ aspectRatio: "2/3" }}
-          image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-          title={value.title}
-        />
-      ) : (
-        <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-      )}
-      <CardContent>
-        <Typography variant="h4">{value.title}</Typography>
-        <Typography>{moment(value.release_date).format("YYYY")}</Typography>
-        <Typography>{getListGenre(value.genre_ids)}</Typography>
-        <Typography variant="h6">{t("card.summary")}</Typography>
-        <Typography
-          variant="caption"
-          color="secondary"
-          sx={{
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 4,
-          }}
-        >
-          {value.overview}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Link to={`/movie/${value.id}`}>
+      <Card className={cardCss}>
+        {value.poster_path !== null ? (
+          <CardMedia
+            sx={{ aspectRatio: "2/3" }}
+            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+            title={value.title}
+          />
+        ) : (
+          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+        )}
+        <CardContent>
+          <Typography variant="h4">{value.title}</Typography>
+          <Typography>{moment(value.release_date).format("YYYY")}</Typography>
+          <Typography>{getListGenre(value.genre_ids)}</Typography>
+          {value.overview !== "" && (
+            <>
+              <Typography variant="h6">{t("card.summary")}</Typography>
+              <Typography
+                variant="caption"
+                color="secondary"
+                sx={{
+                  display: "-webkit-box",
+                  overflow: "hidden",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 4,
+                }}
+              >
+                {value.overview}
+              </Typography>
+            </>
+          )}
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
@@ -85,39 +90,46 @@ interface PropsTvSearch {
 
 export const CardTvSearch = ({ value }: PropsTvSearch) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   return (
-    <Card onClick={() => navigate(`/serie/${value.id}`)} className={cardCss}>
-      {value.poster_path !== null ? (
-        <CardMedia
-          sx={{ aspectRatio: "2/3" }}
-          image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-          title={value.name}
-        />
-      ) : (
-        <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-      )}
-      <CardContent>
-        <Typography variant="h4">{value.name}</Typography>
-        <Typography variant="body1">
-          {moment(value.first_air_date).format("YYYY")}
-        </Typography>
-        <Typography variant="body1">{getListGenre(value.genre_ids)}</Typography>
-        <Typography variant="h6">{t("card.summary")}</Typography>
-        <Typography
-          variant="caption"
-          color="secondary"
-          sx={{
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 4,
-          }}
-        >
-          {value.overview}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Link to={`/serie/${value.id}`}>
+      <Card className={cardCss}>
+        {value.poster_path !== null ? (
+          <CardMedia
+            sx={{ aspectRatio: "2/3" }}
+            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+            title={value.name}
+          />
+        ) : (
+          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+        )}
+        <CardContent>
+          <Typography variant="h4">{value.name}</Typography>
+          <Typography variant="body1">
+            {moment(value.first_air_date).format("YYYY")}
+          </Typography>
+          <Typography variant="body1">
+            {getListGenre(value.genre_ids)}
+          </Typography>
+          {value.overview !== "" && (
+            <>
+              <Typography variant="h6">{t("card.summary")}</Typography>
+              <Typography
+                variant="caption"
+                color="secondary"
+                sx={{
+                  display: "-webkit-box",
+                  overflow: "hidden",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 4,
+                }}
+              >
+                {value.overview}
+              </Typography>
+            </>
+          )}
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
@@ -127,35 +139,36 @@ interface PropsPersonSearch {
 
 export const CardPersonSearch = ({ value }: PropsPersonSearch) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   return (
-    <Card onClick={() => navigate(`/person/${value.id}`)} className={cardCss}>
-      {value.profile_path !== null ? (
-        <CardMedia
-          sx={{ aspectRatio: "2/3" }}
-          image={`https://image.tmdb.org/t/p/w500${value.profile_path}`}
-          title={value.name}
-        />
-      ) : (
-        <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-      )}
-      <CardContent>
-        <Typography variant="h4">{value.name}</Typography>
-        <Typography variant="body1">{value.known_for_department}</Typography>
-        <Typography variant="h6">{t("card.knowfor")}</Typography>
-        <Typography
-          variant="caption"
-          color="secondary"
-          sx={{
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 4,
-          }}
-        >
-          {value.known_for.map((el) => el.title).join(", ")}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Link to={`/person/${value.id}`}>
+      <Card className={cardCss}>
+        {value.profile_path !== null ? (
+          <CardMedia
+            sx={{ aspectRatio: "2/3" }}
+            image={`https://image.tmdb.org/t/p/w500${value.profile_path}`}
+            title={value.name}
+          />
+        ) : (
+          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+        )}
+        <CardContent>
+          <Typography variant="h4">{value.name}</Typography>
+          <Typography variant="body1">{value.known_for_department}</Typography>
+          <Typography variant="h6">{t("card.knowfor")}</Typography>
+          <Typography
+            variant="caption"
+            color="secondary"
+            sx={{
+              display: "-webkit-box",
+              overflow: "hidden",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 4,
+            }}
+          >
+            {value.known_for.map((el) => el.title).join(", ")}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };

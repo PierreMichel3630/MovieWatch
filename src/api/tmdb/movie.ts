@@ -4,6 +4,7 @@ import { Credits } from "src/models/tmdb/commun/Credits";
 import { Images } from "src/models/tmdb/commun/Images";
 import { Videos } from "src/models/tmdb/commun/Videos";
 import { SearchResult } from "src/models/tmdb/commun/SearchResult";
+import { TimeTrending } from "src/models/tmdb/enum";
 
 // MOVIE
 
@@ -44,9 +45,12 @@ export const getMovieVideo = (
 
 export const getMovieTrending = (
   page: number,
-  language: string
+  language: string,
+  time?: TimeTrending
 ): Promise<SearchResult> => {
-  const url = `https://api.themoviedb.org/3/trending/movie/week?language=${language}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/trending/movie/${
+    time ? time : TimeTrending.day
+  }?language=${language}&page=${page}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 

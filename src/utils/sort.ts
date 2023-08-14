@@ -7,3 +7,18 @@ export const sortByReleaseYear = (a: any, b: any) =>
   moment(a.release_date).format("YYYY") > moment(b.release_date).format("YYYY")
     ? -1
     : 1;
+
+export const sortByFirstAirDate = (a: any, b: any) =>
+  moment(a.first_air_date).format("YYYY") >
+  moment(b.first_air_date).format("YYYY")
+    ? -1
+    : 1;
+
+export const sortByDateDesc = (a: any, b: any) =>
+  moment(a.date).format("YYYY") > moment(b.date).format("YYYY") ? 1 : -1;
+
+export const sortByTotalEpisodeCount = (a: any, b: any) =>
+  a.total_episode_count > b.total_episode_count ? -1 : 1;
+
+export const sortByEpisodeNumber = (a: any, b: any) =>
+  a.episode_number > b.episode_number ? 1 : -1;

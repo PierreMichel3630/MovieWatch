@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Chip, Container, Grid, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "src/App";
 import { getMovieTrending } from "src/api/tmdb/movie";
@@ -10,31 +10,48 @@ import { useNavigate } from "react-router-dom";
 import { style } from "typestyle";
 import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
-import { MediaType } from "src/models/tmdb/enum";
+import { MediaType, TimeTrending } from "src/models/tmdb/enum";
+import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
 
 const titleCss = style({
   cursor: "pointer",
 });
 
+const divFilterCss = style({ marginLeft: 15, display: "flex", gap: 10 });
+
 export const TrendingPage = () => {
-  const NUMBERLINESHOW = 2;
+  const NUMBERLINESHOW = 1;
   const PAGE = 1;
   const navigate = useNavigate();
   const { language } = useContext(UserContext);
   const { t } = useTranslation();
 
   const [movies, setMovies] = useState<Array<MovieSearchElement>>([]);
-
+  const [isLoadingMovies, setIsLoadingMovies] = useState(true);
   const [series, setSeries] = useState<Array<TvSearchElement>>([]);
+  const [isLoadingSeries, setIsLoadingSeries] = useState(true);
+  const [timeTrendingMovie, setTimeTrendingMovie] = useState<TimeTrending>(
+    TimeTrending.day
+  );
+  const [timeTrendingSerie, setTimeTrendingSerie] = useState<TimeTrending>(
+    TimeTrending.day
+  );
 
   useEffect(() => {
-    getMovieTrending(PAGE, language.language).then((res) => {
+    setIsLoadingMovies(true);
+    getMovieTrending(PAGE, language.language, timeTrendingMovie).then((res) => {
       setMovies(res.results as Array<MovieSearchElement>);
+      setIsLoadingMovies(false);
     });
-    getTvTrending(PAGE, language.language).then((res) => {
+  }, [timeTrendingMovie, language]);
+
+  useEffect(() => {
+    setIsLoadingSeries(true);
+    getTvTrending(PAGE, language.language, timeTrendingSerie).then((res) => {
       setSeries(res.results as Array<TvSearchElement>);
+      setIsLoadingSeries(false);
     });
-  }, [language]);
+  }, [timeTrendingSerie, language]);
 
   const breakpoint = getBreakpoint();
   const cols = {
@@ -44,16 +61,17 @@ export const TrendingPage = () => {
     lg: 2,
     xl: 2,
   }[breakpoint];
-  const itemPerLine = (12 / cols) * NUMBERLINESHOW;
+  const itemPerLine = 12 / cols;
+  const nbItemToShow = itemPerLine * NUMBERLINESHOW;
 
-  const moviesDisplay = movies.slice(0, itemPerLine);
+  const moviesDisplay = movies.slice(0, nbItemToShow);
 
-  const seriesDisplay = series.slice(0, itemPerLine);
+  const seriesDisplay = series.slice(0, nbItemToShow);
 
   return (
     <Container maxWidth="lg">
       <Grid container spacing={1}>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
           <Typography
             variant="h2"
             className={titleCss}
@@ -66,13 +84,35 @@ export const TrendingPage = () => {
           >
             {t("commun.trendingmovie")}
           </Typography>
+          <div className={divFilterCss}>
+            <Chip
+              label={t("commun.today")}
+              variant={
+                timeTrendingMovie === TimeTrending.day ? "filled" : "outlined"
+              }
+              onClick={() => setTimeTrendingMovie(TimeTrending.day)}
+            />
+            <Chip
+              label={t("commun.week")}
+              variant={
+                timeTrendingMovie === TimeTrending.week ? "filled" : "outlined"
+              }
+              onClick={() => setTimeTrendingMovie(TimeTrending.week)}
+            />
+          </div>
         </Grid>
-        {moviesDisplay.map((el) => (
-          <Grid item xs={6} sm={4} md={3} lg={3} xl={2}>
-            <CardSearch key={el.id} value={el} />
-          </Grid>
-        ))}
-        <Grid item xs={12}>
+        {isLoadingMovies
+          ? Array.from(new Array(nbItemToShow)).map((el) => (
+              <Grid key={el} item xs={6} sm={4} md={3} lg={3} xl={2}>
+                <CardSearchSkeleton />
+              </Grid>
+            ))
+          : moviesDisplay.map((el) => (
+              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={2}>
+                <CardSearch value={el} />
+              </Grid>
+            ))}
+        <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
           <Typography
             variant="h2"
             className={titleCss}
@@ -85,12 +125,35 @@ export const TrendingPage = () => {
           >
             {t("commun.trendingserie")}
           </Typography>
+          <div className={divFilterCss}>
+            <Chip
+              label={t("commun.today")}
+              variant={
+                timeTrendingSerie === TimeTrending.day ? "filled" : "outlined"
+              }
+              onClick={() => setTimeTrendingSerie(TimeTrending.day)}
+            />
+            <Chip
+              label={t("commun.week")}
+              variant={
+                timeTrendingSerie === TimeTrending.week ? "filled" : "outlined"
+              }
+              onClick={() => setTimeTrendingSerie(TimeTrending.week)}
+            />
+          </div>
         </Grid>
-        {seriesDisplay.map((el) => (
-          <Grid item xs={6} sm={4} md={3} lg={3} xl={2}>
-            <CardSearch key={el.id} value={el} />
-          </Grid>
-        ))}
+
+        {isLoadingSeries
+          ? Array.from(new Array(nbItemToShow)).map((el) => (
+              <Grid key={el} item xs={6} sm={4} md={3} lg={3} xl={2}>
+                <CardSearchSkeleton />
+              </Grid>
+            ))
+          : seriesDisplay.map((el) => (
+              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={2}>
+                <CardSearch value={el} />
+              </Grid>
+            ))}
       </Grid>
     </Container>
   );

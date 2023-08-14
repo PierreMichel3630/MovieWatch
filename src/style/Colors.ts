@@ -1,4 +1,4 @@
-import { grey, yellow } from "@mui/material/colors";
+import { green, grey, red, yellow } from "@mui/material/colors";
 
 export const Colors = {
   lightgrey: grey[200],
@@ -8,6 +8,9 @@ export const Colors = {
   greyDarkMode: "#8ca3ba",
   greyLightMode: "#5f748d",
   blue: "#1976d2",
+
+  green: green[400],
+  red: red[400],
 
   yellow: yellow[600],
   black: "#121f43",

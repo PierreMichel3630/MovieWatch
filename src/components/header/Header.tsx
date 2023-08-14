@@ -16,7 +16,7 @@ import { LanguagesMenu } from "./LanguageMenu";
 import { ModeMenu } from "./ModeMenu";
 import { UserContext } from "src/App";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "src/pages/Home";
 import { SearchInput } from "../commun/Input";
 
@@ -37,23 +37,26 @@ export const Header = () => {
       pathname: "/search",
       search: `?query=${query}&page=${DEFAULTPAGE}`,
     });
+  };
+  const clearSearch = () => {
     setQuery("");
   };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="home"
-            sx={{ mr: 2 }}
-            onClick={() => navigate("/")}
-          >
-            <MovieIcon />
-          </IconButton>
+        <Toolbar id="toolbar">
+          <Link to="/">
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="home"
+              sx={{ mr: 2 }}
+            >
+              <MovieIcon />
+            </IconButton>
+          </Link>
           <Box sx={{ flexGrow: 1 }}>
             <Box
               sx={{
@@ -65,6 +68,7 @@ export const Header = () => {
                 onChange={(value) => setQuery(value)}
                 submit={submitSearch}
                 value={query}
+                clear={clearSearch}
               />
             </Box>
           </Box>
@@ -106,6 +110,7 @@ export const Header = () => {
           onChange={(value) => setQuery(value)}
           submit={submitSearch}
           value={query}
+          clear={clearSearch}
         />
       </Box>
     </Box>

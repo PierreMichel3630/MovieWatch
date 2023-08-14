@@ -1,15 +1,25 @@
-import { Pagination, Paper } from "@mui/material";
+import { Box, Pagination, Paper, Typography } from "@mui/material";
 import { percent } from "csx";
+import { useTranslation } from "react-i18next";
+import { getBreakpoint } from "src/utils/mediaQuery";
 
 interface Props {
   totalPage: number;
   page: number;
+  totalResult?: number;
   onChange: (page: number) => void;
 }
 
 const MAXPAGE = 500;
 
-export const FixedBottomPagination = ({ totalPage, page, onChange }: Props) => {
+export const FixedBottomPagination = ({
+  totalPage,
+  totalResult,
+  page,
+  onChange,
+}: Props) => {
+  const { t } = useTranslation();
+  const breakpoint = getBreakpoint();
   return (
     <Paper
       sx={{
@@ -17,9 +27,9 @@ export const FixedBottomPagination = ({ totalPage, page, onChange }: Props) => {
         top: "0px",
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
         padding: 1,
         marginTop: 2,
-        alignSelf: "start",
         width: percent(100),
       }}
       elevation={3}
@@ -28,11 +38,25 @@ export const FixedBottomPagination = ({ totalPage, page, onChange }: Props) => {
         count={totalPage > MAXPAGE ? MAXPAGE : totalPage}
         page={page}
         defaultPage={1}
-        boundaryCount={2}
+        siblingCount={breakpoint === "xs" ? 0 : 1}
+        boundaryCount={breakpoint === "xs" ? 1 : 2}
         onChange={(event, page) => onChange(page)}
-        showFirstButton
-        showLastButton
+        showFirstButton={breakpoint !== "xs"}
+        showLastButton={breakpoint !== "xs"}
       />
+      {totalResult && (
+        <Box
+          sx={{
+            display: { xs: "none", md: "block" },
+            position: { md: "absolute" },
+            right: { md: 10 },
+          }}
+        >
+          <Typography variant="body1">
+            {`${totalResult} ${t("commun.results")}`}
+          </Typography>
+        </Box>
+      )}
     </Paper>
   );
 };
