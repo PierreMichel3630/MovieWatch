@@ -1,6 +1,7 @@
 import { Filter } from "src/models/tmdb/commun/Filter";
 import { Genres } from "src/models/tmdb/commun/Genres";
 import { SearchResult } from "src/models/tmdb/commun/SearchResult";
+import { MediaType } from "src/models/tmdb/enum";
 
 export const TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZjZjYTY3NDEyY2U3MzA4MGE4YWM1YzhjMDQwOTZiNSIsInN1YiI6IjY0YmJkY2M0ZWI3OWMyMDExYzI0ZTEwMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0geOpDej0t0qVeEp5qvXPv-UW9ao9Cmfkv2aQYyF_UA";
@@ -17,9 +18,11 @@ export const getRequestOptions = {
 export const searchAll = (
   query: string,
   language: string,
-  page: number
+  page: number,
+  type?: MediaType
 ): Promise<SearchResult> => {
-  const url = `https://api.themoviedb.org/3/search/multi?query=${query}&language=${language}&page=${page}`;
+  const typeUrl = type ? type : "multi";
+  const url = `https://api.themoviedb.org/3/search/${typeUrl}?query=${query}&language=${language}&page=${page}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 

@@ -183,13 +183,6 @@ export const PersonCreditsBlock = () => {
           value={searchSerie}
           clear={() => setSearchSerie("")}
         />
-        <Tooltip title={t("commun.filter")}>
-          <Link to={`/discover?page=1&type=${MediaType.tv}&actors=${id}`}>
-            <IconButton aria-label={t("commun.filter")}>
-              <FilterAltIcon />
-            </IconButton>
-          </Link>
-        </Tooltip>
       </Grid>
       {isLoadingSerie ? (
         Array.from(new Array(itemShow)).map((_, index) => (

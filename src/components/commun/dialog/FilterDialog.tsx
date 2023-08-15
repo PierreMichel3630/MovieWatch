@@ -12,6 +12,7 @@ import { OriginCountryFilter } from "../filter/OriginCountryFilter";
 import { ActorsFilter } from "../filter/ActorsFilter";
 import { VoteFilter } from "../filter/VoteFilter";
 import { MediaTypeFilter } from "../filter/MediaTypeFilter";
+import { MediaType } from "src/models/tmdb/enum";
 
 interface Props {
   open: boolean;
@@ -66,12 +67,16 @@ export const FilterDialog = ({ filter, open, onClose, onSubmit }: Props) => {
         <Grid item xs={12}>
           <Divider />
         </Grid>
-        <Grid item xs={12}>
-          <ActorsFilter onChange={onChange} filter={newFilter} />
-        </Grid>
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
+        {newFilter.type === MediaType.movie && (
+          <>
+            <Grid item xs={12}>
+              <ActorsFilter onChange={onChange} filter={newFilter} />
+            </Grid>
+            <Grid item xs={12}>
+              <Divider />
+            </Grid>
+          </>
+        )}
         <Grid item xs={12}>
           <OriginCountryFilter onChange={onChange} filter={newFilter} />
         </Grid>

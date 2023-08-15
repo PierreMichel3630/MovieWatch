@@ -13,13 +13,17 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Footer } from "src/components/footer/Footer";
 
 export const SearchContext = createContext<{
+  type: MediaType | undefined;
   query: string;
   genres: Array<Genre>;
   setQuery: (query: string) => void;
+  setType: (type: MediaType | undefined) => void;
 }>({
+  type: undefined,
   query: "",
   genres: [],
   setQuery: (query: string) => {},
+  setType: (type: MediaType | undefined) => {},
 });
 
 export const Home = () => {
@@ -27,6 +31,9 @@ export const Home = () => {
   const { language } = useContext(UserContext);
   const [query, setQuery] = useState(
     params.has("query") ? (params.get("query") as string) : ""
+  );
+  const [type, setType] = useState<MediaType | undefined>(
+    params.has("type") ? (params.get("type") as MediaType) : undefined
   );
   const [genres, setGenres] = useState<Array<Genre>>([]);
 
@@ -43,7 +50,7 @@ export const Home = () => {
   }, [language]);
 
   return (
-    <SearchContext.Provider value={{ query, genres, setQuery }}>
+    <SearchContext.Provider value={{ type, setType, query, genres, setQuery }}>
       <Grid container sx={{ marginBottom: 8 }}>
         <Grid item xs={12}>
           <Container maxWidth="lg">

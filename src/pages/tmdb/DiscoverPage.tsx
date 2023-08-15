@@ -225,9 +225,9 @@ export const DiscoverPage = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Grid container spacing={2} columns={20}>
+          <Grid container spacing={2}>
             {isNoResult ? (
-              <Grid item xs={20}>
+              <Grid item xs={12}>
                 <Alert severity="warning">{t("commun.noresult")}</Alert>
               </Grid>
             ) : (
@@ -242,22 +242,14 @@ export const DiscoverPage = () => {
                 )}
                 {isLoading ? (
                   Array.from(new Array(20)).map((_, index) => (
-                    <Grid key={index} item xs={10} sm={5} md={5} lg={4} xl={4}>
+                    <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={3}>
                       <CardSearchSkeleton />
                     </Grid>
                   ))
                 ) : (
                   <>
                     {results.map((el) => (
-                      <Grid
-                        key={el.id}
-                        item
-                        xs={10}
-                        sm={5}
-                        md={5}
-                        lg={4}
-                        xl={4}
-                      >
+                      <Grid key={el.id} item xs={6} sm={4} md={3} lg={3} xl={3}>
                         <CardSearch value={el} />
                       </Grid>
                     ))}

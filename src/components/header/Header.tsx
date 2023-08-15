@@ -25,7 +25,7 @@ import { viewWidth } from "csx";
 import { Colors } from "src/style/Colors";
 
 export const Header = () => {
-  const { query, setQuery } = useContext(SearchContext);
+  const { type, query, setQuery } = useContext(SearchContext);
 
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -35,7 +35,9 @@ export const Header = () => {
   const submitSearch = () => {
     navigate({
       pathname: "/search",
-      search: `?query=${query}&page=${DEFAULTPAGE}`,
+      search: `?query=${query}&page=${DEFAULTPAGE}${
+        type ? `&type=${type}` : ""
+      }`,
     });
   };
   const clearSearch = () => {

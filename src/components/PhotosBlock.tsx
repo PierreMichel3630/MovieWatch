@@ -161,7 +161,7 @@ export const PhotosBlock = ({
       ) : images.length > 0 ? (
         <>
           <Grid item xs={12}>
-            <ImageList variant="masonry" cols={cols} gap={5}>
+            <ImageList variant="woven" cols={cols} gap={5}>
               {imagesDisplay.map((image, index) => (
                 <ImageListItem
                   key={index}

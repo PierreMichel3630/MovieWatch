@@ -14,6 +14,7 @@ import { SearchContext } from "src/pages/Home";
 import { Genre } from "src/models/tmdb/commun/Genre";
 import { LANGUAGESORIGIN } from "./filter/OriginCountryFilter";
 import { Language } from "src/models/Language";
+import { MediaType } from "src/models/tmdb/enum";
 
 interface Props {
   filter: Filter;
@@ -131,11 +132,12 @@ export const FilterChip = ({ filter, onChange, openFilter }: Props) => {
           type={filter.type}
         />
       </Grid>
-      {filter.actors.map((id) => (
-        <Grid item key={id}>
-          <ChipActorFilter id={id} onDelete={() => deleteActor(id)} />
-        </Grid>
-      ))}
+      {filter.type === MediaType.movie &&
+        filter.actors.map((id) => (
+          <Grid item key={id}>
+            <ChipActorFilter id={id} onDelete={() => deleteActor(id)} />
+          </Grid>
+        ))}
       {filter.withgenres.map((id) => {
         const genre = genres.find((el) => el.id === id);
         return (

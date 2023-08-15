@@ -5,13 +5,14 @@ import { getListGenre } from "./Genre";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { style } from "typestyle";
-import { percent } from "csx";
+import { percent, viewHeight } from "csx";
 import { ImageNotFoundBlock } from "./ImageBlock";
 import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
 import { MediaType } from "src/models/tmdb/enum";
 import { VoteBadge } from "./VoteBadge";
+import { useState } from "react";
 
 const cardCss = style({
   cursor: "pointer",
@@ -46,50 +47,94 @@ interface PropsMovieSearch {
 
 export const CardMovieSearch = ({ value }: PropsMovieSearch) => {
   const { t } = useTranslation();
+
+  const [isHover, setIsHover] = useState(false);
+
+  const backgroundCss = style({
+    width: percent(100),
+    height: percent(100),
+    position: "relative",
+    $nest: {
+      "&::before": {
+        content: "''",
+        backgroundImage: `url('https://image.tmdb.org/t/p/w500${value.poster_path}')`,
+        backgroundSize: "cover",
+        position: "absolute",
+        width: percent(100),
+        height: percent(100),
+        top: "0px",
+        right: "0px",
+        bottom: "0px",
+        left: "0px",
+        opacity: 0.25,
+      },
+    },
+  });
+
   return (
     <Link to={`/movie/${value.id}`}>
-      <Card className={cardCss}>
-        {value.poster_path !== null ? (
-          <CardMedia
-            sx={{ aspectRatio: "2/3" }}
-            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-            title={value.title}
-          />
-        ) : (
-          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-        )}
-        <CardContent sx={{ position: "relative", mt: 1 }}>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: percent(2),
-              transform: "translate(0%,-65%)",
-            }}
-          >
-            <VoteBadge value={value.vote_average} />
+      <Card
+        className={cardCss}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        {isHover ? (
+          <div className={backgroundCss}>
+            <CardContent
+              sx={{
+                position: "relative",
+                display: "flex ",
+                flexDirection: "column",
+                gap: 1,
+              }}
+            >
+              <Typography variant="h3">{value.title}</Typography>
+              <Typography variant="h6">
+                {moment(value.release_date).format("YYYY")}
+              </Typography>
+              <Typography variant="body1">
+                {getListGenre(value.genre_ids)}
+              </Typography>
+              {value.overview !== "" && (
+                <>
+                  <Typography variant="h6">{t("card.summary")}</Typography>
+                  <Typography variant="caption" color="secondary">
+                    {value.overview}
+                  </Typography>
+                </>
+              )}
+            </CardContent>
           </div>
-          <Typography variant="h4">{value.title}</Typography>
-          <Typography>{moment(value.release_date).format("YYYY")}</Typography>
-          <Typography>{getListGenre(value.genre_ids)}</Typography>
-          {value.overview !== "" && (
-            <>
-              <Typography variant="h6">{t("card.summary")}</Typography>
-              <Typography
-                variant="caption"
-                color="secondary"
-                sx={{
-                  display: "-webkit-box",
-                  overflow: "hidden",
-                  WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 4,
+        ) : (
+          <>
+            {value.poster_path !== null ? (
+              <CardMedia
+                sx={{ aspectRatio: "2/3" }}
+                image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+                title={value.title}
+              />
+            ) : (
+              <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+            )}
+            <CardContent sx={{ position: "relative", mt: 1 }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: percent(2),
+                  transform: "translate(0%,-65%)",
                 }}
               >
-                {value.overview}
+                <VoteBadge value={value.vote_average} />
+              </div>
+              <Typography variant="h4">{value.title}</Typography>
+              <Typography>
+                {moment(value.release_date).format("YYYY")}
               </Typography>
-            </>
-          )}
-        </CardContent>
+              <Typography>{getListGenre(value.genre_ids)}</Typography>
+            </CardContent>
+          </>
+        )}
       </Card>
     </Link>
   );
@@ -101,54 +146,122 @@ interface PropsTvSearch {
 
 export const CardTvSearch = ({ value }: PropsTvSearch) => {
   const { t } = useTranslation();
+
+  const [isHover, setIsHover] = useState(false);
+
+  const backgroundCss = style({
+    width: percent(100),
+    height: percent(100),
+    position: "relative",
+    $nest: {
+      "&::before": {
+        content: "''",
+        backgroundImage: `url('https://image.tmdb.org/t/p/w500${value.poster_path}')`,
+        backgroundSize: "cover",
+        position: "absolute",
+        width: percent(100),
+        height: percent(100),
+        top: "0px",
+        right: "0px",
+        bottom: "0px",
+        left: "0px",
+        opacity: 0.25,
+      },
+    },
+  });
+
   return (
     <Link to={`/serie/${value.id}`}>
-      <Card className={cardCss}>
-        {value.poster_path !== null ? (
-          <CardMedia
-            sx={{ aspectRatio: "2/3" }}
-            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-            title={value.name}
-          />
-        ) : (
-          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-        )}
-        <CardContent sx={{ position: "relative", mt: 1 }}>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: percent(2),
-              transform: "translate(0%,-65%)",
-            }}
-          >
-            <VoteBadge value={value.vote_average} />
+      <Card
+        className={cardCss}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        {isHover ? (
+          <div className={backgroundCss}>
+            <CardContent
+              sx={{
+                position: "relative",
+                display: "flex ",
+                flexDirection: "column",
+                gap: 1,
+              }}
+            >
+              <Typography variant="h4">{value.name}</Typography>
+              <Typography variant="body1">
+                {moment(value.first_air_date).format("YYYY")}
+              </Typography>
+              <Typography variant="body1">
+                {getListGenre(value.genre_ids)}
+              </Typography>
+              {value.overview !== "" && (
+                <>
+                  <Typography variant="h6">{t("card.summary")}</Typography>
+                  <Typography
+                    variant="caption"
+                    color="secondary"
+                    sx={{
+                      display: "-webkit-box",
+                      overflow: "hidden",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 4,
+                    }}
+                  >
+                    {value.overview}
+                  </Typography>
+                </>
+              )}
+            </CardContent>
           </div>
-          <Typography variant="h4">{value.name}</Typography>
-          <Typography variant="body1">
-            {moment(value.first_air_date).format("YYYY")}
-          </Typography>
-          <Typography variant="body1">
-            {getListGenre(value.genre_ids)}
-          </Typography>
-          {value.overview !== "" && (
-            <>
-              <Typography variant="h6">{t("card.summary")}</Typography>
-              <Typography
-                variant="caption"
-                color="secondary"
-                sx={{
-                  display: "-webkit-box",
-                  overflow: "hidden",
-                  WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 4,
+        ) : (
+          <>
+            {value.poster_path !== null ? (
+              <CardMedia
+                sx={{ aspectRatio: "2/3" }}
+                image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+                title={value.name}
+              />
+            ) : (
+              <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+            )}
+            <CardContent sx={{ position: "relative", mt: 1 }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: percent(2),
+                  transform: "translate(0%,-65%)",
                 }}
               >
-                {value.overview}
+                <VoteBadge value={value.vote_average} />
+              </div>
+              <Typography variant="h4">{value.name}</Typography>
+              <Typography variant="body1">
+                {moment(value.first_air_date).format("YYYY")}
               </Typography>
-            </>
-          )}
-        </CardContent>
+              <Typography variant="body1">
+                {getListGenre(value.genre_ids)}
+              </Typography>
+              {value.overview !== "" && (
+                <>
+                  <Typography variant="h6">{t("card.summary")}</Typography>
+                  <Typography
+                    variant="caption"
+                    color="secondary"
+                    sx={{
+                      display: "-webkit-box",
+                      overflow: "hidden",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 4,
+                    }}
+                  >
+                    {value.overview}
+                  </Typography>
+                </>
+              )}
+            </CardContent>
+          </>
+        )}
       </Card>
     </Link>
   );
