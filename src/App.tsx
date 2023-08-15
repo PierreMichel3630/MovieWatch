@@ -2,7 +2,7 @@ import "./App.css";
 import "./i18n/config";
 import moment from "moment";
 import { createContext, useEffect, useMemo, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import i18next from "i18next";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,17 +11,7 @@ import { Colors } from "./style/Colors";
 import { DEFAULT_LANGUAGE, LANGUAGES, Language } from "./models/Language";
 import { User } from "./models/User";
 
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
-import { MoviePage } from "./pages/tmdb/MoviePage";
-import { PersonPage } from "./pages/tmdb/PersonPage";
-import { SearchPage } from "./pages/tmdb/SearchPage";
-import { SeriePage } from "./pages/tmdb/SeriePage";
-import { EpisodePage } from "./pages/tmdb/EpisodePage";
-import { TrendingPage } from "./pages/tmdb/TrendingPage";
-import { TrendingSearchPage } from "./pages/tmdb/TrendingSearchPage";
-import { DiscoverPage } from "./pages/tmdb/DiscoverPage";
+import Routes from "./routes";
 
 import "moment/dist/locale/fr";
 import "moment/dist/locale/de";
@@ -195,25 +185,9 @@ function App() {
     >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />}>
-              <Route index path="/" element={<TrendingPage />} />
-              <Route index path="/search" element={<SearchPage />} />
-              <Route path="/movie/:id" element={<MoviePage />} />
-              <Route path="/person/:id" element={<PersonPage />} />
-              <Route path="/serie/:id" element={<SeriePage />} />
-              <Route
-                path="/serie/:id/season/:season/episode/:episode"
-                element={<EpisodePage />}
-              />
-              <Route path="/trending" element={<TrendingSearchPage />} />
-              <Route path="/discover" element={<DiscoverPage />} />
-            </Route>
-          </Routes>
-        </Router>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
       </ThemeProvider>
     </UserContext.Provider>
   );
