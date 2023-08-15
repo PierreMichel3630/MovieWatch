@@ -13,8 +13,11 @@ export const RuntimeFilter = ({ filter, onChange }: Props) => {
   const MIN = 0;
   const MAX = 420;
   const STEP = 15;
-  const [value, setValue] = useState<number[]>([0, 420]);
-  const marks = [0, 60, 120, 180, 240, 300, 360, 420];
+  const [value, setValue] = useState<number[]>([
+    filter.runtime.over ? filter.runtime.over : MIN,
+    filter.runtime.under ? filter.runtime.under : MAX,
+  ]);
+  const marks = [MIN, 60, 120, 180, 240, 300, 360, MAX];
 
   const handleChange = (event: Event, value: number | number[]) => {
     const newValue = value as number[];

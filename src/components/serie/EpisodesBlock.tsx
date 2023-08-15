@@ -59,6 +59,13 @@ export const EpisodesBlock = () => {
             : detail.seasons.map((season) => (
                 <Grid item key={season.id}>
                   <Chip
+                    sx={{
+                      height: "auto",
+                      "& .MuiChip-label": {
+                        display: "block",
+                        whiteSpace: "normal",
+                      },
+                    }}
                     label={season.name}
                     variant={
                       selectedSeason === season.season_number

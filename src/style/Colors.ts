@@ -1,4 +1,4 @@
-import { green, grey, red, yellow } from "@mui/material/colors";
+import { green, grey, orange, red, yellow } from "@mui/material/colors";
 
 export const Colors = {
   lightgrey: grey[200],
@@ -13,6 +13,7 @@ export const Colors = {
   red: red[400],
 
   yellow: yellow[600],
+  orange: orange[600],
   black: "#121f43",
   white: "#fff",
 };

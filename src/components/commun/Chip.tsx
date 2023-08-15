@@ -298,7 +298,7 @@ export const ChipActorFilter = ({ onDelete, id }: PropsChipActorFilter) => {
         avatar={
           <Avatar
             alt={actor.name}
-            src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
+            src={`https://image.tmdb.org/t/p/w45${actor.profile_path}`}
           />
         }
         variant="outlined"

@@ -135,7 +135,7 @@ export const HeaderPerson = ({ detail, isLoading = false }: Props) => {
                   <Typography variant="h4">
                     {t("pages.person.biography")}
                   </Typography>
-                  <Typography variant="body2">{detail.biography}</Typography>
+                  <Typography variant="body1">{detail.biography}</Typography>
                 </Grid>
               )}
             </Grid>
@@ -150,7 +150,7 @@ export const HeaderPerson = ({ detail, isLoading = false }: Props) => {
               <Typography variant="h4">
                 {t("pages.person.biography")}
               </Typography>
-              <Typography variant="body2">{detail.biography}</Typography>
+              <Typography variant="body1">{detail.biography}</Typography>
             </Grid>
           )}
         </>

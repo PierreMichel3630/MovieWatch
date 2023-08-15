@@ -48,13 +48,13 @@ export const CardMovieSerieSkeleton = () => (
 export const CardEpisodeSkeleton = () => (
   <Card sx={{ height: percent(100) }}>
     <Grid container>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={4}>
         <Skeleton
           variant="rectangular"
           sx={{ width: percent(100), height: px(200) }}
         />
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={12} sm={8}>
         <CardContent>
           <Skeleton variant="text" width="30%" sx={{ fontSize: px(16) }} />
           <Skeleton variant="text" width="100%" sx={{ fontSize: px(13) }} />

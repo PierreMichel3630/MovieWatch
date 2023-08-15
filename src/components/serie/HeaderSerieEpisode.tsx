@@ -78,7 +78,7 @@ export const HeaderSerieEpisode = ({
                   <Typography variant="h4">
                     {t("pages.movie.summary")}
                   </Typography>
-                  <Typography variant="body2">
+                  <Typography variant="body1">
                     {seasonDetail.overview}
                   </Typography>
                 </Grid>

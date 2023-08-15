@@ -31,6 +31,7 @@ export const FixedBottomPagination = ({
         padding: 1,
         marginTop: 2,
         width: percent(100),
+        zIndex: 100,
       }}
       elevation={3}
     >

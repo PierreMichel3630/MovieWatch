@@ -130,7 +130,7 @@ export const HeaderMovie = ({ detail, videos, isLoading }: Props) => {
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="h4">{t("pages.movie.summary")}</Typography>
-                <Typography variant="body2">{detail.overview}</Typography>
+                <Typography variant="body1">{detail.overview}</Typography>
               </Grid>
             </Grid>
           )

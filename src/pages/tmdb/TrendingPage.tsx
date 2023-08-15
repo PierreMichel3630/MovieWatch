@@ -59,9 +59,16 @@ export const TrendingPage = () => {
     sm: 4,
     md: 3,
     lg: 3,
-    xl: 2,
+    xl: 3,
   }[breakpoint];
-  const itemPerLine = 12 / cols;
+  const numberCols = {
+    xs: 12,
+    sm: 12,
+    md: 12,
+    lg: 12,
+    xl: 15,
+  }[breakpoint];
+  const itemPerLine = numberCols / cols;
   const nbItemToShow = itemPerLine * NUMBERLINESHOW;
 
   const moviesDisplay = movies.slice(0, nbItemToShow);
@@ -70,8 +77,17 @@ export const TrendingPage = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={1}>
-        <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
+      <Grid
+        container
+        spacing={1}
+        columns={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 15 }}
+      >
+        <Grid
+          item
+          xs={12}
+          xl={15}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <Typography
             variant="h2"
             className={titleCss}
@@ -103,16 +119,21 @@ export const TrendingPage = () => {
         </Grid>
         {isLoadingMovies
           ? Array.from(new Array(nbItemToShow)).map((_, index) => (
-              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={2}>
+              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={3}>
                 <CardSearchSkeleton />
               </Grid>
             ))
           : moviesDisplay.map((el) => (
-              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={2}>
+              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={3}>
                 <CardSearch value={el} />
               </Grid>
             ))}
-        <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
+        <Grid
+          item
+          xs={12}
+          xl={15}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <Typography
             variant="h2"
             className={titleCss}
@@ -145,12 +166,12 @@ export const TrendingPage = () => {
 
         {isLoadingSeries
           ? Array.from(new Array(nbItemToShow)).map((_, index) => (
-              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={2}>
+              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={3}>
                 <CardSearchSkeleton />
               </Grid>
             ))
           : seriesDisplay.map((el) => (
-              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={2}>
+              <Grid item key={el.id} xs={6} sm={4} md={3} lg={3} xl={3}>
                 <CardSearch value={el} />
               </Grid>
             ))}

@@ -11,6 +11,7 @@ import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
 import { MediaType } from "src/models/tmdb/enum";
+import { VoteBadge } from "./VoteBadge";
 
 const cardCss = style({
   cursor: "pointer",
@@ -57,7 +58,17 @@ export const CardMovieSearch = ({ value }: PropsMovieSearch) => {
         ) : (
           <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
         )}
-        <CardContent>
+        <CardContent sx={{ position: "relative", mt: 1 }}>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: percent(2),
+              transform: "translate(0%,-65%)",
+            }}
+          >
+            <VoteBadge value={value.vote_average} />
+          </div>
           <Typography variant="h4">{value.title}</Typography>
           <Typography>{moment(value.release_date).format("YYYY")}</Typography>
           <Typography>{getListGenre(value.genre_ids)}</Typography>
@@ -102,7 +113,17 @@ export const CardTvSearch = ({ value }: PropsTvSearch) => {
         ) : (
           <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
         )}
-        <CardContent>
+        <CardContent sx={{ position: "relative", mt: 1 }}>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: percent(2),
+              transform: "translate(0%,-65%)",
+            }}
+          >
+            <VoteBadge value={value.vote_average} />
+          </div>
           <Typography variant="h4">{value.name}</Typography>
           <Typography variant="body1">
             {moment(value.first_air_date).format("YYYY")}

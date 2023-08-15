@@ -198,14 +198,14 @@ export const AutocompleteInputPerson = ({
                 {el.profile_path && el.profile_path !== "" ? (
                   <Avatar
                     alt={el.name}
-                    src={`https://image.tmdb.org/t/p/original${el.profile_path}`}
+                    src={`https://image.tmdb.org/t/p/w45${el.profile_path}`}
                   />
                 ) : (
                   <Avatar alt={el.name}>{el.name.charAt(0)}</Avatar>
                 )}
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body2">{el.name}</Typography>
+                <Typography variant="body1">{el.name}</Typography>
               </Grid>
             </Grid>
           ))}

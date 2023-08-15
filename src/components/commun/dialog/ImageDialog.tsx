@@ -8,6 +8,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useEffect, useState } from "react";
+import { getBreakpoint } from "src/utils/mediaQuery";
 
 interface Props {
   images: Array<Image>;
@@ -37,12 +38,14 @@ export const ImageDialog = ({
   const imageName = image
     ? `${name ? `${name} - ` : ""} ${image.type.toString()} ${index}`
     : "";
-  const url = image
-    ? `https://image.tmdb.org/t/p/original${image.file_path}`
-    : "";
 
   const downloadImage = () => {
-    saveAs(url, imageName);
+    if (image) {
+      saveAs(
+        `https://image.tmdb.org/t/p/original${image.file_path}`,
+        imageName
+      );
+    }
   };
 
   const navigateImage = (value: number) => {
@@ -56,6 +59,22 @@ export const ImageDialog = ({
           : newIndex
       );
     }
+  };
+
+  const breakpoint = getBreakpoint();
+  const imageSize = {
+    xs: 780,
+    sm: 1280,
+    md: 1280,
+    lg: undefined,
+    xl: undefined,
+  }[breakpoint];
+
+  const getSrcImage = (image: Image) => {
+    const url = `https://image.tmdb.org/t/p/${
+      imageSize ? `w${imageSize}` : "original"
+    }${image.file_path}`;
+    return url;
   };
 
   return (
@@ -89,8 +108,9 @@ export const ImageDialog = ({
               </IconButton>
             )}
             <img
-              src={`https://image.tmdb.org/t/p/original${image.file_path}`}
+              src={getSrcImage(image)}
               style={{ maxHeight: viewHeight(80), maxWidth: percent(100) }}
+              loading="lazy"
             />
             {isMultipleImage && (
               <IconButton

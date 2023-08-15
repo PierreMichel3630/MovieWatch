@@ -13,8 +13,11 @@ export const VoteFilter = ({ filter, onChange }: Props) => {
   const MIN = 0;
   const MAX = 10;
   const STEP = 0.5;
-  const [value, setValue] = useState<number[]>([0, 400]);
-  const marks = [0, 5, 10];
+  const [value, setValue] = useState<number[]>([
+    filter.vote.over ? filter.vote.over : MIN,
+    filter.vote.under ? filter.vote.under : MAX,
+  ]);
+  const marks = [MIN, 5, MAX];
 
   const handleChange = (event: Event, value: number | number[]) => {
     const newValue = value as number[];

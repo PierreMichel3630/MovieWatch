@@ -27,6 +27,7 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
   const { t } = useTranslation();
 
   const [seeMore, setSeeMore] = useState(false);
+  const [seeMoreNumber, setSeeMoreNumber] = useState(1);
   const [filter, setFilter] = useState({
     all: true,
     trailer: false,
@@ -58,9 +59,14 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
 
   const videosFilter = videos.filter(filterVideos);
 
-  const videosDisplay = seeMore
-    ? videosFilter
-    : videosFilter.slice(0, itemPerLine);
+  const videosDisplay = videosFilter.slice(0, seeMoreNumber * itemPerLine);
+
+  const onClickSeeMore = () => {
+    const newSeeMoreNumber = seeMoreNumber + 1;
+    const totalItemShow = itemPerLine * newSeeMoreNumber;
+    setSeeMoreNumber(seeMore ? 1 : newSeeMoreNumber);
+    setSeeMore(totalItemShow >= videosFilter.length);
+  };
 
   return (
     <Grid container spacing={2}>
@@ -115,10 +121,7 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
                 justifyContent: "center",
               }}
             >
-              <SeeMoreButton
-                seeMore={seeMore}
-                onClick={() => setSeeMore(!seeMore)}
-              />
+              <SeeMoreButton seeMore={seeMore} onClick={onClickSeeMore} />
             </Grid>
           )}
         </>

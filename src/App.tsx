@@ -149,6 +149,13 @@ function App() {
               fontSize: 12,
             },
           },
+          body2: {
+            fontSize: 11,
+            fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 11,
+            },
+          },
           h2: {
             fontSize: 22,
             fontWeight: 700,

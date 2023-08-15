@@ -36,6 +36,7 @@ export const PhotosBlock = ({
   hasFilter = false,
   isLoading = false,
 }: Props) => {
+  const PERSEEMORE = 36;
   const NUMBERLINESHOW = 2;
   const FILTERFALSE = {
     all: false,
@@ -48,6 +49,7 @@ export const PhotosBlock = ({
   const { t } = useTranslation();
 
   const [seeMore, setSeeMore] = useState(false);
+  const [seeMoreNumber, setSeeMoreNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<Image | undefined>(
     undefined
@@ -90,14 +92,24 @@ export const PhotosBlock = ({
   };
 
   const selectFilter = (value: Filter) => {
+    setSeeMoreNumber(0);
     setFilter({ ...FILTERFALSE, [value]: !filter[value] });
   };
 
   const imagesFilter = images.filter(filterPhotos);
 
-  const imagesDisplay = seeMore
-    ? imagesFilter
-    : imagesFilter.slice(0, itemPerLine);
+  const imagesDisplay = imagesFilter.slice(
+    0,
+    itemPerLine + seeMoreNumber * PERSEEMORE
+  );
+
+  const onClickSeeMore = () => {
+    const newSeeMoreNumber = seeMoreNumber + 1;
+    const totalItemShowNext = itemPerLine + newSeeMoreNumber * PERSEEMORE;
+    const isEnd = totalItemShowNext >= imagesFilter.length;
+    setSeeMoreNumber(seeMore ? 0 : newSeeMoreNumber);
+    setSeeMore(isEnd);
+  };
 
   return (
     <Grid container spacing={2}>
@@ -157,8 +169,8 @@ export const PhotosBlock = ({
                   sx={{ cursor: "pointer" }}
                 >
                   <img
-                    src={`https://image.tmdb.org/t/p/original${image.file_path}`}
-                    srcSet={`https://image.tmdb.org/t/p/original${image.file_path}`}
+                    src={`https://image.tmdb.org/t/p/w780${image.file_path}`}
+                    srcSet={`https://image.tmdb.org/t/p/w780${image.file_path}`}
                     loading="lazy"
                   />
                 </ImageListItem>
@@ -174,15 +186,15 @@ export const PhotosBlock = ({
                 justifyContent: "center",
               }}
             >
-              <SeeMoreButton
-                seeMore={seeMore}
-                onClick={() => setSeeMore(!seeMore)}
-              />
+              <SeeMoreButton seeMore={seeMore} onClick={onClickSeeMore} />
             </Grid>
           )}
           {selectedImage && (
             <ImageDialog
-              onClose={() => setOpen(false)}
+              onClose={() => {
+                setOpen(false);
+                setSelectedImage(undefined);
+              }}
               open={open}
               images={imagesFilter}
               selected={selectedImage}
