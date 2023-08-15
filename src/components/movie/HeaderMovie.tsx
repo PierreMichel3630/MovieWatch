@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { percent, viewHeight } from "csx";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { style } from "typestyle";
 
 import VideocamIcon from "@mui/icons-material/Videocam";
@@ -22,9 +22,9 @@ import { MediaType } from "src/models/tmdb/enum";
 import moment from "moment";
 import { HeaderMovieSerieSkeleton } from "../commun/skeleton/HeaderMovieSerieSkeleton";
 import { openInNewTab } from "src/utils/navigation";
+import { FormatTime, toHoursAndMinutes } from "src/utils/time";
 
 import LinkIcon from "@mui/icons-material/Link";
-import { FormatTime, toHoursAndMinutes } from "src/utils/time";
 
 const posterCss = style({
   width: percent(100),
@@ -38,7 +38,6 @@ interface Props {
 
 export const HeaderMovie = ({ detail, videos, isLoading }: Props) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
 
@@ -46,7 +45,7 @@ export const HeaderMovie = ({ detail, videos, isLoading }: Props) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={3}>
+      <Grid item md={3} display={{ xs: "none", md: "block" }}>
         {isLoading ? (
           <Skeleton
             variant="rectangular"
@@ -64,7 +63,7 @@ export const HeaderMovie = ({ detail, videos, isLoading }: Props) => {
           ))
         )}
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         {isLoading ? (
           <HeaderMovieSerieSkeleton />
         ) : (

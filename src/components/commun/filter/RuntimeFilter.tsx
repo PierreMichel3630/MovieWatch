@@ -11,10 +11,10 @@ export const RuntimeFilter = ({ filter, onChange }: Props) => {
   const { t } = useTranslation();
 
   const MIN = 0;
-  const MAX = 400;
+  const MAX = 420;
   const STEP = 15;
-  const [value, setValue] = useState<number[]>([0, 400]);
-  const marks = [0, 60, 120, 180, 240, 320, 400];
+  const [value, setValue] = useState<number[]>([0, 420]);
+  const marks = [0, 60, 120, 180, 240, 300, 360, 420];
 
   const handleChange = (event: Event, value: number | number[]) => {
     const newValue = value as number[];
@@ -33,14 +33,14 @@ export const RuntimeFilter = ({ filter, onChange }: Props) => {
     onChange(newFilter);
   };
 
-  const valuetext = (value: number) => `${value} ${t("commun.min")}`;
+  const valuetext = (value: number) => `${value / 60} h`;
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2}>
         <Typography variant="h2">{t("commun.runtime")}</Typography>
       </Grid>
-      <Grid item xs={10}>
+      <Grid item xs={12} sm={10}>
         <Box sx={{ marginTop: 4, marginRight: 4, marginLeft: 4 }}>
           <Slider
             getAriaLabel={() => "Vote range"}

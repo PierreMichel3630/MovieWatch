@@ -48,14 +48,6 @@ export const ImageDialog = ({
   const navigateImage = (value: number) => {
     if (index !== undefined) {
       let newIndex = index + value;
-      console.log(newIndex);
-      console.log(
-        newIndex > images.length
-          ? 0
-          : newIndex < 0
-          ? images.length - 1
-          : newIndex
-      );
       setIndex(
         newIndex >= images.length
           ? 0
@@ -65,7 +57,6 @@ export const ImageDialog = ({
       );
     }
   };
-  console.log(image);
 
   return (
     <Dialog

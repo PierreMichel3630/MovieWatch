@@ -192,12 +192,17 @@ export const AutocompleteInputPerson = ({
               }}
               alignItems="center"
               onClick={() => onSelect(el)}
+              key={el.id}
             >
               <Grid item xs={3}>
-                <Avatar
-                  alt={el.name}
-                  src={`https://image.tmdb.org/t/p/original${el.profile_path}`}
-                />
+                {el.profile_path && el.profile_path !== "" ? (
+                  <Avatar
+                    alt={el.name}
+                    src={`https://image.tmdb.org/t/p/original${el.profile_path}`}
+                  />
+                ) : (
+                  <Avatar alt={el.name}>{el.name.charAt(0)}</Avatar>
+                )}
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="body2">{el.name}</Typography>

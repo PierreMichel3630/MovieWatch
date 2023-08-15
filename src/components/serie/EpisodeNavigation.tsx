@@ -1,5 +1,6 @@
 import {
   Button,
+  Grid,
   MenuItem,
   Paper,
   Select,
@@ -134,69 +135,120 @@ export const EpisodeNavigation = ({
         padding: 1,
         marginTop: 2,
         width: percent(100),
-        alignItems: "center",
-        justifyContent: "space-between",
-        display: "flex",
         zIndex: 5,
       }}
       elevation={3}
     >
-      {isLoading ? (
-        <NavigateEpisodeSkeleton />
-      ) : (
-        <>
-          <Button
-            variant="text"
-            color="secondary"
-            startIcon={<ArrowBackIosIcon />}
-            onClick={() => goToPreviousEpisode()}
-            disabled={isPreviousDisabled()}
-          >
-            <Typography variant="body1">{t("commun.episodeprev")}</Typography>
-          </Button>
-          <div style={{ display: "flex", gap: 10 }}>
-            <Select
-              id="season-navigation"
-              value={seasonNavigate}
-              onChange={selectSeason}
-              size="small"
+      <Grid container justifyContent="center" alignItems="center">
+        {isLoading ? (
+          <Grid item xs={12}>
+            <NavigateEpisodeSkeleton />
+          </Grid>
+        ) : (
+          <>
+            <Grid
+              item
+              sm={3}
+              display={{ xs: "none", sm: "block" }}
+              textAlign="left"
             >
-              {seasons.map((el) => (
-                <MenuItem key={el.id} value={el.season_number}>
-                  {el.name}
-                </MenuItem>
-              ))}
-            </Select>
-            <Select
-              id="episode-navigation"
-              value={episodeNavigate}
-              onChange={selectEpisode}
-              size="small"
+              <Button
+                variant="text"
+                color="secondary"
+                startIcon={<ArrowBackIosIcon />}
+                onClick={() => goToPreviousEpisode()}
+                disabled={isPreviousDisabled()}
+              >
+                <Typography variant="body1">
+                  {t("commun.episodeprev")}
+                </Typography>
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Grid
+                container
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Grid item>
+                  <Select
+                    id="season-navigation"
+                    value={seasonNavigate}
+                    onChange={selectSeason}
+                    size="small"
+                  >
+                    {seasons.map((el) => (
+                      <MenuItem key={el.id} value={el.season_number}>
+                        {el.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item>
+                  <Select
+                    id="episode-navigation"
+                    value={episodeNavigate}
+                    onChange={selectEpisode}
+                    size="small"
+                  >
+                    {range(
+                      1,
+                      seasonNavigateSelect
+                        ? seasonNavigateSelect.episode_count
+                        : 1
+                    ).map((el) => (
+                      <MenuItem key={el} value={el}>{`${t(
+                        "commun.episode"
+                      )} ${el}`}</MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={navigateTo}
+                  >
+                    GO
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              display={{ xs: "block", sm: "none" }}
+              textAlign="left"
             >
-              {range(
-                1,
-                seasonNavigateSelect ? seasonNavigateSelect.episode_count : 1
-              ).map((el) => (
-                <MenuItem key={el} value={el}>{`${t(
-                  "commun.episode"
-                )} ${el}`}</MenuItem>
-              ))}
-            </Select>
-            <Button variant="contained" color="secondary" onClick={navigateTo}>
-              GO
-            </Button>
-          </div>
-          <Button
-            variant="text"
-            color="secondary"
-            endIcon={<ArrowForwardIosIcon />}
-            onClick={() => goToNextEpisode()}
-            disabled={isNextDisabled()}
-          >
-            <Typography variant="body1">{t("commun.episodenext")}</Typography>
-          </Button>
-        </>
-      )}
+              <Button
+                variant="text"
+                color="secondary"
+                startIcon={<ArrowBackIosIcon />}
+                onClick={() => goToPreviousEpisode()}
+                disabled={isPreviousDisabled()}
+              >
+                <Typography variant="body1">
+                  {t("commun.episodeprev")}
+                </Typography>
+              </Button>
+            </Grid>
+            <Grid item xs={6} sm={3} textAlign="right">
+              <Button
+                variant="text"
+                color="secondary"
+                endIcon={<ArrowForwardIosIcon />}
+                onClick={() => goToNextEpisode()}
+                disabled={isNextDisabled()}
+              >
+                <Typography variant="body1">
+                  {t("commun.episodenext")}
+                </Typography>
+              </Button>
+            </Grid>
+          </>
+        )}
+      </Grid>
     </Paper>
   );
 };

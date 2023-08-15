@@ -8,14 +8,12 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+
 import { SeeMoreButton } from "./button/Button";
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { ImageDialog } from "./commun/dialog/ImageDialog";
-import { style } from "typestyle";
 import { Image } from "src/models/tmdb/commun/Image";
 import { PhotoSkeleton } from "./commun/skeleton/Skeleton";
-
-const divFilterCss = style({ marginLeft: 15, display: "flex", gap: 10 });
 
 enum Filter {
   all = "all",
@@ -103,36 +101,48 @@ export const PhotosBlock = ({
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="h2">{t("commun.photos")}</Typography>
-        {hasFilter && (
-          <div className={divFilterCss}>
-            <Chip
-              label={t("commun.all")}
-              variant={filter.all ? "filled" : "outlined"}
-              onClick={() => selectFilter(Filter.all)}
-            />
-            <Chip
-              label={t("commun.backdrop")}
-              variant={filter.backdrop ? "filled" : "outlined"}
-              onClick={() => selectFilter(Filter.backdrop)}
-            />
-            <Chip
-              label={t("commun.logo")}
-              variant={filter.logo ? "filled" : "outlined"}
-              onClick={() => selectFilter(Filter.logo)}
-            />
-            <Chip
-              label={t("commun.poster")}
-              variant={filter.poster ? "filled" : "outlined"}
-              onClick={() => selectFilter(Filter.poster)}
-            />
-          </div>
-        )}
+      <Grid item xs={12}>
+        <Grid container spacing={1} alignItems="center">
+          <Grid item xs="auto">
+            <Typography variant="h2">{t("commun.photos")}</Typography>
+          </Grid>
+          {hasFilter && (
+            <>
+              <Grid item>
+                <Chip
+                  label={t("commun.all")}
+                  variant={filter.all ? "filled" : "outlined"}
+                  onClick={() => selectFilter(Filter.all)}
+                />
+              </Grid>
+              <Grid item>
+                <Chip
+                  label={t("commun.backdrop")}
+                  variant={filter.backdrop ? "filled" : "outlined"}
+                  onClick={() => selectFilter(Filter.backdrop)}
+                />
+              </Grid>
+              <Grid item>
+                <Chip
+                  label={t("commun.logo")}
+                  variant={filter.logo ? "filled" : "outlined"}
+                  onClick={() => selectFilter(Filter.logo)}
+                />
+              </Grid>
+              <Grid item>
+                <Chip
+                  label={t("commun.poster")}
+                  variant={filter.poster ? "filled" : "outlined"}
+                  onClick={() => selectFilter(Filter.poster)}
+                />
+              </Grid>
+            </>
+          )}
+        </Grid>
       </Grid>
       {isLoading ? (
-        Array.from(new Array(itemPerLine)).map((el) => (
-          <Grid key={el} item xs={12 / cols}>
+        Array.from(new Array(itemPerLine)).map((_, index) => (
+          <Grid key={index} item xs={12 / cols}>
             <PhotoSkeleton />
           </Grid>
         ))

@@ -59,10 +59,10 @@ export const CardPersonTv = ({ value }: PropsPersonTv) => {
         )}
         <CardContent>
           <Typography variant="h4">{value.name}</Typography>
-          {value.roles.map((role) => (
-            <Typography variant="caption" component="p">{`${role.character} (${
-              role.episode_count
-            } ${t("commun.episodes")})`}</Typography>
+          {value.roles.map((role, index) => (
+            <Typography key={index} variant="caption" component="p">{`${
+              role.character
+            } (${role.episode_count} ${t("commun.episodes")})`}</Typography>
           ))}
         </CardContent>
       </Card>
@@ -106,7 +106,7 @@ export const CardEpisode = ({ value }: PropsEpisode) => {
     >
       <Card className={cardCss}>
         <Grid container>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             {value.still_path !== null ? (
               <CardMedia
                 sx={{
@@ -122,7 +122,7 @@ export const CardEpisode = ({ value }: PropsEpisode) => {
               <ImageNotFoundBlock style={{ height: px(250) }} />
             )}
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={12} sm={8}>
             <CardContent>
               <Typography variant="h4">
                 {`${t("commun.season")} ${value.season_number} ${t(

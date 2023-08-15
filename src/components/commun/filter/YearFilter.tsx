@@ -96,12 +96,12 @@ export const YearFilter = ({ filter, onChange }: Props) => {
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         <Typography variant="h2">{t("commun.year")}</Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         <Grid container spacing={1}>
-          <Grid item xs={4}>
+          <Grid item xs={6} sm={4}>
             <Select
               id="select-year-type"
               value={type}
@@ -114,15 +114,16 @@ export const YearFilter = ({ filter, onChange }: Props) => {
               <MenuItem value="exact">{t("commun.exact")}</MenuItem>
             </Select>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6} sm={4}>
             <DateField
               value={year}
               onChange={(newValue) => setYear(newValue)}
               format="YYYY"
               size="small"
+              fullWidth
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <Button
               variant="contained"
               color="secondary"
@@ -135,30 +136,37 @@ export const YearFilter = ({ filter, onChange }: Props) => {
         </Grid>
       </Grid>
       {(filter.year.after || filter.year.before || filter.year.exact) && (
-        <Grid item xs={12} sx={{ display: "flex", gap: 1 }}>
-          {filter.year.after && (
-            <ChipYearFilter
-              year={filter.year.after}
-              type="after"
-              onDelete={() => deleteYear("after")}
-            />
-          )}
-          {filter.year.before && (
-            <ChipYearFilter
-              year={filter.year.before}
-              type="before"
-              onDelete={() => deleteYear("before")}
-            />
-          )}
-          {filter.year.exact.length > 0 &&
-            filter.year.exact.map((el) => (
-              <ChipYearFilter
-                key={el}
-                year={el}
-                type="exact"
-                onDelete={() => deleteYear(el)}
-              />
-            ))}
+        <Grid item xs={12}>
+          <Grid container spacing={1}>
+            {filter.year.after && (
+              <Grid item>
+                <ChipYearFilter
+                  year={filter.year.after}
+                  type="after"
+                  onDelete={() => deleteYear("after")}
+                />
+              </Grid>
+            )}
+            {filter.year.before && (
+              <Grid item>
+                <ChipYearFilter
+                  year={filter.year.before}
+                  type="before"
+                  onDelete={() => deleteYear("before")}
+                />
+              </Grid>
+            )}
+            {filter.year.exact.length > 0 &&
+              filter.year.exact.map((el) => (
+                <Grid item key={el}>
+                  <ChipYearFilter
+                    year={el}
+                    type="exact"
+                    onDelete={() => deleteYear(el)}
+                  />
+                </Grid>
+              ))}
+          </Grid>
         </Grid>
       )}
     </Grid>

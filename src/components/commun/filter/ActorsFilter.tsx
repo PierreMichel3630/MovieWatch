@@ -46,10 +46,10 @@ export const ActorsFilter = ({ filter, onChange }: Props) => {
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={3}>
+      <Grid item xs={12} sm={3}>
         <Typography variant="h2">{t("commun.actors")}</Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} sm={9}>
         <AutocompleteInputPerson
           clear={() => setSearch("")}
           value={search}

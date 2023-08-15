@@ -135,7 +135,7 @@ export const TrendingSearchPage = () => {
                   />
                 )}
                 {isLoading ? (
-                  Array.from(new Array(20)).map((el, index) => (
+                  Array.from(new Array(20)).map((_, index) => (
                     <Grid key={index} item xs={10} sm={5} md={5} lg={4} xl={4}>
                       <CardSearchSkeleton />
                     </Grid>

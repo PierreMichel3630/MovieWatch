@@ -2,7 +2,7 @@ import { Grid, Skeleton, Typography } from "@mui/material";
 import { ImageNotFoundBlock } from "../commun/ImageBlock";
 import moment from "moment";
 import { style } from "typestyle";
-import { percent, viewHeight } from "csx";
+import { percent, px, viewHeight } from "csx";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
@@ -30,7 +30,7 @@ export const HeaderSerieEpisode = ({
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={3} sx={{ textAlign: "center" }}>
+      <Grid item xs={3}>
         {!isLoading && seasonDetail !== undefined ? (
           seasonDetail.poster_path !== null ? (
             <img
@@ -43,7 +43,7 @@ export const HeaderSerieEpisode = ({
         ) : (
           <Skeleton
             variant="rectangular"
-            sx={{ width: percent(100), height: viewHeight(40) }}
+            sx={{ width: percent(100), height: px(150) }}
           />
         )}
       </Grid>

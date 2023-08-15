@@ -34,7 +34,7 @@ export const HeaderSerie = ({ detail, videos, isLoading }: Props) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={3}>
+      <Grid item md={3} display={{ xs: "none", md: "block" }}>
         {isLoading ? (
           <Skeleton
             variant="rectangular"
@@ -52,7 +52,7 @@ export const HeaderSerie = ({ detail, videos, isLoading }: Props) => {
           ))
         )}
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} md={9}>
         {isLoading ? (
           <HeaderMovieSerieSkeleton />
         ) : (

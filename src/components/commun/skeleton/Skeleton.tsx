@@ -69,13 +69,13 @@ export const CardEpisodeSkeleton = () => (
 
 export const EpisodeSkeleton = () => (
   <>
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={3}>
       <Skeleton
         variant="rectangular"
         sx={{ width: percent(100), height: px(150) }}
       />
     </Grid>
-    <Grid item xs={9}>
+    <Grid item xs={12} sm={9}>
       <Skeleton width="40%" />
       <Skeleton width="100%" />
       <Skeleton width="100%" />

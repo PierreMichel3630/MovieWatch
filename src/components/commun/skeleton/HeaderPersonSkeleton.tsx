@@ -1,16 +1,15 @@
 import { Grid, Skeleton } from "@mui/material";
-import { ChipSkeleton } from "./Skeleton";
 import { percent, px } from "csx";
 
 export const HeaderPersonSkeleton = () => (
   <Grid container spacing={2}>
-    <Grid item xs={3}>
+    <Grid item xs={12} sm={3}>
       <Skeleton
         variant="rectangular"
         sx={{ width: percent(100), height: px(400) }}
       />
     </Grid>
-    <Grid item xs={9}>
+    <Grid item xs={12} sm={9}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Skeleton variant="text" sx={{ fontSize: "50px" }} width="40%" />

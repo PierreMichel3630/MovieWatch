@@ -128,33 +128,54 @@ function App() {
         },
         typography: {
           fontFamily: ["Montserrat", "sans-serif"].join(","),
+          h1: {
+            fontSize: 50,
+            fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 30,
+            },
+          },
           caption: {
             fontSize: 13,
             fontWeight: 500,
+            "@media (max-width:600px)": {
+              fontSize: 12,
+            },
           },
           body1: {
             fontSize: 13,
             fontWeight: 500,
-          },
-          h1: {
-            fontSize: 50,
-            fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 12,
+            },
           },
           h2: {
             fontSize: 22,
             fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 20,
+            },
           },
           h3: {
             fontSize: 18,
             fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 15,
+            },
           },
           h4: {
             fontSize: 16,
             fontWeight: 700,
+            "@media (max-width:600px)": {
+              fontSize: 14,
+            },
           },
           h6: {
             fontSize: 13,
             fontWeight: 600,
+            "@media (max-width:600px)": {
+              fontSize: 12,
+            },
           },
         },
       }),

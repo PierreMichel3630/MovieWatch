@@ -9,13 +9,6 @@ import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
 import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
 import { sortByEpisodeNumber } from "src/utils/sort";
 import { CardEpisodeSkeleton, ChipSkeleton } from "../commun/skeleton/Skeleton";
-import { style } from "typestyle";
-
-const divSeasonCss = style({
-  marginLeft: 15,
-  display: "flex",
-  gap: 10,
-});
 
 export const EpisodesBlock = () => {
   let { id } = useParams();
@@ -52,29 +45,37 @@ export const EpisodesBlock = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="h2">{t("commun.episodes")}</Typography>
-        <div className={divSeasonCss}>
+      <Grid item xs={12}>
+        <Grid container spacing={1} alignItems="center">
+          <Grid item xs="auto">
+            <Typography variant="h2">{t("commun.episodes")}</Typography>
+          </Grid>
           {isLoadingDetail || detail === undefined
-            ? Array.from(new Array(4)).map((el) => <ChipSkeleton />)
+            ? Array.from(new Array(4)).map((_, index) => (
+                <Grid item key={index}>
+                  <ChipSkeleton />
+                </Grid>
+              ))
             : detail.seasons.map((season) => (
-                <Chip
-                  label={season.name}
-                  variant={
-                    selectedSeason === season.season_number
-                      ? "filled"
-                      : "outlined"
-                  }
-                  onClick={() => setSelectedSeason(season.season_number)}
-                />
+                <Grid item key={season.id}>
+                  <Chip
+                    label={season.name}
+                    variant={
+                      selectedSeason === season.season_number
+                        ? "filled"
+                        : "outlined"
+                    }
+                    onClick={() => setSelectedSeason(season.season_number)}
+                  />
+                </Grid>
               ))}
-        </div>
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={2}>
           {isLoadingSeason || seasonDetail === undefined
-            ? Array.from(new Array(5)).map((el) => (
-                <Grid key={el} item xs={12}>
+            ? Array.from(new Array(5)).map((_, index) => (
+                <Grid key={index} item xs={12}>
                   <CardEpisodeSkeleton />
                 </Grid>
               ))

@@ -72,16 +72,16 @@ export const CastsSerieBlock = () => {
         />
       </Grid>
       {isLoading ? (
-        Array.from(new Array(itemPerLine)).map((el) => (
-          <Grid key={el} item xs={6} sm={3} md={3} lg={2} xl={2}>
+        Array.from(new Array(itemPerLine)).map((_, index) => (
+          <Grid key={index} item xs={6} sm={3} md={3} lg={2} xl={2}>
             <CardActorSkeleton />
           </Grid>
         ))
       ) : (
         <>
           {castsDisplay.length > 0 ? (
-            castsDisplay.map((cast) => (
-              <Grid item key={cast.id} xs={6} sm={3} md={3} lg={2} xl={2}>
+            castsDisplay.map((cast, index) => (
+              <Grid item key={index} xs={6} sm={3} md={3} lg={2} xl={2}>
                 <CardPersonTv value={cast} />
               </Grid>
             ))

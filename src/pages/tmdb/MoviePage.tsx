@@ -12,11 +12,11 @@ import { PhotosBlock } from "src/components/PhotosBlock";
 import { VideosBlock } from "src/components/VideosBlock";
 import { CastsBlockMovie } from "src/components/movie/CastsBlockMovie";
 import { HeaderMovie } from "src/components/movie/HeaderMovie";
-import { Backdrop } from "src/models/tmdb/commun/Backdrop";
 import { Image } from "src/models/tmdb/commun/Image";
 import { Video } from "src/models/tmdb/commun/Video";
 import { ImageType } from "src/models/tmdb/enum";
 import { MovieDetails } from "src/models/tmdb/movie/MovieDetails";
+import { getBreakpoint } from "src/utils/mediaQuery";
 import { style } from "typestyle";
 
 export const MoviePage = () => {
@@ -26,15 +26,17 @@ export const MoviePage = () => {
   const [detail, setDetail] = useState<undefined | MovieDetails>(undefined);
   const [images, setImages] = useState<Array<Image>>([]);
   const [videos, setVideos] = useState<Array<Video>>([]);
-  const [backdrop, setBackdrop] = useState<undefined | Backdrop>(undefined);
 
   const [isLoadingImage, setIsLoadingImage] = useState(true);
   const [isLoadingVideo, setIsLoadingVideo] = useState(true);
   const [isLoadingDetail, setIsLoadingDetail] = useState(true);
 
+  const breakpoint = getBreakpoint();
+  const isSmallScreen = breakpoint === "xs" || breakpoint === "sm";
+
   const backdropCss = style({
     width: percent(100),
-    height: viewHeight(75),
+    minHeight: viewHeight(75),
     position: "relative",
     display: "flex",
     alignContent: "center",
@@ -43,14 +45,15 @@ export const MoviePage = () => {
       "&::before": {
         content: "''",
         backgroundImage: `url('${
-          backdrop
-            ? `https://image.tmdb.org/t/p/original${backdrop.file_path}`
+          detail
+            ? `https://image.tmdb.org/t/p/original${
+                isSmallScreen ? detail.poster_path : detail.backdrop_path
+              }`
             : ""
         }')`,
         backgroundSize: "cover",
         position: "absolute",
         width: percent(100),
-        height: percent(100),
         top: "0px",
         right: "0px",
         bottom: "0px",
@@ -79,7 +82,6 @@ export const MoviePage = () => {
           ...res.logos.map((el) => ({ ...el, type: ImageType.logo })),
           ...res.posters.map((el) => ({ ...el, type: ImageType.poster })),
         ]);
-        setBackdrop(res.backdrops.length > 0 ? res.backdrops[0] : undefined);
         setIsLoadingImage(false);
       });
     }

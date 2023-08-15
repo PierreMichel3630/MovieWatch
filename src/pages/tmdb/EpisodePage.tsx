@@ -22,6 +22,7 @@ import { ImageType } from "src/models/tmdb/enum";
 import { EpisodeDetail } from "src/models/tmdb/tv/EpisodeDetail";
 import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
 import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
+import { getBreakpoint } from "src/utils/mediaQuery";
 import { style } from "typestyle";
 
 export const EpisodePage = () => {
@@ -45,6 +46,9 @@ export const EpisodePage = () => {
   const [isLoadingVideo, setIsLoadingVideo] = useState(true);
   const [isLoadingSeason, setIsLoadingSeason] = useState(true);
 
+  const breakpoint = getBreakpoint();
+  const isSmallScreen = breakpoint === "xs" || breakpoint === "sm";
+
   const backdropCss = style({
     width: percent(100),
     height: viewHeight(50),
@@ -57,7 +61,9 @@ export const EpisodePage = () => {
         content: "''",
         backgroundImage: `url('${
           detail
-            ? `https://image.tmdb.org/t/p/original${detail.backdrop_path}`
+            ? `https://image.tmdb.org/t/p/original${
+                isSmallScreen ? detail.poster_path : detail.backdrop_path
+              }`
             : ""
         }')`,
         backgroundSize: "cover",

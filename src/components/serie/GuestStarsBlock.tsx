@@ -58,8 +58,8 @@ export const GuestStarsBlock = ({ guests, isLoading = false }: Props) => {
         />
       </Grid>
       {isLoading ? (
-        Array.from(new Array(itemPerLine)).map((el) => (
-          <Grid key={el} item xs={6} sm={3} md={3} lg={2} xl={2}>
+        Array.from(new Array(itemPerLine)).map((_, index) => (
+          <Grid key={index} item xs={6} sm={3} md={3} lg={2} xl={2}>
             <CardActorSkeleton />
           </Grid>
         ))

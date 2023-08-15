@@ -145,28 +145,19 @@ export const PersonCreditsBlock = () => {
         </Tooltip>
       </Grid>
       {isLoadingMovie ? (
-        Array.from(new Array(itemShow)).map((el) => (
-          <Grid key={el} item xs={6} sm={3} md={3} lg={2} xl={2}>
+        Array.from(new Array(itemShow)).map((_, index) => (
+          <Grid key={index} item xs={6} sm={3} md={3} lg={2} xl={2}>
             <CardMovieSerieSkeleton />
           </Grid>
         ))
       ) : (
         <>
-          {moviesDisplay.length > 0 ? (
-            moviesDisplay.map((cast) => (
-              <Grid key={cast.id} item xs={6} sm={3} md={3} lg={2} xl={2}>
+          {moviesDisplay.length > 0 &&
+            moviesDisplay.map((cast, index) => (
+              <Grid key={index} item xs={6} sm={3} md={3} lg={2} xl={2}>
                 <CastPersonMovieCard value={cast} />
               </Grid>
-            ))
-          ) : searchMovie !== "" ? (
-            <Grid item xs={12}>
-              <Alert severity="warning">{t("commun.noresult")}</Alert>
-            </Grid>
-          ) : (
-            <Grid item xs={12}>
-              <Alert severity="info">{t("commun.noresultmovie")}</Alert>
-            </Grid>
-          )}
+            ))}
           {moviesFilter.length > itemShow && (
             <Grid
               item
@@ -201,8 +192,8 @@ export const PersonCreditsBlock = () => {
         </Tooltip>
       </Grid>
       {isLoadingSerie ? (
-        Array.from(new Array(itemShow)).map((el) => (
-          <Grid key={el} item xs={6} sm={3} md={3} lg={2} xl={2}>
+        Array.from(new Array(itemShow)).map((_, index) => (
+          <Grid key={index} item xs={6} sm={3} md={3} lg={2} xl={2}>
             <CardMovieSerieSkeleton />
           </Grid>
         ))

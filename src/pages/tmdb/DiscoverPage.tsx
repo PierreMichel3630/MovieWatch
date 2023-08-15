@@ -125,7 +125,10 @@ export const DiscoverPage = () => {
     dicoverAll(page, language.language, filter).then((res) => {
       setTotalPage(res.total_pages);
       setResults([
-        ...res.results.map((el) => ({ ...el, media_type: MediaType.movie })),
+        ...res.results.map((el) => ({
+          ...el,
+          media_type: filter.type,
+        })),
       ]);
       setIsLoading(false);
       setIsNoResult(res.total_results === 0);
@@ -238,8 +241,8 @@ export const DiscoverPage = () => {
                   />
                 )}
                 {isLoading ? (
-                  Array.from(new Array(20)).map((el) => (
-                    <Grid key={el} item xs={10} sm={5} md={5} lg={4} xl={4}>
+                  Array.from(new Array(20)).map((_, index) => (
+                    <Grid key={index} item xs={10} sm={5} md={5} lg={4} xl={4}>
                       <CardSearchSkeleton />
                     </Grid>
                   ))

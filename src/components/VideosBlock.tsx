@@ -1,13 +1,11 @@
 import { Alert, Chip, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { SeeMoreButton } from "./button/Button";
-import { style } from "typestyle";
 import { Video } from "src/models/tmdb/commun/Video";
 import { VideoSkeleton } from "./commun/skeleton/Skeleton";
-
-const divFilterCss = style({ marginLeft: 15, display: "flex", gap: 10 });
 
 enum Filter {
   all = "all",
@@ -66,24 +64,30 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{ display: "flex", alignItems: "center" }}>
-        <Typography variant="h2">{t("commun.videos")}</Typography>
-        <div className={divFilterCss}>
-          <Chip
-            label={t("commun.all")}
-            variant={filter.all ? "filled" : "outlined"}
-            onClick={() => selectFilter(Filter.all)}
-          />
-          <Chip
-            label={t("commun.trailer")}
-            variant={filter.trailer ? "filled" : "outlined"}
-            onClick={() => selectFilter(Filter.trailer)}
-          />
-        </div>
+      <Grid item xs={12}>
+        <Grid container spacing={1} alignItems="center">
+          <Grid item xs="auto">
+            <Typography variant="h2">{t("commun.videos")}</Typography>
+          </Grid>
+          <Grid item>
+            <Chip
+              label={t("commun.all")}
+              variant={filter.all ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.all)}
+            />
+          </Grid>
+          <Grid item>
+            <Chip
+              label={t("commun.trailer")}
+              variant={filter.trailer ? "filled" : "outlined"}
+              onClick={() => selectFilter(Filter.trailer)}
+            />
+          </Grid>
+        </Grid>
       </Grid>
       {isLoading ? (
-        Array.from(new Array(itemPerLine)).map((el) => (
-          <Grid key={el} item xs={12} sm={6}>
+        Array.from(new Array(itemPerLine)).map((_, index) => (
+          <Grid key={index} item xs={12} sm={6}>
             <VideoSkeleton />
           </Grid>
         ))

@@ -42,7 +42,7 @@ export const PersonPage = () => {
   }, [id]);
 
   return (
-    <Container maxWidth="lg" sx={{ marginTop: 5 }}>
+    <Container maxWidth="lg">
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <HeaderPerson detail={detail} isLoading={isLoading} />

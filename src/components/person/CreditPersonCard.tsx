@@ -78,9 +78,7 @@ export const CastPersonMovieCard = ({ value }: PropsCastMovie) => {
           <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
         )}
         <CardContent>
-          <Typography variant="h4" component="a">
-            {value.title}
-          </Typography>
+          <Typography variant="h4">{value.title}</Typography>
           <Typography variant="body1">{value.character}</Typography>
           <Typography variant="h6">
             {value.release_date !== ""
@@ -98,7 +96,7 @@ interface PropsCrew {
 }
 
 export const CrewPersonCard = ({ value }: PropsCrew) => (
-  <Link to={`/movie/${value.id}`}>
+  <Link to={`/person/${value.id}`}>
     <Card className={cardCss}>
       {value.poster_path !== null ? (
         <CardMedia

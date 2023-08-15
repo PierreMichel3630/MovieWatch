@@ -56,9 +56,9 @@ export const TrendingPage = () => {
   const breakpoint = getBreakpoint();
   const cols = {
     xs: 6,
-    sm: 3,
-    md: 2,
-    lg: 2,
+    sm: 4,
+    md: 3,
+    lg: 3,
     xl: 2,
   }[breakpoint];
   const itemPerLine = 12 / cols;
@@ -102,8 +102,8 @@ export const TrendingPage = () => {
           </div>
         </Grid>
         {isLoadingMovies
-          ? Array.from(new Array(nbItemToShow)).map((el) => (
-              <Grid key={el} item xs={6} sm={4} md={3} lg={3} xl={2}>
+          ? Array.from(new Array(nbItemToShow)).map((_, index) => (
+              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={2}>
                 <CardSearchSkeleton />
               </Grid>
             ))
@@ -144,8 +144,8 @@ export const TrendingPage = () => {
         </Grid>
 
         {isLoadingSeries
-          ? Array.from(new Array(nbItemToShow)).map((el) => (
-              <Grid key={el} item xs={6} sm={4} md={3} lg={3} xl={2}>
+          ? Array.from(new Array(nbItemToShow)).map((_, index) => (
+              <Grid key={index} item xs={6} sm={4} md={3} lg={3} xl={2}>
                 <CardSearchSkeleton />
               </Grid>
             ))

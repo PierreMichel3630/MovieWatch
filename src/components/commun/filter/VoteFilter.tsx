@@ -37,10 +37,10 @@ export const VoteFilter = ({ filter, onChange }: Props) => {
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2}>
         <Typography variant="h2">{t("commun.vote")}</Typography>
       </Grid>
-      <Grid item xs={10}>
+      <Grid item xs={12} sm={10}>
         <Box sx={{ marginTop: 4, marginRight: 4, marginLeft: 4 }}>
           <Slider
             getAriaLabel={() => "Vote range"}

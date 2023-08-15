@@ -83,20 +83,22 @@ export const FilterDialog = ({ filter, open, onClose, onSubmit }: Props) => {
         </Grid>
         <Grid item xs={6}>
           <Button
-            variant="outlined"
+            variant="contained"
             startIcon={<CloseIcon />}
             fullWidth
             onClick={() => onClose()}
+            color="error"
           >
             {t("commun.cancel")}
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            variant="outlined"
+            variant="contained"
             startIcon={<FilterAltIcon />}
             fullWidth
             onClick={() => onSubmit(newFilter)}
+            color="secondary"
           >
             {t("commun.filter")}
           </Button>

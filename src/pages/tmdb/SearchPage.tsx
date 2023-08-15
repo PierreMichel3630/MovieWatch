@@ -69,8 +69,8 @@ export const SearchPage = () => {
               />
             )}
             {isLoading ? (
-              Array.from(new Array(20)).map((el) => (
-                <Grid key={el} item xs={10} sm={5} md={5} lg={4} xl={4}>
+              Array.from(new Array(20)).map((_, index) => (
+                <Grid key={index} item xs={10} sm={5} md={5} lg={4} xl={4}>
                   <CardSearchSkeleton />
                 </Grid>
               ))
