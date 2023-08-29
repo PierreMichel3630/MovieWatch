@@ -16,6 +16,7 @@ import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 const divFilterCss = style({
   marginLeft: 15,
@@ -45,28 +46,28 @@ export const TrendingSearchPage = () => {
 
   const search = () => {
     if (type === MediaType.tv) {
-      getTvTrending(page, language.language).then((res) => {
+      getTvTrending(page, language.iso).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
         setIsNoResult(res.total_results === 0);
       });
     } else if (type === MediaType.movie) {
-      getMovieTrending(page, language.language).then((res) => {
+      getMovieTrending(page, language.iso).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
         setIsNoResult(res.total_results === 0);
       });
     } else if (type === MediaType.person) {
-      getPersonTrending(page, language.language).then((res) => {
+      getPersonTrending(page, language.iso).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
         setIsNoResult(res.total_results === 0);
       });
     } else {
-      getTrending(page, language.language).then((res) => {
+      getTrending(page, language.iso).then((res) => {
         setTotalPage(res.total_pages);
         setResults([...res.results]);
         setIsLoading(false);
@@ -77,14 +78,14 @@ export const TrendingSearchPage = () => {
 
   const changePage = (value: number) => {
     navigate({
-      pathname: `/trending`,
+      pathname: `${BASEURLMOVIE}/trendingsearch`,
       search: `?page=${value}${type ? `&type=${type}` : ""}`,
     });
   };
 
   const selectFilter = (value?: MediaType) => {
     navigate({
-      pathname: `/trending`,
+      pathname: `${BASEURLMOVIE}/trendingsearch`,
       search: `?page=1${value ? `&type=${value}` : ""}`,
     });
   };

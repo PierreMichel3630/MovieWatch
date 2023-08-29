@@ -8,37 +8,57 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { Colors } from "./style/Colors";
-import { DEFAULT_LANGUAGE, LANGUAGES, Language } from "./models/Language";
-import { User } from "./models/User";
 
 import Routes from "./routes";
 
 import "moment/dist/locale/fr";
 import "moment/dist/locale/de";
 import "moment/dist/locale/es";
+import { AuthProviderSupabase } from "./context/AuthProviderSupabase";
+import { getLanguages } from "./api/supabase/language";
+import { Language } from "./models/Language";
+
+const DEFAULT_LANGUAGE: Language = {
+  id: 2,
+  iso: "fr-FR",
+  name: "Français",
+  abbreviation: "fr",
+  image: "fr.svg",
+};
 
 export const UserContext = createContext<{
-  user: undefined | User;
   language: Language;
+  languages: Array<Language>;
   mode: "light" | "dark";
-  setUser: (user: undefined | User) => void;
   setLanguage: (language: Language) => void;
   setMode: (mode: "light" | "dark") => void;
 }>({
-  user: undefined,
-  language: DEFAULT_LANGUAGE,
+  language:
+    localStorage.getItem("language") !== null
+      ? (JSON.parse(localStorage.getItem("language")!) as Language)
+      : DEFAULT_LANGUAGE,
+  languages: [],
   mode: "light",
-  setUser: (user: undefined | User) => {},
   setLanguage: (language: Language) => {},
   setMode: (mode: "light" | "dark") => {},
 });
 
 function App() {
-  const [user, setUser] = useState<undefined | User>(
-    localStorage.getItem("user") !== null
-      ? (JSON.parse(localStorage.getItem("user")!) as User)
-      : undefined
-  );
+  const [languages, setLanguages] = useState<Array<Language>>([]);
+
+  const searchAllLanguage = async () => {
+    const { data } = await getLanguages();
+    setLanguages(data as Array<Language>);
+  };
+
+  useEffect(() => {
+    searchAllLanguage();
+  }, []);
+
+  const getLanguage = () =>
+    localStorage.getItem("language") !== null
+      ? (JSON.parse(localStorage.getItem("language")!) as Language)
+      : DEFAULT_LANGUAGE;
 
   const [mode, setMode] = useState<"light" | "dark">(
     localStorage.getItem("mode") !== null
@@ -46,36 +66,19 @@ function App() {
       : "dark"
   );
 
-  const [language, setLanguage] = useState(
-    localStorage.getItem("language") !== null
-      ? LANGUAGES.find((el) => el.id === localStorage.getItem("language")!)!
-      : DEFAULT_LANGUAGE
-  );
+  const [language, setLanguage] = useState<Language>(getLanguage());
 
   useEffect(() => {
-    moment.locale(language.language);
-    changeLanguage(language.id);
+    if (language) {
+      moment.locale(language.abbreviation);
+      changeLanguage(language.id.toString());
+      localStorage.setItem("language", JSON.stringify(language));
+    }
   }, [language]);
 
   const changeLanguage = async (language: string) => {
     await i18next.changeLanguage(language);
   };
-
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (language) {
-      localStorage.setItem("language", language.id);
-    } else {
-      localStorage.removeItem("language");
-    }
-  }, [language]);
 
   useEffect(() => {
     if (mode) {
@@ -112,7 +115,7 @@ function App() {
                 },
                 text: {
                   primary: Colors.white,
-                  secondary: Colors.grey2,
+                  secondary: Colors.white,
                 },
               }),
         },
@@ -180,16 +183,18 @@ function App() {
   );
 
   return (
-    <UserContext.Provider
-      value={{ user, mode, language, setUser, setLanguage, setMode }}
-    >
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
-      </ThemeProvider>
-    </UserContext.Provider>
+    <AuthProviderSupabase>
+      <UserContext.Provider
+        value={{ mode, languages, language, setLanguage, setMode }}
+      >
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <Routes />
+          </BrowserRouter>
+        </ThemeProvider>
+      </UserContext.Provider>
+    </AuthProviderSupabase>
   );
 }
 

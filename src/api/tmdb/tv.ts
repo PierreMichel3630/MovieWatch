@@ -1,6 +1,5 @@
 import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
 import { getRequestOptions } from "./commun";
-import { Credits } from "src/models/tmdb/commun/Credits";
 import { Images } from "src/models/tmdb/commun/Images";
 import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
 import { EpisodeDetail } from "src/models/tmdb/tv/EpisodeDetail";

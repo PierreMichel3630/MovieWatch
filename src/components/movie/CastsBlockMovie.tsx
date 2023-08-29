@@ -50,7 +50,7 @@ export const CastsBlockMovie = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      getMovieCredit(Number(id), language.language).then((res) => {
+      getMovieCredit(Number(id), language.iso).then((res) => {
         setCasts(res.cast);
         setIsLoading(false);
       });

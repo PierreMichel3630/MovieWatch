@@ -12,6 +12,7 @@ import { MovieSearchElement } from "src/models/tmdb/movie/MovieSearchElement";
 import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
 import { MediaType, TimeTrending } from "src/models/tmdb/enum";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 const titleCss = style({
   cursor: "pointer",
@@ -39,7 +40,7 @@ export const TrendingPage = () => {
 
   useEffect(() => {
     setIsLoadingMovies(true);
-    getMovieTrending(PAGE, language.language, timeTrendingMovie).then((res) => {
+    getMovieTrending(PAGE, language.iso, timeTrendingMovie).then((res) => {
       setMovies(res.results as Array<MovieSearchElement>);
       setIsLoadingMovies(false);
     });
@@ -47,7 +48,7 @@ export const TrendingPage = () => {
 
   useEffect(() => {
     setIsLoadingSeries(true);
-    getTvTrending(PAGE, language.language, timeTrendingSerie).then((res) => {
+    getTvTrending(PAGE, language.iso, timeTrendingSerie).then((res) => {
       setSeries(res.results as Array<TvSearchElement>);
       setIsLoadingSeries(false);
     });
@@ -93,7 +94,7 @@ export const TrendingPage = () => {
             className={titleCss}
             onClick={() =>
               navigate({
-                pathname: `/trending`,
+                pathname: `${BASEURLMOVIE}/trendingsearch`,
                 search: `?page=1&type=${MediaType.movie}`,
               })
             }
@@ -139,7 +140,7 @@ export const TrendingPage = () => {
             className={titleCss}
             onClick={() =>
               navigate({
-                pathname: `/trending`,
+                pathname: `${BASEURLMOVIE}/trendingsearch`,
                 search: `?page=1&type=${MediaType.tv}`,
               })
             }

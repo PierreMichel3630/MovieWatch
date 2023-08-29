@@ -12,7 +12,8 @@ import { TvSearchElement } from "src/models/tmdb/tv/TvSearchElement";
 import { useTranslation } from "react-i18next";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
 import { MediaType } from "src/models/tmdb/enum";
-import { SearchContext } from "../Home";
+import { SearchContext } from "./HomeMoviesPage";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 export const SearchPage = () => {
   const params = useQuery();
@@ -36,7 +37,7 @@ export const SearchPage = () => {
   const [totalResult, setTotalResult] = useState<number>(0);
 
   const search = () => {
-    searchAll(query, language.language, page, type).then((res) => {
+    searchAll(query, language.iso, page, type).then((res) => {
       setTotalPage(res.total_pages);
       setResults(
         type
@@ -51,14 +52,14 @@ export const SearchPage = () => {
 
   const changePage = (value: number) => {
     navigate({
-      pathname: "/search",
+      pathname: `${BASEURLMOVIE}/search`,
       search: `?query=${query}&page=${value}${type ? `&type=${type}` : ""}`,
     });
   };
 
   const selectFilter = (value?: MediaType) => {
     navigate({
-      pathname: `/search`,
+      pathname: `${BASEURLMOVIE}/search`,
       search: `?query=${query}&page=1${value ? `&type=${value}` : ""}`,
     });
   };

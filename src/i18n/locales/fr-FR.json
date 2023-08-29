@@ -2,8 +2,7 @@
   "header": {
     "account": {
       "hi": "Bonjour",
-      "profile": "Mon profil",
-      "parameters": "Mes Paramètres",
+      "ranking": "Mes classements",
       "logout": "Déconnexion"
     },
     "search": {
@@ -20,6 +19,8 @@
   "commun": {
     "add": "Ajouter",
     "addfilter": "Ajouter un filtre",
+    "addtheme": "Ajouter un thème",
+    "addvalue": "Ajouter une valeur",
     "after": "Après",
     "all": "Tous",
     "actors": "Acteurs",
@@ -30,10 +31,12 @@
     "cast": "Casting",
     "datenotknow": "Date de sortie inconnu",
     "deathday": "Date de décès",
+    "description": "Description",
     "episode": "épisode",
     "episodes": "Épisodes",
     "episodeprev": "Épisode précédent",
     "episodenext": "Épisode suivant",
+    "error": "Oups une erreur est survenue. Veuillez ressayer",
     "exact": "Égale à",
     "filter": "Filtrer",
     "genre": "Genre",
@@ -42,6 +45,13 @@
     "minutes": "minutes",
     "min": "min",
     "movies": "Films",
+    "myrank": "Mon classement",
+    "name": "Nom",
+    "notseeactor": "Notez l'acteur comme non vu",
+    "notseemovie": "Notez le film comme non vu",
+    "notseeserie": "Notez la série comme non vu",
+    "notavailableinyourlanguage": "Pas disponible dans votre langue",
+    "notice": "Avis",
     "noresult": "Aucun résultat ne correspond à votre recherche.",
     "noresultactor": "Aucun acteur n'a été renseigné.",
     "noresultepisode": "Aucun épisode ne correspond à votre recherche.",
@@ -51,28 +61,40 @@
     "noresultvideo": "Aucune vidéo n'a été renseignée.",
     "origincountry": "Pays d'origine",
     "over": "Plus de",
+    "overview": "Aperçu",
     "persons": "Personnes",
     "photos": "Photos",
     "placeofbirth": "Lieu de naissance",
     "poster": "Poster",
     "profile": "Profil",
-    "runtime": "Durée",
+    "rankactor": "Notez l'acteur",
+    "rankmovie": "Notez le film",
+    "rankserie": "Notez la série",
+    "rankuser": "Note des utilisateurs",
+    "ranking": "Classement",
+    "rate": "Notez",
     "results": "Résultats",
+    "runtime": "Durée",
     "searchactor": "Rechercher un acteur",
     "season": "Saison",
     "seasons": "Saisons",
     "seeMore": "Afficher plus",
     "seeLess": "Afficher moins",
+    "seeactor": "Notez l'acteur comme vu",
+    "seemovie": "Notez le film comme vu",
+    "seeserie": "Notez la série comme vu",
     "series": "Séries",
     "sort": "Trier",
     "today": "Aujourd'hui",
     "trailer": "Bande annonce",
+    "translate": "Traduire",
     "trending": "Tendance",
     "trendingmovie": "Tendance Films",
     "trendingserie": "Tendance Séries",
     "type": "Type",
     "under": "Moins de",
     "upcoming": "Prochainement",
+    "validate": "Valider",
     "videos": "Vidéos",
     "vote": "Vote",
     "week": "Semaine",
@@ -92,6 +114,13 @@
     "titleDesc": "Titre de Z-A"
   },
   "pages": {
+    "home": {
+      "searchtitle": "Que voulez-vous classer ?",
+      "search": "Rechercher un thème"
+    },
+    "theme": {
+      "search": "Rechercher"
+    },
     "discover": {
       "title": "Discover Page"
     },
@@ -114,17 +143,87 @@
       "noresultactor": "Aucun acteur n'a été renseigné."
     }
   },
+  "input": {
+    "dragdrop": {
+      "drophere": "Déposer ici",
+      "text": "Cliquer ou Glisser pour ajouter une image"
+    }
+  },
   "form": {
     "login": {
-      "google": "Se connecter via Google",
-      "connectemail": "Se connecter avec son email",
       "email": "Adresse email",
       "password": "Mot de passe",
       "rememberme": "Se souvenir de moi",
+      "createaccount": "Créer un compte",
       "forgotpassword": "Mot de passe oublié ?",
       "connect": "Se connecter",
-      "or": "ou",
-      "haveaccount": "Pas de compte ?"
+      "haveaccount": "Vous n'avez pas de compte ?",
+      "requiredpassword": "Veuillez saisir un mot de passe",
+      "requiredmail": "Veuillez saisir une adresse mail",
+      "formatmail": "Veuillez saisir une adresse mail valide",
+      "errorconnect": "L'adresse email ou le mot de passe est erroné"
+    },
+    "register": {
+      "username": "Nom d'utilisateur *",
+      "email": "Adresse email *",
+      "password": "Mot de passe *",
+      "createaccount": "Créer un compte",
+      "continue": "Continuer",
+      "requiredusername": "Veuillez saisir un nom d'utilisateur",
+      "uniqueusername": "Nom d'utilisateur déjà pris",
+      "requiredpassword": "Veuillez saisir un mot de passe",
+      "minpassword": "Veuillez saisir un mot de passe de plus de 6 caractères",
+      "requiredmail": "Veuillez saisir une adresse mail",
+      "formatmail": "Veuillez saisir une adresse mail valide",
+      "alreadyaccount": "Déjà un compte ?",
+      "connect": "Connectez-vous"
+    },
+    "forgotpassword": {
+      "forgotpassword": "Mot de passe oublié ?",
+      "email": "Adresse email *",
+      "createaccount": "Créer un compte",
+      "continue": "Continuer",
+      "requiredmail": "Veuillez saisir une adresse mail",
+      "formatmail": "Veuillez saisir une adresse mail valide",
+      "modality": "Veuillez saisir l'adresse e-mail utilisée lors de votre inscription. Vous recevrez un e-mail contenant les instructions à suivre pour réinitialiser votre mot de passe.",
+      "connection": "Connexion",
+      "notforget": "Se souvenir de votre mot de passe ?",
+      "successsendmail": "Email envoyé",
+      "limitsendemail": "Veuillez attendre 60s avant de renvoyer un email"
+    },
+    "resetpassword": {
+      "resetpassword": "Réinitialiser votre mot de passe",
+      "password": "Mot de passe *",
+      "confirmpassword": "Confirmation du mot de passe *",
+      "continue": "Continuer",
+      "passwordmatch": "Les mots de passe doivent correspondre",
+      "requiredpassword": "Veuillez saisir un mot de passe",
+      "minpassword": "Veuillez saisir un mot de passe de plus de 6 caractères"
+    },
+    "createtheme": {
+      "name": "Nom *",
+      "language": "Langue *",
+      "englishname": "Traduction du nom en anglais *",
+      "description": "Description",
+      "requiredname": "Veuillez saisir un nom",
+      "requiredenglishname": "Veuillez saisir la traduction du nom en anglais",
+      "requiredlanguage": "Veuillez sélectionner une langue",
+      "requiredimage": "Veuillez choisir une image",
+      "existtheme": "Attention, plusieurs thèmes correspondents déjà à ce titre."
+    },
+    "createvalue": {
+      "name": "Nom *",
+      "language": "Langue *",
+      "englishname": "Traduction du nom en anglais *",
+      "description": "Description",
+      "requiredname": "Veuillez saisir un nom",
+      "requiredenglishname": "Veuillez saisir la traduction du nom en anglais",
+      "requiredlanguage": "Veuillez sélectionner une langue",
+      "requiredimage": "Veuillez choisir une image"
+    },
+    "rate": {
+      "requiredrate": "Veuillez saisir une note",
+      "opinion": "Avis"
     }
   },
   "card": {

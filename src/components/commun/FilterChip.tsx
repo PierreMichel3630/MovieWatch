@@ -10,11 +10,11 @@ import {
   ChipVoteFilter,
   ChipYearFilter,
 } from "./Chip";
-import { SearchContext } from "src/pages/Home";
 import { Genre } from "src/models/tmdb/commun/Genre";
 import { LANGUAGESORIGIN } from "./filter/OriginCountryFilter";
 import { Language } from "src/models/Language";
 import { MediaType } from "src/models/tmdb/enum";
+import { SearchContext } from "src/pages/tmdb/HomeMoviesPage";
 
 interface Props {
   filter: Filter;

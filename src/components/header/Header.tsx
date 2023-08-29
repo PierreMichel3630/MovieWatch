@@ -1,5 +1,3 @@
-import { useContext } from "react";
-
 import {
   AppBar,
   Box,
@@ -8,72 +6,40 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Link, useNavigate } from "react-router-dom";
+import { px } from "csx";
 
 import { AccountMenu } from "./AccountMenu";
 import { NotificationsMenu } from "./NotificationsMenu";
 import { LanguagesMenu } from "./LanguageMenu";
 import { ModeMenu } from "./ModeMenu";
-import { UserContext } from "src/App";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
-import { SearchContext } from "src/pages/Home";
-import { SearchInput } from "../commun/Input";
-
-import MovieIcon from "@mui/icons-material/Movie";
-import { viewWidth } from "csx";
 import { Colors } from "src/style/Colors";
+import { useAuth } from "src/context/AuthProviderSupabase";
+
+import logo from "../../assets/ranking.png";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export const Header = () => {
-  const { type, query, setQuery } = useContext(SearchContext);
+  const { user } = useAuth();
 
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { user } = useContext(UserContext);
-  const DEFAULTPAGE = 1;
-
-  const submitSearch = () => {
-    navigate({
-      pathname: "/search",
-      search: `?query=${query}&page=${DEFAULTPAGE}${
-        type ? `&type=${type}` : ""
-      }`,
-    });
-  };
-  const clearSearch = () => {
-    setQuery("");
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
         <Toolbar id="toolbar">
-          <Link to="/">
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="home"
-              sx={{ mr: 2 }}
+          <Link to="/" style={{ display: "flex", gap: px(10) }}>
+            <img src={logo} width={30} height={30} />
+            <Typography
+              variant="h2"
+              sx={{ display: { xs: "none", sm: "flex" } }}
             >
-              <MovieIcon />
-            </IconButton>
+              RankAllOrNothing
+            </Typography>
           </Link>
-          <Box sx={{ flexGrow: 1 }}>
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                marginRight: viewWidth(10),
-              }}
-            >
-              <SearchInput
-                onChange={(value) => setQuery(value)}
-                submit={submitSearch}
-                value={query}
-                clear={clearSearch}
-              />
-            </Box>
-          </Box>
+          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
             <ModeMenu />
             <LanguagesMenu />
@@ -107,14 +73,6 @@ export const Header = () => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box sx={{ display: { xs: "flex", md: "none" }, marginBottom: 1 }}>
-        <SearchInput
-          onChange={(value) => setQuery(value)}
-          submit={submitSearch}
-          value={query}
-          clear={clearSearch}
-        />
-      </Box>
     </Box>
   );
 };

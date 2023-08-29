@@ -53,7 +53,7 @@ export const CastsSerieBlock = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      getTvCredit(Number(id), language.language).then((res) => {
+      getTvCredit(Number(id), language.iso).then((res) => {
         setCasts(res.cast);
         setIsLoading(false);
       });

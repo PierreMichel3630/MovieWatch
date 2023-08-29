@@ -66,7 +66,7 @@ export const MoviePage = () => {
   useEffect(() => {
     setIsLoadingDetail(true);
     if (id) {
-      getMovieDetails(Number(id), language.language).then((res) => {
+      getMovieDetails(Number(id), language.iso).then((res) => {
         setDetail(res);
         setIsLoadingDetail(false);
       });
@@ -76,7 +76,7 @@ export const MoviePage = () => {
   useEffect(() => {
     setIsLoadingImage(true);
     if (id) {
-      getMovieImage(Number(id), language.language).then((res) => {
+      getMovieImage(Number(id), language.iso).then((res) => {
         setImages([
           ...res.backdrops.map((el) => ({ ...el, type: ImageType.backdrop })),
           ...res.logos.map((el) => ({ ...el, type: ImageType.logo })),
@@ -90,7 +90,7 @@ export const MoviePage = () => {
   useEffect(() => {
     setIsLoadingVideo(true);
     if (id) {
-      getMovieVideo(Number(id), language.language).then((res) => {
+      getMovieVideo(Number(id), language.iso).then((res) => {
         setVideos(res.results);
         setIsLoadingVideo(false);
       });

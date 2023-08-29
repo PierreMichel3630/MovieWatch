@@ -30,6 +30,7 @@ import { normalizeString } from "src/utils/string";
 import { BasicSearchInput } from "../commun/Input";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 export const PersonCreditsBlock = () => {
   const NUMBERLINESHOW = 2;
@@ -109,7 +110,7 @@ export const PersonCreditsBlock = () => {
   useEffect(() => {
     if (id) {
       setIsLoadingMovie(true);
-      getPersonMovieCredit(Number(id), language.language).then((res) => {
+      getPersonMovieCredit(Number(id), language.iso).then((res) => {
         setMovies(res);
         setIsLoadingMovie(false);
       });
@@ -119,7 +120,7 @@ export const PersonCreditsBlock = () => {
   useEffect(() => {
     if (id) {
       setIsLoadingSerie(true);
-      getPersonTVCredit(Number(id), language.language).then((res) => {
+      getPersonTVCredit(Number(id), language.iso).then((res) => {
         setSeries(res);
         setIsLoadingSerie(false);
       });
@@ -137,7 +138,9 @@ export const PersonCreditsBlock = () => {
           clear={() => setSearchMovie("")}
         />
         <Tooltip title={t("commun.filter")}>
-          <Link to={`/discover?page=1&type=${MediaType.movie}&actors=${id}`}>
+          <Link
+            to={`${BASEURLMOVIE}/discover?page=1&type=${MediaType.movie}&actors=${id}`}
+          >
             <IconButton aria-label={t("commun.filter")}>
               <FilterAltIcon />
             </IconButton>

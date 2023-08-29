@@ -1,4 +1,3 @@
-import { px } from "csx";
 import { Colors } from "src/style/Colors";
 
 interface Props {
@@ -18,7 +17,7 @@ export const CircleArc = ({
   const y = size / 2 + strokeWidth;
   const radius = size / 2;
   const startAngle = 0;
-  const endAngle = percent * 360;
+  const endAngle = percent < 1 ? percent * 360 : 359;
   const start = polarToCartesian(x, y, radius, endAngle);
   const end = polarToCartesian(x, y, radius, startAngle);
   const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";

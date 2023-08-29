@@ -8,14 +8,15 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { style } from "typestyle";
-import { User } from "src/models/User";
 import { AccountBadge } from "../commun/AccountBadge";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useTranslation } from "react-i18next";
-import { UserContext } from "src/App";
+import { User } from "@supabase/supabase-js";
+import { useAuth } from "src/context/AuthProviderSupabase";
+import { useNavigate } from "react-router-dom";
 
 const divCss = style({
   display: "flex",
@@ -23,16 +24,25 @@ const divCss = style({
   alignItems: "center",
 });
 
+interface Setting {
+  name: string;
+  url: string;
+}
+
 interface Props {
   user: User;
 }
 
 export const AccountMenu = ({ user }: Props) => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
   const { t } = useTranslation();
-  const { setUser } = useContext(UserContext);
-  const settings = [
-    t("header.account.profile"),
-    t("header.account.parameters"),
+
+  const settings: Array<Setting> = [
+    {
+      name: t("header.account.ranking"),
+      url: "/rank",
+    },
   ];
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -45,9 +55,14 @@ export const AccountMenu = ({ user }: Props) => {
     setAnchorElUser(null);
   };
 
-  const logout = () => {
-    setUser(undefined);
+  const disconnect = async () => {
     handleCloseUserMenu();
+    await logout();
+  };
+
+  const goTo = (url: string) => {
+    handleCloseUserMenu();
+    navigate(url);
   };
 
   return (
@@ -72,26 +87,23 @@ export const AccountMenu = ({ user }: Props) => {
         <div className={divCss}>
           <Avatar
             alt="Avatar"
-            src={user.picture ? user.picture : "/src/assets/man-avatar.svg"}
+            src="/src/assets/man-avatar.svg"
             sx={{ width: 35, height: 35, mr: 2 }}
           />
           <div>
-            <Typography variant="h6">
-              {user.given_name} {user.family_name}
-            </Typography>
             <Typography component="small" variant="caption" color="secondary">
               {user.email}
             </Typography>
           </div>
         </div>
         <Divider />
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <ListItemText>{setting}</ListItemText>
+        {settings.map((setting, index) => (
+          <MenuItem key={index} onClick={() => goTo(setting.url)}>
+            <ListItemText>{setting.name}</ListItemText>
           </MenuItem>
         ))}
         <Divider />
-        <MenuItem onClick={logout}>
+        <MenuItem onClick={disconnect}>
           <ListItemIcon>
             <LogoutIcon fontSize="small" />
           </ListItemIcon>

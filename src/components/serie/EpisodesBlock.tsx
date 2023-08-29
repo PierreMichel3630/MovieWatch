@@ -26,7 +26,7 @@ export const EpisodesBlock = () => {
   useEffect(() => {
     setIsLoadingDetail(true);
     if (id) {
-      getTvDetails(Number(id), language.language).then((res) => {
+      getTvDetails(Number(id), language.iso).then((res) => {
         setDetail(res);
         setIsLoadingDetail(false);
       });
@@ -36,7 +36,7 @@ export const EpisodesBlock = () => {
   useEffect(() => {
     setIsLoadingSeason(true);
     if (id) {
-      getTvSeason(Number(id), selectedSeason, language.language).then((res) => {
+      getTvSeason(Number(id), selectedSeason, language.iso).then((res) => {
         setSeasonDetail(res);
         setIsLoadingSeason(false);
       });

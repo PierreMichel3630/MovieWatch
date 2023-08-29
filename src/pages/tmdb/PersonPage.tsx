@@ -22,7 +22,7 @@ export const PersonPage = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      getPersonDetails(Number(id), language.language).then((res) => {
+      getPersonDetails(Number(id), language.iso).then((res) => {
         setDetail(res);
         setIsLoading(false);
       });

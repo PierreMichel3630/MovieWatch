@@ -9,9 +9,10 @@ import {
 } from "@mui/material";
 import { percent } from "csx";
 
-import { LANGUAGES, Language } from "src/models/Language";
 import { style } from "typestyle";
 import { UserContext } from "src/App";
+import { Language } from "src/models/Language";
+import { BUCKET_LANGUAGE, getUrlPublic } from "src/api/supabase/storage";
 
 const divFlagCss = style({
   width: 24,
@@ -20,13 +21,8 @@ const divFlagCss = style({
   overflow: "hidden",
 });
 
-const flagCss = style({
-  width: 24,
-  height: 24,
-});
-
 export const LanguagesMenu = () => {
-  const { language, setLanguage } = useContext(UserContext);
+  const { language, setLanguage, languages } = useContext(UserContext);
 
   const [anchor, setAnchor] = useState<null | HTMLElement>(null);
 
@@ -45,38 +41,51 @@ export const LanguagesMenu = () => {
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <IconButton
-        aria-label="language"
-        color="inherit"
-        onClick={handleOpenMenu}
-      >
-        <div className={divFlagCss}>{language.flag}</div>
-      </IconButton>
-      <Menu
-        sx={{ mt: "45px" }}
-        id="menu-appbar"
-        anchorEl={anchor}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        open={Boolean(anchor)}
-        onClose={handleCloseMenu}
-      >
-        {LANGUAGES.map((language) => (
-          <MenuItem key={language.id} onClick={() => selectLanguage(language)}>
-            <ListItemIcon>
-              <div className={flagCss}>{language.flag}</div>
-            </ListItemIcon>
-            <ListItemText>{language.name}</ListItemText>
-          </MenuItem>
-        ))}
-      </Menu>
+      {language && (
+        <>
+          <IconButton
+            aria-label="language"
+            color="inherit"
+            onClick={handleOpenMenu}
+          >
+            <img
+              className={divFlagCss}
+              src={getUrlPublic(BUCKET_LANGUAGE, language.image)}
+            />
+          </IconButton>
+          <Menu
+            sx={{ mt: "45px" }}
+            id="menu-appbar"
+            anchorEl={anchor}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchor)}
+            onClose={handleCloseMenu}
+          >
+            {languages.map((language) => (
+              <MenuItem
+                key={language.id}
+                onClick={() => selectLanguage(language)}
+              >
+                <ListItemIcon>
+                  <img
+                    className={divFlagCss}
+                    src={getUrlPublic(BUCKET_LANGUAGE, language.image)}
+                  />
+                </ListItemIcon>
+                <ListItemText>{language.name}</ListItemText>
+              </MenuItem>
+            ))}
+          </Menu>
+        </>
+      )}
     </Box>
   );
 };

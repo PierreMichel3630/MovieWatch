@@ -26,6 +26,7 @@ import { dicoverAll } from "src/api/tmdb/commun";
 import { SortMenu } from "src/components/commun/sort/SortMenu";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 export const DiscoverPage = () => {
   const params = useQuery();
@@ -122,7 +123,7 @@ export const DiscoverPage = () => {
   });
 
   const search = () => {
-    dicoverAll(page, language.language, filter).then((res) => {
+    dicoverAll(page, language.iso, filter).then((res) => {
       setTotalPage(res.total_pages);
       setResults([
         ...res.results.map((el) => ({
@@ -138,7 +139,7 @@ export const DiscoverPage = () => {
 
   const changePage = (value: number) => {
     navigate({
-      pathname: `/discover`,
+      pathname: `${BASEURLMOVIE}/discover`,
       search: `?page=${value}&type=${type}${
         withGenresSelect.length > 0
           ? `&withgenres=${withGenresSelect.join(",")}`
@@ -192,7 +193,7 @@ export const DiscoverPage = () => {
       urlSearch = urlSearch + `&sort=${value.sort}`;
     }
     navigate({
-      pathname: `/discover`,
+      pathname: `${BASEURLMOVIE}/discover`,
       search: urlSearch,
     });
     setFilter(value);

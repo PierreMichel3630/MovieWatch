@@ -138,7 +138,7 @@ export const OriginCountryFilter = ({ filter, onChange }: Props) => {
             <Grid item key={language.id}>
               <ChipLanguage
                 language={language}
-                active={languagesSelect.includes(language.language)}
+                active={languagesSelect.includes(language.iso)}
                 onClick={() => selectLanguage(language)}
               />
             </Grid>

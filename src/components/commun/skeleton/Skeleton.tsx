@@ -116,3 +116,16 @@ export const ChipSkeleton = ({ width = 80, height = 32 }: PropsChip) => (
     sx={{ width: px(width), height: px(height), borderRadius: px(16) }}
   />
 );
+
+export const CardSkeleton = () => (
+  <Card sx={{ height: percent(100) }}>
+    <Skeleton
+      variant="rectangular"
+      sx={{ width: percent(100), height: px(250) }}
+    />
+    <CardContent>
+      <Skeleton width="60%" />
+      <Skeleton width="20%" />
+    </CardContent>
+  </Card>
+);

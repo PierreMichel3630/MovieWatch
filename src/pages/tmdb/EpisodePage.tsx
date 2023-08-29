@@ -81,7 +81,7 @@ export const EpisodePage = () => {
 
   useEffect(() => {
     if (id) {
-      getTvDetails(Number(id), language.language).then((res) => {
+      getTvDetails(Number(id), language.iso).then((res) => {
         setDetail(res);
       });
     }
@@ -91,7 +91,7 @@ export const EpisodePage = () => {
     setIsLoading(true);
     setIsLoadingSeason(true);
     if (id && episode && season) {
-      getTvSeason(Number(id), Number(season), language.language).then((res) => {
+      getTvSeason(Number(id), Number(season), language.iso).then((res) => {
         setSeasonDetail(res);
         const newEpisodeSelect: undefined | EpisodeDetail = res.episodes.find(
           (el) => el.episode_number === Number(episode)
@@ -132,7 +132,7 @@ export const EpisodePage = () => {
         Number(id),
         Number(season),
         Number(episode),
-        language.language
+        language.iso
       ).then((res) => {
         setImages(
           res.stills
@@ -151,7 +151,7 @@ export const EpisodePage = () => {
         Number(id),
         Number(season),
         Number(episode),
-        language.language
+        language.iso
       ).then((res) => {
         setVideos(res.results ? res.results : []);
         setIsLoadingVideo(false);

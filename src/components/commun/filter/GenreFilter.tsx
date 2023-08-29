@@ -3,9 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Filter } from "src/models/tmdb/commun/Filter";
-import { SearchContext } from "src/pages/Home";
 import { ChipGenre } from "../Chip";
 import { Genre } from "src/models/tmdb/commun/Genre";
+import { SearchContext } from "src/pages/tmdb/HomeMoviesPage";
 
 interface Props {
   filter: Filter;

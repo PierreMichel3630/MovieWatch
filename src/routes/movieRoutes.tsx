@@ -1,6 +1,6 @@
-import { Home } from "src/pages/Home";
 import { DiscoverPage } from "src/pages/tmdb/DiscoverPage";
 import { EpisodePage } from "src/pages/tmdb/EpisodePage";
+import { HomeMoviesPage } from "src/pages/tmdb/HomeMoviesPage";
 import { MoviePage } from "src/pages/tmdb/MoviePage";
 import { PersonPage } from "src/pages/tmdb/PersonPage";
 import { SearchPage } from "src/pages/tmdb/SearchPage";
@@ -8,41 +8,43 @@ import { SeriePage } from "src/pages/tmdb/SeriePage";
 import { TrendingPage } from "src/pages/tmdb/TrendingPage";
 import { TrendingSearchPage } from "src/pages/tmdb/TrendingSearchPage";
 
+export const THEMETMDB = 2;
+export const BASEURLMOVIE = "/theme/2";
 export const MovieRoutes = [
   {
-    path: "/",
-    element: <Home />,
+    path: BASEURLMOVIE,
+    element: <HomeMoviesPage />,
     children: [
       {
-        path: "/",
+        path: BASEURLMOVIE,
         element: <TrendingPage />,
       },
       {
-        path: "/search",
+        path: BASEURLMOVIE + "/search",
         element: <SearchPage />,
       },
       {
-        path: "/movie/:id",
+        path: BASEURLMOVIE + "/movie/:id",
         element: <MoviePage />,
       },
       {
-        path: "/person/:id",
+        path: BASEURLMOVIE + "/person/:id",
         element: <PersonPage />,
       },
       {
-        path: "/serie/:id",
+        path: BASEURLMOVIE + "/tv/:id",
         element: <SeriePage />,
       },
       {
-        path: "/serie/:id/season/:season/episode/:episode",
+        path: BASEURLMOVIE + "/tv/:id/season/:season/episode/:episode",
         element: <EpisodePage />,
       },
       {
-        path: "/trending",
+        path: BASEURLMOVIE + "/trendingsearch",
         element: <TrendingSearchPage />,
       },
       {
-        path: "/discover",
+        path: BASEURLMOVIE + "/discover",
         element: <DiscoverPage />,
       },
     ],

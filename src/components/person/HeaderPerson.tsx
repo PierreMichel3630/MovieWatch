@@ -1,4 +1,4 @@
-import { Grid, IconButton, Typography } from "@mui/material";
+import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { percent } from "csx";
 import { useTranslation } from "react-i18next";
 import { style } from "typestyle";
@@ -6,13 +6,26 @@ import { ImageNotFoundBlock } from "../commun/ImageBlock";
 import { PersonDetails } from "src/models/tmdb/person/PersonDetails";
 import moment from "moment";
 import { ExternalIdBlock } from "../commun/ExternalIdBlock";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getPersonExternalId } from "src/api/tmdb/person";
 import { useParams } from "react-router-dom";
 import { HeaderPersonSkeleton } from "../commun/skeleton/HeaderPersonSkeleton";
 import { openInNewTab } from "src/utils/navigation";
 
+import { Rank } from "src/models/Rank";
+import { THEMETMDB } from "src/routes/movieRoutes";
+import { getRanksByIdExtern } from "src/api/supabase/rank";
+import { MediaType } from "src/models/tmdb/enum";
+import {
+  ItemToCheck,
+  ItemToRank,
+  RankContext,
+} from "src/pages/tmdb/HomeMoviesPage";
+
 import LinkIcon from "@mui/icons-material/Link";
+import StarRateIcon from "@mui/icons-material/StarRate";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const posterCss = style({
   width: percent(100),
@@ -26,10 +39,39 @@ interface Props {
 export const HeaderPerson = ({ detail, isLoading = false }: Props) => {
   let { id } = useParams();
   const { t } = useTranslation();
+  const { setItemToRank, setItemToCheck, refresh, setRefresh } =
+    useContext(RankContext);
 
   const [externalId, setExternalId] = useState<undefined | ExternalId>(
     undefined
   );
+  const [rank, setRank] = useState<null | Rank>(null);
+  const [isLoadingRank, setIsLoadingRank] = useState(true);
+
+  useEffect(() => {
+    if (refresh) {
+      setIsLoadingRank(true);
+      getRank();
+      setRefresh(false);
+    }
+  }, [refresh]);
+
+  const getRank = async () => {
+    if (detail) {
+      const { data } = await getRanksByIdExtern(
+        detail.id,
+        THEMETMDB,
+        MediaType.person
+      );
+      setRank(data as Rank);
+      setIsLoadingRank(false);
+    }
+  };
+
+  useEffect(() => {
+    setIsLoadingRank(true);
+    getRank();
+  }, [detail]);
 
   useEffect(() => {
     if (id) {
@@ -38,6 +80,36 @@ export const HeaderPerson = ({ detail, isLoading = false }: Props) => {
       });
     }
   }, [id]);
+
+  const rankPerson = () => {
+    if (detail) {
+      const item: ItemToRank = {
+        id: detail.id,
+        name: detail.name,
+        description: detail.biography,
+        image: `https://image.tmdb.org/t/p/original${detail.profile_path}`,
+        type: MediaType.person,
+      };
+      setItemToRank(item);
+    }
+  };
+
+  const checkPerson = (isSee: boolean) => {
+    if (detail) {
+      const item: ItemToCheck = {
+        id: detail.id,
+        name: detail.name,
+        description: detail.biography,
+        image: `https://image.tmdb.org/t/p/original${detail.profile_path}`,
+        type: MediaType.person,
+        isSee,
+        idRank: rank !== null ? rank.id : undefined,
+      };
+      setItemToCheck(item);
+    }
+  };
+
+  const isCheck = rank !== null;
 
   return isLoading ? (
     <HeaderPersonSkeleton />
@@ -126,6 +198,36 @@ export const HeaderPerson = ({ detail, isLoading = false }: Props) => {
                   </Typography>
                 </Grid>
               )}
+              <Grid item xs={12} sx={{ display: "flex", gap: 2 }}>
+                {!isLoadingRank && (
+                  <>
+                    {isCheck ? (
+                      <Tooltip title={t("commun.notseeactor")}>
+                        <IconButton
+                          aria-label="Check"
+                          onClick={() => checkPerson(false)}
+                        >
+                          <VisibilityOffIcon fontSize="large" />
+                        </IconButton>
+                      </Tooltip>
+                    ) : (
+                      <Tooltip title={t("commun.seeactor")}>
+                        <IconButton
+                          aria-label="Check"
+                          onClick={() => checkPerson(true)}
+                        >
+                          <VisibilityIcon fontSize="large" />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                    <Tooltip title={t("commun.rankactor")}>
+                      <IconButton aria-label="Rate" onClick={rankPerson}>
+                        <StarRateIcon fontSize="large" />
+                      </IconButton>
+                    </Tooltip>
+                  </>
+                )}
+              </Grid>
               {detail.biography !== "" && (
                 <Grid
                   item

@@ -246,7 +246,7 @@ export const ChipLanguage = ({
   language,
 }: PropsChipLanguage) => (
   <Chip
-    avatar={<Avatar>{language.flag}</Avatar>}
+    avatar={<Avatar>{language.image}</Avatar>}
     label={language.name}
     variant={active ? "filled" : "outlined"}
     onClick={onClick}
@@ -263,7 +263,7 @@ export const ChipLanguageFilter = ({
   value,
 }: PropsChipLanguageFilter) => (
   <Chip
-    avatar={<Avatar>{value.flag}</Avatar>}
+    avatar={<Avatar>{value.image}</Avatar>}
     label={value.name}
     variant={"outlined"}
     sx={{ padding: px(2) }}
@@ -283,7 +283,7 @@ export const ChipActorFilter = ({ onDelete, id }: PropsChipActorFilter) => {
 
   useEffect(() => {
     setIsLoading(true);
-    getPersonDetails(id, language.language).then((res) => {
+    getPersonDetails(id, language.iso).then((res) => {
       setActor(res);
       setIsLoading(false);
     });

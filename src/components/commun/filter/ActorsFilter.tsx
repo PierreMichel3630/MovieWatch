@@ -21,7 +21,7 @@ export const ActorsFilter = ({ filter, onChange }: Props) => {
 
   useEffect(() => {
     if (search !== "") {
-      searchPerson(search, language.language, 1).then((res) => {
+      searchPerson(search, language.iso, 1).then((res) => {
         setResults([...res.results]);
       });
     } else {

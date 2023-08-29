@@ -1,10 +1,10 @@
 import { Avatar, Typography } from "@mui/material";
-import { User } from "src/models/User";
 import { BadgeAccountActive } from "./Badge";
 import { border } from "csx";
 import { Colors } from "src/style/Colors";
 import { style } from "typestyle";
 import { useTranslation } from "react-i18next";
+import { User } from "@supabase/supabase-js";
 
 const divCss = style({
   display: "flex",
@@ -28,10 +28,16 @@ export const AccountBadge = ({ user, onClick }: Props) => {
   const { t } = useTranslation();
   return (
     <div onClick={onClick} className={divCss}>
-      <Typography component="small" variant="caption" color="secondary" ml={1}>
-        {t("header.account.hi")},
-      </Typography>
       <Typography
+        component="small"
+        variant="caption"
+        color="secondary"
+        ml={1}
+        sx={{ display: { xs: "none", md: "flex" } }}
+      >
+        {t("header.account.hi")}
+      </Typography>
+      {/*<Typography
         component="small"
         variant="caption"
         sx={{ fontWeight: 700 }}
@@ -40,7 +46,7 @@ export const AccountBadge = ({ user, onClick }: Props) => {
         color="secondary"
       >
         {user.given_name} {user.family_name}
-      </Typography>
+  </Typography>*/}
       <BadgeAccountActive
         anchorOrigin={{
           vertical: "bottom",
@@ -51,7 +57,7 @@ export const AccountBadge = ({ user, onClick }: Props) => {
       >
         <Avatar
           alt="Avatar"
-          src={user.picture ? user.picture : "/src/assets/man-avatar.svg"}
+          src="/src/assets/man-avatar.svg"
           sx={{ width: 28, height: 28 }}
         />
       </BadgeAccountActive>

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
 import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
+import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 const posterCss = style({
   maxHeight: viewHeight(40),
@@ -54,7 +55,9 @@ export const HeaderSerieEpisode = ({
               <Typography
                 variant="h1"
                 sx={{ cursor: "pointer" }}
-                onClick={() => navigate(`/serie/${Number(detail.id)}`)}
+                onClick={() =>
+                  navigate(`${BASEURLMOVIE}/tv/${Number(detail.id)}`)
+                }
               >
                 {detail ? detail.name : ""}
               </Typography>

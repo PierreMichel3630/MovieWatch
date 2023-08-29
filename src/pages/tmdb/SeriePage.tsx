@@ -64,7 +64,7 @@ export const SeriePage = () => {
   useEffect(() => {
     setIsLoadingDetail(true);
     if (id) {
-      getTvDetails(Number(id), language.language).then((res) => {
+      getTvDetails(Number(id), language.iso).then((res) => {
         setDetail(res);
         setIsLoadingDetail(false);
       });
@@ -74,7 +74,7 @@ export const SeriePage = () => {
   useEffect(() => {
     setIsLoadingImage(true);
     if (id) {
-      getTvImage(Number(id), language.language).then((res) => {
+      getTvImage(Number(id), language.iso).then((res) => {
         setImages([
           ...res.backdrops.map((el) => ({ ...el, type: ImageType.backdrop })),
           ...res.logos.map((el) => ({ ...el, type: ImageType.logo })),
@@ -88,7 +88,7 @@ export const SeriePage = () => {
   useEffect(() => {
     setIsLoadingVideo(true);
     if (id) {
-      getTvVideo(Number(id), language.language).then((res) => {
+      getTvVideo(Number(id), language.iso).then((res) => {
         setVideos(res.results);
         setIsLoadingVideo(false);
       });
