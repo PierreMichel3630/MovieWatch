@@ -33,12 +33,14 @@ import {
 import StarRateIcon from "@mui/icons-material/StarRate";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { RankBadge } from "./RankBadge";
 
 const cardCss = style({
   cursor: "pointer",
   height: percent(100),
   display: "flex",
   flexDirection: "column",
+  position: "relative",
 });
 
 interface PropsSearch {
@@ -135,74 +137,91 @@ export const CardMovieSearch = ({ value }: PropsMovieSearch) => {
   return (
     <Link to={`${BASEURLMOVIE}/movie/${value.id}`}>
       <Card className={cardCss}>
-        {value.poster_path !== null ? (
-          <CardMedia
-            sx={{ aspectRatio: "2/3" }}
-            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-            title={value.title}
-          />
-        ) : (
-          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-        )}
-        <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: percent(2),
-              transform: "translate(0%,-90%)",
+        <>
+          {rank && (
+            <div
+              style={{
+                position: "absolute",
+                top: percent(2),
+                left: percent(2),
+              }}
+            >
+              <RankBadge rank={rank.rank} />
+            </div>
+          )}
+          {value.poster_path !== null ? (
+            <CardMedia
+              sx={{ aspectRatio: "2/3" }}
+              image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+              title={value.title}
+            />
+          ) : (
+            <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+          )}
+          <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                right: percent(2),
+                transform: "translate(0%,-90%)",
+              }}
+            >
+              <VoteBadge
+                value={
+                  rank && rank.notation ? rank.notation : value.vote_average
+                }
+              />
+            </div>
+            <Typography variant="h4">{value.title}</Typography>
+            <Typography>{moment(value.release_date).format("YYYY")}</Typography>
+            <Typography>{getListGenre(value.genre_ids)}</Typography>
+          </CardContent>
+          <CardActions
+            disableSpacing
+            sx={{
+              justifyContent: "flex-end",
+              display: "flex",
+              gap: px(5),
+              mt: "auto",
             }}
           >
-            <VoteBadge value={value.vote_average} />
-          </div>
-          <Typography variant="h4">{value.title}</Typography>
-          <Typography>{moment(value.release_date).format("YYYY")}</Typography>
-          <Typography>{getListGenre(value.genre_ids)}</Typography>
-        </CardContent>
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "flex-end",
-            display: "flex",
-            gap: px(5),
-            mt: "auto",
-          }}
-        >
-          {!isLoadingRank && (
-            <>
-              {isCheck ? (
-                <Tooltip title={t("commun.notseemovie")}>
+            {!isLoadingRank && (
+              <>
+                {isCheck ? (
+                  <Tooltip title={t("commun.notseemovie")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkMovie(event, false)}
+                    >
+                      <VisibilityOffIcon />
+                    </IconButton>
+                  </Tooltip>
+                ) : (
+                  <Tooltip title={t("commun.seemovie")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkMovie(event, true)}
+                    >
+                      <VisibilityIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                <Tooltip title={t("commun.rankmovie")}>
                   <IconButton
-                    aria-label="Check"
+                    aria-label="Rate"
                     size="small"
-                    onClick={(event) => checkMovie(event, false)}
+                    onClick={(event) => rankMovie(event)}
                   >
-                    <VisibilityOffIcon />
+                    <StarRateIcon />
                   </IconButton>
                 </Tooltip>
-              ) : (
-                <Tooltip title={t("commun.seemovie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkMovie(event, true)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Tooltip title={t("commun.rankmovie")}>
-                <IconButton
-                  aria-label="Rate"
-                  size="small"
-                  onClick={(event) => rankMovie(event)}
-                >
-                  <StarRateIcon />
-                </IconButton>
-              </Tooltip>
-            </>
-          )}
-        </CardActions>
+              </>
+            )}
+          </CardActions>
+        </>
       </Card>
     </Link>
   );
@@ -280,78 +299,91 @@ export const CardTvSearch = ({ value }: PropsTvSearch) => {
   return (
     <Link to={`${BASEURLMOVIE}/tv/${value.id}`}>
       <Card className={cardCss}>
-        {value.poster_path !== null ? (
-          <CardMedia
-            sx={{ aspectRatio: "2/3" }}
-            image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
-            title={value.name}
-          />
-        ) : (
-          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-        )}
-        <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: percent(2),
-              transform: "translate(0%,-90%)",
+        <>
+          {rank && (
+            <div
+              style={{
+                position: "absolute",
+                top: percent(2),
+                left: percent(2),
+              }}
+            >
+              <RankBadge rank={rank.rank} />
+            </div>
+          )}
+          {value.poster_path !== null ? (
+            <CardMedia
+              sx={{ aspectRatio: "2/3" }}
+              image={`https://image.tmdb.org/t/p/w500${value.poster_path}`}
+              title={value.name}
+            />
+          ) : (
+            <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+          )}
+          <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                right: percent(2),
+                transform: "translate(0%,-90%)",
+              }}
+            >
+              <VoteBadge value={value.vote_average} />
+            </div>
+            <Typography variant="h4">{value.name}</Typography>
+            <Typography variant="body1">
+              {moment(value.first_air_date).format("YYYY")}
+            </Typography>
+            <Typography variant="body1">
+              {getListGenre(value.genre_ids)}
+            </Typography>
+          </CardContent>
+          <CardActions
+            disableSpacing
+            sx={{
+              justifyContent: "flex-end",
+              display: "flex",
+              gap: px(5),
+              mt: "auto",
             }}
           >
-            <VoteBadge value={value.vote_average} />
-          </div>
-          <Typography variant="h4">{value.name}</Typography>
-          <Typography variant="body1">
-            {moment(value.first_air_date).format("YYYY")}
-          </Typography>
-          <Typography variant="body1">
-            {getListGenre(value.genre_ids)}
-          </Typography>
-        </CardContent>
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "flex-end",
-            display: "flex",
-            gap: px(5),
-            mt: "auto",
-          }}
-        >
-          {!isLoadingRank && (
-            <>
-              {isCheck ? (
-                <Tooltip title={t("commun.notseeserie")}>
+            {!isLoadingRank && (
+              <>
+                {isCheck ? (
+                  <Tooltip title={t("commun.notseeserie")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkTv(event, false)}
+                    >
+                      <VisibilityOffIcon />
+                    </IconButton>
+                  </Tooltip>
+                ) : (
+                  <Tooltip title={t("commun.seeserie")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkTv(event, true)}
+                    >
+                      <VisibilityIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                <Tooltip title={t("commun.rankserie")}>
                   <IconButton
-                    aria-label="Check"
+                    aria-label="Rate"
                     size="small"
-                    onClick={(event) => checkTv(event, false)}
+                    onClick={(event) => rankTv(event)}
                   >
-                    <VisibilityOffIcon />
+                    <StarRateIcon />
                   </IconButton>
                 </Tooltip>
-              ) : (
-                <Tooltip title={t("commun.seeserie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkTv(event, true)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Tooltip title={t("commun.rankserie")}>
-                <IconButton
-                  aria-label="Rate"
-                  size="small"
-                  onClick={(event) => rankTv(event)}
-                >
-                  <StarRateIcon />
-                </IconButton>
-              </Tooltip>
-            </>
-          )}
-        </CardActions>
+              </>
+            )}
+          </CardActions>
+        </>
       </Card>
     </Link>
   );
@@ -429,76 +461,91 @@ export const CardPersonSearch = ({ value }: PropsPersonSearch) => {
   return (
     <Link to={`${BASEURLMOVIE}/person/${value.id}`}>
       <Card className={cardCss}>
-        {value.profile_path !== null ? (
-          <CardMedia
-            sx={{ aspectRatio: "2/3" }}
-            image={`https://image.tmdb.org/t/p/w500${value.profile_path}`}
-            title={value.name}
-          />
-        ) : (
-          <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
-        )}
-        <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
-          <Typography variant="h4">{value.name}</Typography>
-          <Typography variant="body1">{value.known_for_department}</Typography>
-          <Typography variant="h6">{t("card.knowfor")}</Typography>
-          <Typography
-            variant="caption"
-            color="secondary"
+        <>
+          {rank && (
+            <div
+              style={{
+                position: "absolute",
+                top: percent(2),
+                left: percent(2),
+              }}
+            >
+              <RankBadge rank={rank.rank} />
+            </div>
+          )}
+          {value.profile_path !== null ? (
+            <CardMedia
+              sx={{ aspectRatio: "2/3" }}
+              image={`https://image.tmdb.org/t/p/w500${value.profile_path}`}
+              title={value.name}
+            />
+          ) : (
+            <ImageNotFoundBlock style={{ aspectRatio: "2/3" }} />
+          )}
+          <CardContent sx={{ position: "relative", mt: 1, p: 1, pb: 0 }}>
+            <Typography variant="h4">{value.name}</Typography>
+            <Typography variant="body1">
+              {value.known_for_department}
+            </Typography>
+            <Typography variant="h6">{t("card.knowfor")}</Typography>
+            <Typography
+              variant="caption"
+              color="secondary"
+              sx={{
+                display: "-webkit-box",
+                overflow: "hidden",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 4,
+              }}
+            >
+              {value.known_for.map((el) => el.title).join(", ")}
+            </Typography>
+          </CardContent>
+          <CardActions
+            disableSpacing
             sx={{
-              display: "-webkit-box",
-              overflow: "hidden",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 4,
+              justifyContent: "flex-end",
+              display: "flex",
+              gap: px(5),
+              mt: "auto",
             }}
           >
-            {value.known_for.map((el) => el.title).join(", ")}
-          </Typography>
-        </CardContent>
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "flex-end",
-            display: "flex",
-            gap: px(5),
-            mt: "auto",
-          }}
-        >
-          {!isLoadingRank && (
-            <>
-              {isCheck ? (
-                <Tooltip title={t("commun.notseeactor")}>
+            {!isLoadingRank && (
+              <>
+                {isCheck ? (
+                  <Tooltip title={t("commun.notseeactor")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkPerson(event, false)}
+                    >
+                      <VisibilityOffIcon />
+                    </IconButton>
+                  </Tooltip>
+                ) : (
+                  <Tooltip title={t("commun.seeactor")}>
+                    <IconButton
+                      aria-label="Check"
+                      size="small"
+                      onClick={(event) => checkPerson(event, true)}
+                    >
+                      <VisibilityIcon />
+                    </IconButton>
+                  </Tooltip>
+                )}
+                <Tooltip title={t("commun.rankactor")}>
                   <IconButton
-                    aria-label="Check"
+                    aria-label="Rate"
                     size="small"
-                    onClick={(event) => checkPerson(event, false)}
+                    onClick={(event) => rankPerson(event)}
                   >
-                    <VisibilityOffIcon />
+                    <StarRateIcon />
                   </IconButton>
                 </Tooltip>
-              ) : (
-                <Tooltip title={t("commun.seeactor")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkPerson(event, true)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Tooltip title={t("commun.rankactor")}>
-                <IconButton
-                  aria-label="Rate"
-                  size="small"
-                  onClick={(event) => rankPerson(event)}
-                >
-                  <StarRateIcon />
-                </IconButton>
-              </Tooltip>
-            </>
-          )}
-        </CardActions>
+              </>
+            )}
+          </CardActions>
+        </>
       </Card>
     </Link>
   );

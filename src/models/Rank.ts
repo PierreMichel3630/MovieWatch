@@ -6,6 +6,7 @@ export interface Rank {
   notation: number;
   value: Value;
   opinion: string;
+  type: string | null;
 }
 
 export interface RankDetail {
@@ -20,14 +21,15 @@ export interface RankDetail {
   language: number;
   type: string | null;
   id_extern: string | null;
+  theme: number;
 }
 
 export interface RankUpdate {
   id: number;
-  rank: number;
-  notation: number;
+  rank?: number;
+  notation?: number;
   value?: number;
-  opinion: string;
+  opinion?: string;
   id_extern?: string;
   type?: string;
   theme?: number;
@@ -48,4 +50,5 @@ export interface CheckInsert {
   id_extern?: string;
   type?: string;
   theme?: number;
+  rank: number;
 }

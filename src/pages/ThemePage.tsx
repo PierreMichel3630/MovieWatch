@@ -6,7 +6,8 @@ import { getThemeById } from "src/api/supabase/theme";
 import { ThemeView } from "src/models/Theme";
 import { TitleTheme } from "src/components/commun/Title";
 import { BlockThemeOverview } from "src/components/theme/BlockThemeOverview";
-import { BlockThemeRanking } from "src/components/theme/BlockThemeRanking";
+import { RankBlock } from "src/components/RankBlock";
+import { px } from "csx";
 
 export const ThemePage = () => {
   const { t } = useTranslation();
@@ -33,10 +34,19 @@ export const ThemePage = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={2} alignItems="center">
+      <Grid
+        container
+        spacing={1}
+        alignItems="center"
+        sx={{ position: "relative" }}
+      >
         {theme && (
           <>
-            <Grid item xs={12} sx={{ textAlign: "center" }}>
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", gap: px(15), justifyContent: "center" }}
+            >
               <TitleTheme value={theme} />
             </Grid>
             <Grid item xs={12}>
@@ -54,7 +64,7 @@ export const ThemePage = () => {
               {tab === 0 ? (
                 <BlockThemeOverview theme={theme} />
               ) : (
-                <BlockThemeRanking theme={theme} />
+                <RankBlock theme={theme} />
               )}
             </Grid>
           </>

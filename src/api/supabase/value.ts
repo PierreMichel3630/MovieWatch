@@ -27,6 +27,13 @@ export const getValuesByTheme = async (
   return supabase.from(SUPABASE_VALUEVIEW_TABLE).select().eq("theme", idTheme);
 };
 
+export const countValueByTheme = (idTheme: number) => {
+  return supabase
+    .from(SUPABASE_VALUEVIEW_TABLE)
+    .select("*", { count: "exact", head: true })
+    .eq("theme", idTheme);
+};
+
 export const insertValue = (value: ValueInsert) =>
   supabase.from(SUPABASE_VALUE_TABLE).insert(value).select().single();
 

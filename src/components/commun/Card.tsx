@@ -10,6 +10,8 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { percent, px } from "csx";
 import { Link } from "react-router-dom";
 import { classes, style } from "typestyle";
@@ -46,12 +48,14 @@ import {
   RankContext,
 } from "src/pages/tmdb/HomeMoviesPage";
 import { getRanksByIdExtern } from "src/api/supabase/rank";
+import { RankBadge } from "./RankBadge";
 
 import StarRateIcon from "@mui/icons-material/StarRate";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CheckIcon from "@mui/icons-material/Check";
 import ClearIcon from "@mui/icons-material/Clear";
+import LinkIcon from "@mui/icons-material/Link";
 
 const cardCss = style({
   cursor: "pointer",
@@ -611,7 +615,19 @@ export const CardValue = ({
   return (
     <Card
       className={isCheck ? classes(cardHeightCss, cardCheckCss) : cardHeightCss}
+      sx={{ position: "relative" }}
     >
+      {rank && (
+        <div
+          style={{
+            position: "absolute",
+            top: percent(2),
+            left: percent(2),
+          }}
+        >
+          <RankBadge rank={rank.rank} />
+        </div>
+      )}
       <CardMedia
         sx={{
           width: percent(100),
@@ -631,7 +647,7 @@ export const CardValue = ({
               transform: "translate(0%,-65%)",
             }}
           >
-            <VoteBadge value={rank.notation} />
+            <VoteBadge value={rank.notation} tooltip={rank.opinion} />
           </div>
         )}
         {trad && (
@@ -731,26 +747,66 @@ interface PropsCardRank {
   rank: RankDetail;
   rate: () => void;
   remove: () => void;
+  index: number;
 }
 
-export const CardRank = ({ rank, rate, remove }: PropsCardRank) => {
+export const CardRank = ({ index, rank, rate, remove }: PropsCardRank) => {
   const { t } = useTranslation();
   const { language } = useContext(UserContext);
   const isTradLocal = language.id === rank.language;
 
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: rank.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  const removeRank = (event: any) => {
+    event.preventDefault();
+    remove();
+  };
+
+  const rateRank = (event: any) => {
+    event.preventDefault();
+    rate();
+  };
+
   return (
-    <Card className={cardHeightCss}>
+    <Card
+      className={classes(cardCss, cardHeightCss)}
+      ref={setNodeRef}
+      {...attributes}
+      style={style}
+      sx={{ position: "relative" }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: percent(2),
+          left: percent(2),
+        }}
+      >
+        <RankBadge rank={index + 1} />
+      </div>
+
       <CardMedia
         sx={{
           width: percent(100),
           aspectRatio: "auto",
           maxHeight: percent(100),
           minHeight: px(250),
+          cursor: "grab",
         }}
         image={getUrlPublic(BUCKET_VALUE, rank.image)}
         title={rank.name}
+        {...listeners}
       />
-      <CardContent sx={{ position: "relative", mt: 1 }}>
+      <CardContent
+        sx={{ position: "relative", mt: 1, cursor: "grab" }}
+        {...listeners}
+      >
         <div
           style={{
             position: "absolute",
@@ -759,7 +815,7 @@ export const CardRank = ({ rank, rate, remove }: PropsCardRank) => {
             transform: "translate(0%,-65%)",
           }}
         >
-          <VoteBadge value={rank.notation} />
+          <VoteBadge value={rank.notation} tooltip={rank.opinion} />
         </div>
 
         {isTradLocal ? (
@@ -786,10 +842,10 @@ export const CardRank = ({ rank, rate, remove }: PropsCardRank) => {
         )}
       </CardContent>
       <CardActions sx={{ justifyContent: "flex-end", display: "flex" }}>
-        <IconButton aria-label="Remove" onClick={remove}>
+        <IconButton aria-label="Remove" onClick={(event) => removeRank(event)}>
           <ClearIcon />
         </IconButton>
-        <IconButton aria-label="Rate" onClick={rate}>
+        <IconButton aria-label="Rate" onClick={(event) => rateRank(event)}>
           <StarRateIcon />
         </IconButton>
       </CardActions>
@@ -801,13 +857,27 @@ interface PropsCardRankTmdb {
   rank: RankDetail;
   rate: (value: ItemToRank) => void;
   remove: () => void;
+  index: number;
 }
 
-export const CardRankTmdb = ({ rank, rate, remove }: PropsCardRankTmdb) => {
+export const CardRankTmdb = ({
+  index,
+  rank,
+  rate,
+  remove,
+}: PropsCardRankTmdb) => {
   const { language } = useContext(UserContext);
 
   const [value, setValue] = useState<undefined | ItemToRank>(undefined);
   const [loading, setLoading] = useState(true);
+
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: rank.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   const getItemTMDB = () => {
     const id = rank.id_extern;
@@ -881,7 +951,13 @@ export const CardRankTmdb = ({ rank, rate, remove }: PropsCardRankTmdb) => {
   };
 
   return (
-    <Card className={cardHeightCss} sx={{ cursor: "pointer" }}>
+    <Card
+      className={classes(cardCss, cardHeightCss)}
+      ref={setNodeRef}
+      {...attributes}
+      style={style}
+      sx={{ position: "relative" }}
+    >
       {loading || value === undefined ? (
         <>
           <Skeleton
@@ -894,17 +970,31 @@ export const CardRankTmdb = ({ rank, rate, remove }: PropsCardRankTmdb) => {
           </CardContent>
         </>
       ) : (
-        <Link to={`${BASEURLMOVIE}/${value.type.toString()}/${value.id}`}>
+        <>
+          <div
+            style={{
+              position: "absolute",
+              top: percent(2),
+              left: percent(2),
+            }}
+          >
+            <RankBadge rank={index + 1} />
+          </div>
           <CardMedia
             sx={{
               width: percent(100),
               aspectRatio: "2/3",
               minHeight: px(300),
+              cursor: "grab",
             }}
             image={value.image}
             title={value.name}
+            {...listeners}
           />
-          <CardContent sx={{ position: "relative", mt: 1 }}>
+          <CardContent
+            sx={{ position: "relative", mt: 1, pb: 1, cursor: "grab" }}
+            {...listeners}
+          >
             <div
               style={{
                 position: "absolute",
@@ -930,21 +1020,41 @@ export const CardRankTmdb = ({ rank, rate, remove }: PropsCardRankTmdb) => {
               </Typography>
             </Tooltip>
           </CardContent>
-          <CardActions sx={{ justifyContent: "flex-end", display: "flex" }}>
-            <IconButton
-              aria-label="Remove"
-              onClick={(event) => removeRank(event)}
-            >
-              <ClearIcon />
-            </IconButton>
-            <IconButton
-              aria-label="Rate"
-              onClick={(event) => rateRank(event, value)}
-            >
-              <StarRateIcon />
-            </IconButton>
+          <CardActions
+            sx={{
+              mt: "auto",
+              justifyContent: "flex-end",
+              display: "flex",
+              alignItems: "center",
+              padding: px(2),
+              gap: px(2),
+            }}
+          >
+            <Grid item>
+              <Link to={`${BASEURLMOVIE}/${value.type.toString()}/${value.id}`}>
+                <IconButton aria-label="Go to">
+                  <LinkIcon />
+                </IconButton>
+              </Link>
+            </Grid>
+            <Grid item>
+              <IconButton
+                aria-label="Remove"
+                onClick={(event) => removeRank(event)}
+              >
+                <ClearIcon />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton
+                aria-label="Rate"
+                onClick={(event) => rateRank(event, value)}
+              >
+                <StarRateIcon />
+              </IconButton>
+            </Grid>
           </CardActions>
-        </Link>
+        </>
       )}
     </Card>
   );

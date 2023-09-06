@@ -2,6 +2,7 @@ import { RankPage } from "src/pages/RankPage";
 import { SearchThemePage } from "src/pages/SearchThemePage";
 import { ThemePage } from "src/pages/ThemePage";
 import { TranslatePage } from "src/pages/TranslatePage";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const CommunRoutes = [
   {
@@ -14,7 +15,11 @@ export const CommunRoutes = [
   },
   {
     path: "/rank",
-    element: <RankPage />,
+    element: (
+      <ProtectedRoute>
+        <RankPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/translate",

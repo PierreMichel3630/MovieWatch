@@ -17,7 +17,7 @@ interface Props {
   open: boolean;
   close: () => void;
   value: ItemToRank;
-  validate: () => void;
+  validate: (id: number) => void;
 }
 
 export const RankTMDBDialog = ({ open, close, value, validate }: Props) => {
@@ -54,7 +54,7 @@ export const RankTMDBDialog = ({ open, close, value, validate }: Props) => {
                 id_extern={value.id.toString()}
                 type={value.type.toString()}
                 id_theme={THEMETMDB}
-                validate={validate}
+                validate={() => validate(value.id)}
                 rank={rank}
               />
             </Grid>

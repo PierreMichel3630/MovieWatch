@@ -5,6 +5,7 @@ import { UserContext } from "src/App";
 import {
   deleteRank,
   getRanksByUserAndThemeAndType,
+  updateRank,
 } from "src/api/supabase/rank";
 import { useAuth } from "src/context/AuthProviderSupabase";
 import { RankDetail } from "src/models/Rank";
@@ -15,6 +16,22 @@ import { MessageSnackbar } from "../commun/Snackbar";
 import { CardRankTmdb } from "../commun/Card";
 import { ItemToRank } from "src/pages/tmdb/HomeMoviesPage";
 import { RankTMDBDialog } from "../dialog/RankTMDBDialog";
+import {
+  DndContext,
+  DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  arrayMove,
+  rectSortingStrategy,
+  sortableKeyboardCoordinates,
+} from "@dnd-kit/sortable";
+import { sortByRank } from "src/utils/sort";
 
 export const BlockRankTmdb = () => {
   const ITEMPERPAGE = 20;
@@ -32,6 +49,13 @@ export const BlockRankTmdb = () => {
     undefined
   );
 
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
   const selectFilter = (value: MediaType) => {
     setFilter(value);
   };
@@ -44,7 +68,8 @@ export const BlockRankTmdb = () => {
         filter.toString()
       );
       if (data) {
-        setRanks(data as Array<RankDetail>);
+        const newRanks = data as Array<RankDetail>;
+        setRanks(newRanks.sort(sortByRank));
         setIsLoading(false);
       }
     }
@@ -78,6 +103,22 @@ export const BlockRankTmdb = () => {
   const refreshRank = () => {
     closeModalRank();
     getAllRanks();
+  };
+
+  const handleDragEnd = async (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (active.data.current && over && over.data.current) {
+      const id = Number(active.id);
+      const oldIndex = ranks.findIndex((el) => el.id === active.id);
+      const newIndex = ranks.findIndex((el) => el.id === over.id);
+      const newArray = arrayMove(ranks, oldIndex, newIndex);
+      setRanks(newArray);
+      const { error } = await updateRank({ id: id, rank: newIndex + 1 });
+      if (error) {
+        setMessage(t("commun.error"));
+        getAllRanks();
+      }
+    }
   };
 
   return (
@@ -120,15 +161,28 @@ export const BlockRankTmdb = () => {
           </Grid>
         ))
       ) : ranks.length > 0 ? (
-        ranks.map((rank) => (
-          <Grid key={rank.id} item xs={12} sm={6} md={4} lg={3} xl={3}>
-            <CardRankTmdb
-              rank={rank}
-              rate={rateRank}
-              remove={() => removeRank(rank)}
-            />
-          </Grid>
-        ))
+        <Grid item xs={12}>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext items={ranks} strategy={rectSortingStrategy}>
+              <Grid container spacing={1}>
+                {ranks.map((rank, index) => (
+                  <Grid key={rank.id} item xs={12} sm={6} md={4} lg={3} xl={3}>
+                    <CardRankTmdb
+                      rank={rank}
+                      index={index}
+                      rate={rateRank}
+                      remove={() => removeRank(rank)}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </SortableContext>
+          </DndContext>
+        </Grid>
       ) : (
         <Grid item xs={12} sx={{ marginTop: 2 }}>
           <Alert severity="warning">{t("commun.noresult")}</Alert>

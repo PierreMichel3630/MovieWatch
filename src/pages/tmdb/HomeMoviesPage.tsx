@@ -14,7 +14,11 @@ import { RankTMDBDialog } from "src/components/dialog/RankTMDBDialog";
 
 import MovieIcon from "@mui/icons-material/Movie";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import { deleteRank, insertCheck } from "src/api/supabase/rank";
+import {
+  countRanksByThemeAndType,
+  deleteRank,
+  insertCheck,
+} from "src/api/supabase/rank";
 import { useTranslation } from "react-i18next";
 
 export const SearchContext = createContext<{
@@ -123,17 +127,20 @@ export const HomeMoviesPage = () => {
     setItemToRank(undefined);
   };
 
-  const validateRank = () => {
+  const validateRank = (id: number) => {
     closeModalRank();
-    setRefresh(undefined);
+    setRefresh(id);
     setItemToRank(undefined);
   };
 
   const checkValue = async (value: ItemToCheck) => {
+    const res = await countRanksByThemeAndType(Number(THEMETMDB), value.type);
+    const rank = res.count !== null ? Number(res.count + 1) : 1;
     const { error } = await insertCheck({
       id_extern: value.id.toString(),
       type: value.type.toString(),
       theme: THEMETMDB,
+      rank,
     });
     if (error) {
       setMessage(t("commun.error"));

@@ -223,7 +223,10 @@
     },
     "rate": {
       "requiredrate": "Veuillez saisir une note",
-      "opinion": "Avis"
+      "requiredrank": "Veuillez un classement",
+      "minmaxrank": "Veuillez un classement entre {{min}} et {{max}} ",
+      "opinion": "Avis",
+      "rank": "Classement"
     }
   },
   "card": {

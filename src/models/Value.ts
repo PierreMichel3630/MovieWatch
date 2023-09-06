@@ -10,6 +10,7 @@ export interface ValueView {
     description: string;
     iso: string;
   }>;
+  theme: number;
   languages: Array<number>;
 }
 

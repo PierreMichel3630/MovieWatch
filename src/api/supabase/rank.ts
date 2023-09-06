@@ -3,15 +3,37 @@ import { supabase } from "../supabase";
 
 export const SUPABASE_RANK_TABLE = "rank";
 
+export const calculationRank = (theme: number, notation: number) =>
+  supabase
+    .from(SUPABASE_RANK_TABLE)
+    .select("*", { count: "exact", head: true })
+    .eq("theme", theme)
+    .gt("notation", notation);
+
 export const getRanks = () => {
   return supabase.from(SUPABASE_RANK_TABLE).select("*, value!inner(*)");
+};
+
+export const countRanksByTheme = (idTheme: number) => {
+  return supabase
+    .from(SUPABASE_RANK_TABLE)
+    .select("*", { count: "exact", head: true })
+    .eq("theme", idTheme);
+};
+
+export const countRanksByThemeAndType = (idTheme: number, type: string) => {
+  return supabase
+    .from(SUPABASE_RANK_TABLE)
+    .select("*", { count: "exact", head: true })
+    .eq("theme", idTheme)
+    .eq("type", type);
 };
 
 export const getRanksByTheme = (idTheme: number) => {
   return supabase
     .from(SUPABASE_RANK_TABLE)
     .select("*, value!inner(*)")
-    .eq("value.theme", idTheme)
+    .eq("theme", idTheme)
     .order("notation", { ascending: false });
 };
 

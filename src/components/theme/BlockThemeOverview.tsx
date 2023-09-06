@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { UserContext } from "src/App";
 import {
+  countRanksByTheme,
   deleteRank,
   getRanksByTheme,
   insertCheck,
 } from "src/api/supabase/rank";
-import { getValuesByTheme } from "src/api/supabase/value";
+import { countValueByTheme, getValuesByTheme } from "src/api/supabase/value";
 import { CardValue } from "src/components/commun/Card";
 import { BasicSearchInput } from "src/components/commun/Input";
 import { CardSkeleton } from "src/components/commun/skeleton/Skeleton";
@@ -23,6 +24,7 @@ import TranslateIcon from "@mui/icons-material/Translate";
 import { RankDialog } from "../dialog/RankDialog";
 import { MessageSnackbar } from "../commun/Snackbar";
 import { sortByTrads } from "src/utils/sort";
+import { CompletedBadge } from "../commun/CompletedBadge";
 
 interface Props {
   theme: ThemeView;
@@ -38,6 +40,9 @@ export const BlockThemeOverview = ({ theme }: Props) => {
   const [values, setValues] = useState<Array<ValueView>>([]);
   const [value, setValue] = useState<ValueView | undefined>(undefined);
   const [ranks, setRanks] = useState<Array<Rank>>([]);
+
+  const [total, setTotal] = useState<number | null>(null);
+  const [rankTotal, setRankTotal] = useState<number | null>(null);
 
   const [openModalAdd, setOpenModalAdd] = useState(false);
   const [openModalRate, setOpenModalRate] = useState(false);
@@ -78,11 +83,16 @@ export const BlockThemeOverview = ({ theme }: Props) => {
   };
 
   const checkValue = async (value: ValueView) => {
-    const { error } = await insertCheck({ value: value.id });
+    const { error } = await insertCheck({
+      value: value.id,
+      rank: ranks.length + 1,
+      theme: theme.id,
+    });
     if (error) {
       setMessage(t("commun.error"));
     } else {
       getRanks();
+      getCompletion();
       setMessage("");
     }
   };
@@ -94,6 +104,7 @@ export const BlockThemeOverview = ({ theme }: Props) => {
         setMessage(t("commun.error"));
       } else {
         getRanks();
+        getCompletion();
         setMessage("");
       }
     }
@@ -108,6 +119,7 @@ export const BlockThemeOverview = ({ theme }: Props) => {
     setOpenModalRate(false);
     setValue(undefined);
     getRanks();
+    getCompletion();
   };
 
   const closeModalRank = () => {
@@ -115,8 +127,34 @@ export const BlockThemeOverview = ({ theme }: Props) => {
     setValue(undefined);
   };
 
+  const getCountRank = async () => {
+    const res = await countRanksByTheme(Number(theme.id));
+    setRankTotal(res.count);
+  };
+
+  const getCountValue = async () => {
+    const res = await countValueByTheme(Number(theme.id));
+    setTotal(res.count);
+  };
+
+  const getCompletion = () => {
+    setRankTotal(null);
+    setTotal(null);
+    getCountRank();
+    getCountValue();
+  };
+
+  useEffect(() => {
+    getCompletion();
+  }, [theme]);
+
   return (
     <Grid container spacing={2} alignItems="center">
+      <div style={{ position: "absolute", top: 25, right: 0 }}>
+        {rankTotal !== null && total !== null && (
+          <CompletedBadge value={rankTotal} total={total} />
+        )}
+      </div>
       <Grid item xs={12}>
         <Grid
           container

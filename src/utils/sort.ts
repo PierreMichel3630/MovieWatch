@@ -2,6 +2,8 @@ import moment from "moment";
 import { DEFAULT_ISO_LANGUAGE } from "src/api/supabase/language";
 import { Language } from "src/models/Language";
 
+export const sortByRank = (a: any, b: any) => (a.rank > b.rank ? 1 : -1);
+
 export const sortByPopularity = (a: any, b: any) =>
   a.popularity > b.popularity ? -1 : 1;
 
