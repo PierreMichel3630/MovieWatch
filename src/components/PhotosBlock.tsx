@@ -12,7 +12,7 @@ import { useState } from "react";
 import { SeeMoreButton } from "./button/Button";
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { ImageDialog } from "./commun/dialog/ImageDialog";
-import { Image } from "src/models/tmdb/commun/Image";
+import { Image } from "src/models/commun/Image";
 import { PhotoSkeleton } from "./commun/skeleton/Skeleton";
 
 enum Filter {

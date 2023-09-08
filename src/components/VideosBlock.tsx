@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { SeeMoreButton } from "./button/Button";
-import { Video } from "src/models/tmdb/commun/Video";
+import { Video } from "src/models/commun/Video";
 import { VideoSkeleton } from "./commun/skeleton/Skeleton";
 
 enum Filter {

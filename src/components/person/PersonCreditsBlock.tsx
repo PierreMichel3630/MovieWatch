@@ -8,8 +8,8 @@ import {
   sortByFirstAirDate,
   sortByReleaseYear,
 } from "src/utils/sort";
-import { PersonCreditsMovie } from "src/models/tmdb/person/PersonCreditsMovie";
-import { PersonCreditsTv } from "src/models/tmdb/person/PersonCreditsTv";
+import { PersonCreditsMovie } from "src/models/person/PersonCreditsMovie";
+import { PersonCreditsTv } from "src/models/person/PersonCreditsTv";
 import {
   CastPersonCard,
   CastPersonMovieCard,
@@ -21,8 +21,8 @@ import {
   filterTvAlreadyOut,
   filterTvUpcoming,
 } from "src/utils/filter";
-import { MediaType } from "src/models/tmdb/enum";
-import { getPersonMovieCredit, getPersonTVCredit } from "src/api/tmdb/person";
+import { MediaType } from "src/models/enum";
+import { getPersonMovieCredit, getPersonTVCredit } from "src/api/person";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "src/App";
 import { CardMovieSerieSkeleton } from "../commun/skeleton/Skeleton";
@@ -30,7 +30,6 @@ import { normalizeString } from "src/utils/string";
 import { BasicSearchInput } from "../commun/Input";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 export const PersonCreditsBlock = () => {
   const NUMBERLINESHOW = 2;
@@ -110,7 +109,7 @@ export const PersonCreditsBlock = () => {
   useEffect(() => {
     if (id) {
       setIsLoadingMovie(true);
-      getPersonMovieCredit(Number(id), language.iso).then((res) => {
+      getPersonMovieCredit(Number(id), language.iso_639_1).then((res) => {
         setMovies(res);
         setIsLoadingMovie(false);
       });
@@ -120,7 +119,7 @@ export const PersonCreditsBlock = () => {
   useEffect(() => {
     if (id) {
       setIsLoadingSerie(true);
-      getPersonTVCredit(Number(id), language.iso).then((res) => {
+      getPersonTVCredit(Number(id), language.iso_639_1).then((res) => {
         setSeries(res);
         setIsLoadingSerie(false);
       });
@@ -132,15 +131,13 @@ export const PersonCreditsBlock = () => {
       <Grid item xs={12} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Typography variant="h2">{t("commun.movies")}</Typography>
         <BasicSearchInput
-          label={t("pages.person.searchmovie")}
+          label={t("commun.searchmovie")}
           onChange={(value) => setSearchMovie(value)}
           value={searchMovie}
           clear={() => setSearchMovie("")}
         />
         <Tooltip title={t("commun.filter")}>
-          <Link
-            to={`${BASEURLMOVIE}/discover?page=1&type=${MediaType.movie}&actors=${id}`}
-          >
+          <Link to={`/discover?page=1&type=${MediaType.movie}&actors=${id}`}>
             <IconButton aria-label={t("commun.filter")}>
               <FilterAltIcon />
             </IconButton>
@@ -181,7 +178,7 @@ export const PersonCreditsBlock = () => {
       <Grid item xs={12} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Typography variant="h2">{t("commun.series")}</Typography>
         <BasicSearchInput
-          label={t("pages.person.searchserie")}
+          label={t("commun.searchserie")}
           onChange={(value) => setSearchSerie(value)}
           value={searchSerie}
           clear={() => setSearchSerie("")}

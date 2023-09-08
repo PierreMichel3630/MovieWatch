@@ -10,7 +10,7 @@ import { DateField } from "@mui/x-date-pickers";
 import moment, { Moment } from "moment";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 import { ChipYearFilter } from "../Chip";
 
 interface Props {

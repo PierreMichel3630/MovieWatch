@@ -5,11 +5,11 @@ import { CardPersonTv } from "../commun/Card";
 import { useContext, useEffect, useState } from "react";
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { SeeMoreButton } from "../button/Button";
-import { TvAggregateCreditCast } from "src/models/tmdb/tv/TvAggregateCreditCast";
+import { TvAggregateCreditCast } from "src/models/tv/TvAggregateCreditCast";
 import { BasicSearchInput } from "../commun/Input";
 import { normalizeString } from "src/utils/string";
 import { CardActorSkeleton } from "../commun/skeleton/Skeleton";
-import { getTvCredit } from "src/api/tmdb/tv";
+import { getTvCredit } from "src/api/tv";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
 
@@ -53,7 +53,7 @@ export const CastsSerieBlock = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      getTvCredit(Number(id), language.iso).then((res) => {
+      getTvCredit(Number(id), language.iso_639_1).then((res) => {
         setCasts(res.cast);
         setIsLoading(false);
       });
@@ -65,7 +65,7 @@ export const CastsSerieBlock = () => {
       <Grid item xs={12} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Typography variant="h2">{t("commun.cast")}</Typography>
         <BasicSearchInput
-          label={t("pages.serie.searchactor")}
+          label={t("commun.searchactororperson")}
           onChange={(value) => setSearchActor(value)}
           value={searchActor}
           clear={() => setSearchActor("")}

@@ -1,35 +1,14 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  IconButton,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import { percent, px } from "csx";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { percent } from "csx";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { MediaType } from "src/models/enum";
+import { PersonCastMovie } from "src/models/person/PersonCastMovie";
+import { PersonCastTv } from "src/models/person/PersonCastTv";
+import { PersonCrew } from "src/models/person/PersonCrew";
 import { style } from "typestyle";
 import { ImageNotFoundBlock } from "../commun/ImageBlock";
-import { PersonCrew } from "src/models/tmdb/person/PersonCrew";
-import { PersonCastMovie } from "src/models/tmdb/person/PersonCastMovie";
-import { PersonCastTv } from "src/models/tmdb/person/PersonCastTv";
-import { MediaType } from "src/models/tmdb/enum";
-import { BASEURLMOVIE, THEMETMDB } from "src/routes/movieRoutes";
-import {
-  ItemToCheck,
-  ItemToRank,
-  RankContext,
-} from "src/pages/tmdb/HomeMoviesPage";
-import { useContext, useEffect, useState } from "react";
-import { getRanksByIdExtern } from "src/api/supabase/rank";
-import { Rank } from "src/models/Rank";
-
-import StarRateIcon from "@mui/icons-material/StarRate";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const cardCss = style({
   cursor: "pointer",
@@ -56,71 +35,9 @@ interface PropsCastTv {
 }
 export const CastPersonTvCard = ({ value }: PropsCastTv) => {
   const { t } = useTranslation();
-  const { setItemToRank, setItemToCheck, refresh, setRefresh } =
-    useContext(RankContext);
-
-  const [rank, setRank] = useState<null | Rank>(null);
-  const [isLoadingRank, setIsLoadingRank] = useState(true);
-
-  const getRank = async () => {
-    if (value) {
-      const { data } = await getRanksByIdExtern(
-        value.id,
-        THEMETMDB,
-        MediaType.tv
-      );
-      setRank(data as Rank);
-      setIsLoadingRank(false);
-    }
-  };
-
-  useEffect(() => {
-    if (refresh && refresh === value.id) {
-      setIsLoadingRank(true);
-      getRank();
-      setRefresh(undefined);
-    }
-  }, [refresh]);
-
-  useEffect(() => {
-    setIsLoadingRank(true);
-    getRank();
-  }, [value]);
-
-  const rankTv = (event: any) => {
-    event.preventDefault();
-    if (value) {
-      const item: ItemToRank = {
-        id: value.id,
-        name: value.name,
-        description: value.overview,
-        image: `https://image.tmdb.org/t/p/original${value.backdrop_path}`,
-        type: MediaType.tv,
-      };
-      setItemToRank(item);
-    }
-  };
-
-  const checkTv = (event: any, isSee: boolean) => {
-    event.preventDefault();
-    if (value) {
-      const item: ItemToCheck = {
-        id: value.id,
-        name: value.name,
-        description: value.overview,
-        image: `https://image.tmdb.org/t/p/original${value.backdrop_path}`,
-        type: MediaType.tv,
-        isSee,
-        idRank: rank !== null ? rank.id : undefined,
-      };
-      setItemToCheck(item);
-    }
-  };
-
-  const isCheck = rank !== null;
 
   return (
-    <Link to={`${BASEURLMOVIE}/tv/${value.id}`}>
+    <Link to={`/tv/${value.id}`}>
       <Card className={cardCss}>
         {value.poster_path !== null ? (
           <CardMedia
@@ -140,50 +57,6 @@ export const CastPersonTvCard = ({ value }: PropsCastTv) => {
               : t("commun.datenotknow")}
           </Typography>
         </CardContent>
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "flex-end",
-            display: "flex",
-            gap: px(5),
-            mt: "auto",
-          }}
-        >
-          {!isLoadingRank && (
-            <>
-              {isCheck ? (
-                <Tooltip title={t("commun.notseeserie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkTv(event, false)}
-                  >
-                    <VisibilityOffIcon />
-                  </IconButton>
-                </Tooltip>
-              ) : (
-                <Tooltip title={t("commun.seeserie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkTv(event, true)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Tooltip title={t("commun.rankserie")}>
-                <IconButton
-                  aria-label="Rate"
-                  size="small"
-                  onClick={(event) => rankTv(event)}
-                >
-                  <StarRateIcon />
-                </IconButton>
-              </Tooltip>
-            </>
-          )}
-        </CardActions>
       </Card>
     </Link>
   );
@@ -195,71 +68,9 @@ interface PropsCastMovie {
 
 export const CastPersonMovieCard = ({ value }: PropsCastMovie) => {
   const { t } = useTranslation();
-  const { setItemToRank, setItemToCheck, refresh, setRefresh } =
-    useContext(RankContext);
-
-  const [rank, setRank] = useState<null | Rank>(null);
-  const [isLoadingRank, setIsLoadingRank] = useState(true);
-
-  const getRank = async () => {
-    if (value) {
-      const { data } = await getRanksByIdExtern(
-        value.id,
-        THEMETMDB,
-        MediaType.movie
-      );
-      setRank(data as Rank);
-      setIsLoadingRank(false);
-    }
-  };
-
-  useEffect(() => {
-    if (refresh && refresh === value.id) {
-      setIsLoadingRank(true);
-      getRank();
-      setRefresh(undefined);
-    }
-  }, [refresh]);
-
-  useEffect(() => {
-    setIsLoadingRank(true);
-    getRank();
-  }, [value]);
-
-  const rankMovie = (event: any) => {
-    event.preventDefault();
-    if (value) {
-      const item: ItemToRank = {
-        id: value.id,
-        name: value.title,
-        description: value.overview,
-        image: `https://image.tmdb.org/t/p/original${value.backdrop_path}`,
-        type: MediaType.movie,
-      };
-      setItemToRank(item);
-    }
-  };
-
-  const checkMovie = (event: any, isSee: boolean) => {
-    event.preventDefault();
-    if (value) {
-      const item: ItemToCheck = {
-        id: value.id,
-        name: value.title,
-        description: value.overview,
-        image: `https://image.tmdb.org/t/p/original${value.backdrop_path}`,
-        type: MediaType.movie,
-        isSee,
-        idRank: rank !== null ? rank.id : undefined,
-      };
-      setItemToCheck(item);
-    }
-  };
-
-  const isCheck = rank !== null;
 
   return (
-    <Link to={`${BASEURLMOVIE}/movie/${value.id}`}>
+    <Link to={`/movie/${value.id}`}>
       <Card className={cardCss}>
         {value.poster_path !== null ? (
           <CardMedia
@@ -279,50 +90,6 @@ export const CastPersonMovieCard = ({ value }: PropsCastMovie) => {
               : t("commun.datenotknow")}
           </Typography>
         </CardContent>
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "flex-end",
-            display: "flex",
-            gap: px(5),
-            mt: "auto",
-          }}
-        >
-          {!isLoadingRank && (
-            <>
-              {isCheck ? (
-                <Tooltip title={t("commun.notseemovie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkMovie(event, false)}
-                  >
-                    <VisibilityOffIcon />
-                  </IconButton>
-                </Tooltip>
-              ) : (
-                <Tooltip title={t("commun.seemovie")}>
-                  <IconButton
-                    aria-label="Check"
-                    size="small"
-                    onClick={(event) => checkMovie(event, true)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <Tooltip title={t("commun.rankmovie")}>
-                <IconButton
-                  aria-label="Rate"
-                  size="small"
-                  onClick={(event) => rankMovie(event)}
-                >
-                  <StarRateIcon />
-                </IconButton>
-              </Tooltip>
-            </>
-          )}
-        </CardActions>
       </Card>
     </Link>
   );
@@ -333,7 +100,7 @@ interface PropsCrew {
 }
 
 export const CrewPersonCard = ({ value }: PropsCrew) => (
-  <Link to={`${BASEURLMOVIE}/person/${value.id}`}>
+  <Link to={`/person/${value.id}`}>
     <Card className={cardCss}>
       {value.poster_path !== null ? (
         <CardMedia

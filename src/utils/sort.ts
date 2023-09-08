@@ -1,8 +1,4 @@
 import moment from "moment";
-import { DEFAULT_ISO_LANGUAGE } from "src/api/supabase/language";
-import { Language } from "src/models/Language";
-
-export const sortByRank = (a: any, b: any) => (a.rank > b.rank ? 1 : -1);
 
 export const sortByPopularity = (a: any, b: any) =>
   a.popularity > b.popularity ? -1 : 1;
@@ -27,17 +23,11 @@ export const sortByTotalEpisodeCount = (a: any, b: any) =>
 export const sortByEpisodeNumber = (a: any, b: any) =>
   a.episode_number > b.episode_number ? 1 : -1;
 
-export const sortByTrads = (a: any, b: any, language: Language) => {
-  const tradLocalLanguageA = a.trads.find((el: any) => el.iso === language.iso);
-  const tradEnglishA = a.trads.find(
-    (el: any) => el.iso === DEFAULT_ISO_LANGUAGE
-  );
-  const tradA = tradLocalLanguageA ? tradLocalLanguageA : tradEnglishA;
-
-  const tradLocalLanguageB = b.trads.find((el: any) => el.iso === language.iso);
-  const tradEnglishB = b.trads.find(
-    (el: any) => el.iso === DEFAULT_ISO_LANGUAGE
-  );
-  const tradB = tradLocalLanguageB ? tradLocalLanguageB : tradEnglishB;
-  return tradA && tradB ? tradA.name.localeCompare(tradB.name) : -1;
+export const sortByName = (a: any, b: any) => {
+  const nameA = a.name !== "" ? a.name : a.english_name;
+  const nameB = b.name !== "" ? b.name : b.english_name;
+  return nameA > nameB ? 1 : -1;
 };
+
+export const sortByNativeName = (a: any, b: any) =>
+  a.native_name > b.native_name ? 1 : -1;

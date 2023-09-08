@@ -5,17 +5,19 @@ interface Props {
   open: boolean;
   handleClose: () => void;
   severity?: AlertColor;
+  autoHideDuration?: number;
 }
 export const MessageSnackbar = ({
   open,
   message,
   handleClose,
   severity = "error",
+  autoHideDuration = 6000,
 }: Props) => {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={6000}
+      autoHideDuration={autoHideDuration}
       onClose={handleClose}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >

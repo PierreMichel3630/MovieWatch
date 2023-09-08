@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 import { ChipGenre } from "../Chip";
-import { Genre } from "src/models/tmdb/commun/Genre";
-import { SearchContext } from "src/pages/tmdb/HomeMoviesPage";
+import { Genre } from "src/models/commun/Genre";
+import { SearchContext } from "src/pages/HomePage";
 
 interface Props {
   filter: Filter;

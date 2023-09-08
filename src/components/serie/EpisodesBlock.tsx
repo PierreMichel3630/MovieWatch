@@ -3,10 +3,10 @@ import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
-import { getTvDetails, getTvSeason } from "src/api/tmdb/tv";
+import { getTvDetails, getTvSeason } from "src/api/tv";
 import { CardEpisode } from "../commun/Card";
-import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
-import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
+import { SerieDetails } from "src/models/tv/SerieDetails";
+import { SeasonDetail } from "src/models/tv/SeasonDetail";
 import { sortByEpisodeNumber } from "src/utils/sort";
 import { CardEpisodeSkeleton, ChipSkeleton } from "../commun/skeleton/Skeleton";
 
@@ -26,7 +26,7 @@ export const EpisodesBlock = () => {
   useEffect(() => {
     setIsLoadingDetail(true);
     if (id) {
-      getTvDetails(Number(id), language.iso).then((res) => {
+      getTvDetails(Number(id), language.iso_639_1).then((res) => {
         setDetail(res);
         setIsLoadingDetail(false);
       });
@@ -36,10 +36,12 @@ export const EpisodesBlock = () => {
   useEffect(() => {
     setIsLoadingSeason(true);
     if (id) {
-      getTvSeason(Number(id), selectedSeason, language.iso).then((res) => {
-        setSeasonDetail(res);
-        setIsLoadingSeason(false);
-      });
+      getTvSeason(Number(id), selectedSeason, language.iso_639_1).then(
+        (res) => {
+          setSeasonDetail(res);
+          setIsLoadingSeason(false);
+        }
+      );
     }
   }, [selectedSeason, language]);
 

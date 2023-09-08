@@ -1,7 +1,5 @@
 export interface Language {
-  id: number;
-  iso: string;
+  iso_639_1: string;
+  english_name: string;
   name: string;
-  abbreviation: string;
-  image: string;
 }

@@ -1,8 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 import { ChipMediaType } from "../Chip";
-import { MediaType } from "src/models/tmdb/enum";
+import { MediaType } from "src/models/enum";
 
 interface Props {
   filter: Filter;

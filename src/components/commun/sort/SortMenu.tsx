@@ -9,9 +9,9 @@ import {
 
 import SortIcon from "@mui/icons-material/Sort";
 import { useState } from "react";
-import { SortImdb } from "src/models/tmdb/enum";
+import { SortImdb } from "src/models/enum";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 
 interface Sort {
   name: string;

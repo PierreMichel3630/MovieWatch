@@ -2,7 +2,7 @@ import { Dialog, IconButton, ImageListItemBar, Skeleton } from "@mui/material";
 import { saveAs } from "file-saver";
 import { percent, viewHeight } from "csx";
 
-import { Image } from "src/models/tmdb/commun/Image";
+import { Image } from "src/models/commun/Image";
 
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";

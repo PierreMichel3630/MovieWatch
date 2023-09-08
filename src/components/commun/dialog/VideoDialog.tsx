@@ -1,5 +1,5 @@
 import { Dialog } from "@mui/material";
-import { Video } from "src/models/tmdb/commun/Video";
+import { Video } from "src/models/commun/Video";
 
 interface Props {
   videos: Array<Video>;

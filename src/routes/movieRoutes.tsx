@@ -1,50 +1,48 @@
-import { DiscoverPage } from "src/pages/tmdb/DiscoverPage";
-import { EpisodePage } from "src/pages/tmdb/EpisodePage";
-import { HomeMoviesPage } from "src/pages/tmdb/HomeMoviesPage";
-import { MoviePage } from "src/pages/tmdb/MoviePage";
-import { PersonPage } from "src/pages/tmdb/PersonPage";
-import { SearchPage } from "src/pages/tmdb/SearchPage";
-import { SeriePage } from "src/pages/tmdb/SeriePage";
-import { TrendingPage } from "src/pages/tmdb/TrendingPage";
-import { TrendingSearchPage } from "src/pages/tmdb/TrendingSearchPage";
+import { DiscoverPage } from "src/pages/DiscoverPage";
+import { EpisodePage } from "src/pages/EpisodePage";
+import { HomePage } from "src/pages/HomePage";
+import { MoviePage } from "src/pages/MoviePage";
+import { PersonPage } from "src/pages/PersonPage";
+import { SearchPage } from "src/pages/SearchPage";
+import { SeriePage } from "src/pages/SeriePage";
+import { TrendingPage } from "src/pages/TrendingPage";
+import { TrendingSearchPage } from "src/pages/TrendingSearchPage";
 
-export const THEMETMDB = 2;
-export const BASEURLMOVIE = "/theme/2";
 export const MovieRoutes = [
   {
-    path: BASEURLMOVIE,
-    element: <HomeMoviesPage />,
+    path: "/",
+    element: <HomePage />,
     children: [
       {
-        path: BASEURLMOVIE,
+        path: "/",
         element: <TrendingPage />,
       },
       {
-        path: BASEURLMOVIE + "/search",
+        path: "/search",
         element: <SearchPage />,
       },
       {
-        path: BASEURLMOVIE + "/movie/:id",
+        path: "/movie/:id",
         element: <MoviePage />,
       },
       {
-        path: BASEURLMOVIE + "/person/:id",
+        path: "/person/:id",
         element: <PersonPage />,
       },
       {
-        path: BASEURLMOVIE + "/tv/:id",
+        path: "/tv/:id",
         element: <SeriePage />,
       },
       {
-        path: BASEURLMOVIE + "/tv/:id/season/:season/episode/:episode",
+        path: "/tv/:id/season/:season/episode/:episode",
         element: <EpisodePage />,
       },
       {
-        path: BASEURLMOVIE + "/trendingsearch",
+        path: "/trendingsearch",
         element: <TrendingSearchPage />,
       },
       {
-        path: BASEURLMOVIE + "/discover",
+        path: "/discover",
         element: <DiscoverPage />,
       },
     ],

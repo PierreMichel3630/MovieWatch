@@ -2,8 +2,8 @@ import { Avatar, Chip } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { px } from "csx";
 
-import { Genre } from "src/models/tmdb/commun/Genre";
-import { MediaType } from "src/models/tmdb/enum";
+import { Genre } from "src/models/commun/Genre";
+import { MediaType } from "src/models/enum";
 import { Colors } from "src/style/Colors";
 import { FormatTime, toHoursAndMinutes } from "src/utils/time";
 
@@ -38,11 +38,12 @@ import tvmovie from "../../assets/genre/tvmovie.png";
 import war from "../../assets/genre/war.png";
 import western from "../../assets/genre/western.png";
 import { Language } from "src/models/Language";
-import { PersonDetails } from "src/models/tmdb/person/PersonDetails";
+import { PersonDetails } from "src/models/person/PersonDetails";
 import { useContext, useEffect, useState } from "react";
-import { getPersonDetails } from "src/api/tmdb/person";
+import { getPersonDetails } from "src/api/person";
 import { UserContext } from "src/App";
 import { ChipSkeleton } from "./skeleton/Skeleton";
+import { LanguageOrigin } from "src/models/LanguageOrigin";
 
 interface PropsChipMediaType {
   active: boolean;
@@ -246,7 +247,7 @@ export const ChipLanguage = ({
   language,
 }: PropsChipLanguage) => (
   <Chip
-    avatar={<Avatar>{language.image}</Avatar>}
+    avatar={<Avatar>{language.iso_639_1}</Avatar>}
     label={language.name}
     variant={active ? "filled" : "outlined"}
     onClick={onClick}
@@ -254,17 +255,40 @@ export const ChipLanguage = ({
   />
 );
 
-interface PropsChipLanguageFilter {
-  onDelete: () => void;
-  value: Language;
+interface PropsChipLanguageOrigin {
+  active?: boolean;
+  onClick: () => void;
+  language: LanguageOrigin;
 }
-export const ChipLanguageFilter = ({
-  onDelete,
-  value,
-}: PropsChipLanguageFilter) => (
+export const ChipLanguageOrigin = ({
+  active = false,
+  onClick,
+  language,
+}: PropsChipLanguageOrigin) => (
   <Chip
-    avatar={<Avatar>{value.image}</Avatar>}
-    label={value.name}
+    avatar={<Avatar>{language.flag}</Avatar>}
+    label={language.name}
+    variant={active ? "filled" : "outlined"}
+    onClick={onClick}
+    sx={{ padding: px(2) }}
+  />
+);
+
+interface PropsChipLanguageOriginFilter {
+  onDelete: () => void;
+  iso: string;
+}
+export const ChipLanguageOriginFilter = ({
+  onDelete,
+  iso,
+}: PropsChipLanguageOriginFilter) => (
+  <Chip
+    avatar={
+      <Avatar
+        src={`https://flagicons.lipis.dev/flags/1x1/${iso.toLowerCase()}.svg`}
+      />
+    }
+    label={iso}
     variant={"outlined"}
     sx={{ padding: px(2) }}
     onDelete={onDelete}
@@ -283,7 +307,7 @@ export const ChipActorFilter = ({ onDelete, id }: PropsChipActorFilter) => {
 
   useEffect(() => {
     setIsLoading(true);
-    getPersonDetails(id, language.iso).then((res) => {
+    getPersonDetails(id, language.iso_639_1).then((res) => {
       setActor(res);
       setIsLoading(false);
     });

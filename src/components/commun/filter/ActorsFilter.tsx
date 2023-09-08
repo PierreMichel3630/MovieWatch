@@ -1,10 +1,10 @@
 import { Grid, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 import { ChipActorFilter } from "../Chip";
-import { searchPerson } from "src/api/tmdb/person";
-import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
+import { searchPerson } from "src/api/person";
+import { PersonSearchElement } from "src/models/person/PersonSearchElement";
 import { UserContext } from "src/App";
 import { AutocompleteInputPerson } from "../Input";
 
@@ -21,7 +21,7 @@ export const ActorsFilter = ({ filter, onChange }: Props) => {
 
   useEffect(() => {
     if (search !== "") {
-      searchPerson(search, language.iso, 1).then((res) => {
+      searchPerson(search, language.iso_639_1, 1).then((res) => {
         setResults([...res.results]);
       });
     } else {

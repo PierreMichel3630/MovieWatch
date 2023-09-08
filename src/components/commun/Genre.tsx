@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SearchContext } from "src/pages/tmdb/HomeMoviesPage";
+import { SearchContext } from "src/pages/HomePage";
 
 export const getListGenre = (listId?: Array<number>) => {
   const { genres } = useContext(SearchContext);

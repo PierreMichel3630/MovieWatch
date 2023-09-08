@@ -5,7 +5,7 @@ import { CardPersonGuest } from "../commun/Card";
 import { useState } from "react";
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { SeeMoreButton } from "../button/Button";
-import { GuestStar } from "src/models/tmdb/commun/GuestStar";
+import { GuestStar } from "src/models/commun/GuestStar";
 import { CardActorSkeleton } from "../commun/skeleton/Skeleton";
 import { normalizeString } from "src/utils/string";
 import { BasicSearchInput } from "../commun/Input";
@@ -51,7 +51,7 @@ export const GuestStarsBlock = ({ guests, isLoading = false }: Props) => {
           {t("commun.gueststars")}
         </Typography>
         <BasicSearchInput
-          label={t("pages.serie.searchactor")}
+          label={t("commun.searchactororperson")}
           onChange={(value) => setSearchActor(value)}
           value={searchActor}
           clear={() => setSearchActor("")}

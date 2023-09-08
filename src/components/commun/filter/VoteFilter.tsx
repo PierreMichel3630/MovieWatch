@@ -1,7 +1,7 @@
 import { Box, Grid, Slider, Typography } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { Filter } from "src/models/commun/Filter";
 
 interface Props {
   filter: Filter;

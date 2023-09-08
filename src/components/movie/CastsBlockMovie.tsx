@@ -4,8 +4,8 @@ import { CardPerson } from "../commun/Card";
 import { useContext, useEffect, useState } from "react";
 import { getBreakpoint } from "src/utils/mediaQuery";
 import { SeeMoreButton } from "../button/Button";
-import { Cast } from "src/models/tmdb/commun/Cast";
-import { getMovieCredit } from "src/api/tmdb/movie";
+import { Cast } from "src/models/commun/Cast";
+import { getMovieCredit } from "src/api/movie";
 import { UserContext } from "src/App";
 import { useParams } from "react-router-dom";
 import { CardActorSkeleton } from "../commun/skeleton/Skeleton";
@@ -50,7 +50,7 @@ export const CastsBlockMovie = () => {
   useEffect(() => {
     setIsLoading(true);
     if (id) {
-      getMovieCredit(Number(id), language.iso).then((res) => {
+      getMovieCredit(Number(id), language.iso_639_1).then((res) => {
         setCasts(res.cast);
         setIsLoading(false);
       });
@@ -62,7 +62,7 @@ export const CastsBlockMovie = () => {
       <Grid item xs={12} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Typography variant="h2">{t("commun.cast")}</Typography>
         <BasicSearchInput
-          label={t("pages.serie.searchactor")}
+          label={t("commun.searchactororperson")}
           onChange={(value) => setSearch(value)}
           value={search}
           clear={() => setSearch("")}

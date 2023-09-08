@@ -1,5 +1,4 @@
 import moment from "moment";
-import { normalizeString } from "./string";
 
 export const filterMovieUpcoming = (el: any) =>
   el.release_date !== null &&

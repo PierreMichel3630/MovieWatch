@@ -5,9 +5,8 @@ import { style } from "typestyle";
 import { percent, px, viewHeight } from "csx";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { SeasonDetail } from "src/models/tmdb/tv/SeasonDetail";
-import { SerieDetails } from "src/models/tmdb/tv/SerieDetails";
-import { BASEURLMOVIE } from "src/routes/movieRoutes";
+import { SeasonDetail } from "src/models/tv/SeasonDetail";
+import { SerieDetails } from "src/models/tv/SerieDetails";
 
 const posterCss = style({
   maxHeight: viewHeight(40),
@@ -55,9 +54,7 @@ export const HeaderSerieEpisode = ({
               <Typography
                 variant="h1"
                 sx={{ cursor: "pointer" }}
-                onClick={() =>
-                  navigate(`${BASEURLMOVIE}/tv/${Number(detail.id)}`)
-                }
+                onClick={() => navigate(`/tv/${Number(detail.id)}`)}
               >
                 {detail ? detail.name : ""}
               </Typography>
@@ -78,9 +75,7 @@ export const HeaderSerieEpisode = ({
               </Grid>
               {seasonDetail.overview !== "" && (
                 <Grid item xs={12}>
-                  <Typography variant="h4">
-                    {t("pages.movie.summary")}
-                  </Typography>
+                  <Typography variant="h4">{t("commun.summary")}</Typography>
                   <Typography variant="body1">
                     {seasonDetail.overview}
                   </Typography>

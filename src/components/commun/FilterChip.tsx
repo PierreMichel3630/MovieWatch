@@ -1,20 +1,18 @@
-import { useContext } from "react";
 import { Grid } from "@mui/material";
-import { Filter } from "src/models/tmdb/commun/Filter";
+import { useContext } from "react";
+import { Filter } from "src/models/commun/Filter";
+import { Genre } from "src/models/commun/Genre";
+import { MediaType } from "src/models/enum";
+import { SearchContext } from "src/pages/HomePage";
 import {
   ChipActorFilter,
   ChipGenreFilter,
-  ChipLanguageFilter,
+  ChipLanguageOriginFilter,
   ChipMediaType,
   ChipRuntimeFilter,
   ChipVoteFilter,
   ChipYearFilter,
 } from "./Chip";
-import { Genre } from "src/models/tmdb/commun/Genre";
-import { LANGUAGESORIGIN } from "./filter/OriginCountryFilter";
-import { Language } from "src/models/Language";
-import { MediaType } from "src/models/tmdb/enum";
-import { SearchContext } from "src/pages/tmdb/HomeMoviesPage";
 
 interface Props {
   filter: Filter;
@@ -43,9 +41,9 @@ export const FilterChip = ({ filter, onChange, openFilter }: Props) => {
     onChange({ ...filter, withoutgenres: newGenres });
   };
 
-  const deleteOriginCountry = (value: Language) => {
+  const deleteOriginCountry = (iso: string) => {
     let newValues: Array<string> = [...filter.origincountry];
-    newValues = newValues.filter((el) => el !== value.language);
+    newValues = newValues.filter((el) => el !== iso);
     onChange({ ...filter, origincountry: newValues });
   };
 
@@ -166,16 +164,13 @@ export const FilterChip = ({ filter, onChange, openFilter }: Props) => {
         );
       })}
       {filter.origincountry.map((id) => {
-        const language = LANGUAGESORIGIN.find((el) => el.language === id);
         return (
-          language && (
-            <Grid item key={language.id}>
-              <ChipLanguageFilter
-                value={language}
-                onDelete={() => deleteOriginCountry(language)}
-              />
-            </Grid>
-          )
+          <Grid item key={id}>
+            <ChipLanguageOriginFilter
+              iso={id}
+              onDelete={() => deleteOriginCountry(id)}
+            />
+          </Grid>
         );
       })}
       {filter.vote.over && (

@@ -6,16 +6,16 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import { percent } from "csx";
+import { percent, px } from "csx";
 import { useTranslation } from "react-i18next";
 
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
-import { PersonSearchElement } from "src/models/tmdb/person/PersonSearchElement";
+import { PersonSearchElement } from "src/models/person/PersonSearchElement";
 import { Colors } from "src/style/Colors";
-import moment from "moment";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "src/App";
+import { Country } from "src/models/Country";
 
 interface PropsSearchInput {
   value: string;
@@ -57,7 +57,7 @@ export const SearchInput = ({
       {value !== "" && (
         <IconButton
           type="button"
-          size="small"
+          sx={{ p: "2px" }}
           aria-label="clear"
           onClick={() => clear()}
         >
@@ -66,7 +66,7 @@ export const SearchInput = ({
       )}
       <IconButton
         type="button"
-        sx={{ p: "10px" }}
+        sx={{ p: "2px" }}
         aria-label="search"
         onClick={() => submit()}
       >
@@ -136,8 +136,23 @@ export const AutocompleteInputPerson = ({
   results,
 }: PropsAutocompleteInput) => {
   const { mode } = useContext(UserContext);
+  const [focused, setFocused] = useState(false);
+  const onFocus = () => setFocused(true);
+  const unFocus = () => setFocused(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        unFocus();
+      }
+    };
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} ref={ref}>
       <Paper
         variant="outlined"
         sx={{
@@ -153,6 +168,7 @@ export const AutocompleteInputPerson = ({
           inputProps={{ "aria-label": placeholder }}
           value={value}
           onChange={(event) => onChange(event.target.value)}
+          onFocus={onFocus}
         />
         {value !== "" && (
           <IconButton
@@ -165,7 +181,7 @@ export const AutocompleteInputPerson = ({
           </IconButton>
         )}
       </Paper>
-      {results.length > 0 && (
+      {results.length > 0 && focused && (
         <Paper
           variant="outlined"
           sx={{
@@ -175,6 +191,8 @@ export const AutocompleteInputPerson = ({
             zIndex: 2,
             flexDirection: "column",
             position: "absolute",
+            maxHeight: px(200),
+            overflow: "scroll",
           }}
         >
           {results.slice(0, 5).map((el) => (
@@ -191,7 +209,10 @@ export const AutocompleteInputPerson = ({
                 },
               }}
               alignItems="center"
-              onClick={() => onSelect(el)}
+              onClick={() => {
+                onSelect(el);
+                unFocus();
+              }}
               key={el.id}
             >
               <Grid item xs={3}>
@@ -206,6 +227,119 @@ export const AutocompleteInputPerson = ({
               </Grid>
               <Grid item xs={9}>
                 <Typography variant="body1">{el.name}</Typography>
+              </Grid>
+            </Grid>
+          ))}
+        </Paper>
+      )}
+    </div>
+  );
+};
+
+interface PropsAutocompleteInputCountries {
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+  clear: () => void;
+  onSelect: (value: Country) => void;
+  results: Array<Country>;
+}
+export const AutocompleteInputCountries = ({
+  placeholder,
+  value,
+  clear,
+  onChange,
+  onSelect,
+  results,
+}: PropsAutocompleteInputCountries) => {
+  const { mode } = useContext(UserContext);
+  const [focused, setFocused] = useState(false);
+  const onFocus = () => setFocused(true);
+  const unFocus = () => setFocused(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        unFocus();
+      }
+    };
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
+
+  return (
+    <div style={{ position: "relative" }} ref={ref}>
+      <Paper
+        variant="outlined"
+        sx={{
+          p: "2px 4px",
+          display: "flex",
+          alignItems: "center",
+          width: percent(100),
+        }}
+      >
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder={placeholder}
+          inputProps={{ "aria-label": placeholder }}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          onFocus={onFocus}
+        />
+        {value !== "" && (
+          <IconButton
+            type="button"
+            size="small"
+            aria-label="clear"
+            onClick={() => clear()}
+          >
+            <ClearIcon sx={{ width: 15, height: 15 }} />
+          </IconButton>
+        )}
+      </Paper>
+      {results.length > 0 && focused && (
+        <Paper
+          variant="outlined"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            width: percent(100),
+            zIndex: 2,
+            flexDirection: "column",
+            position: "absolute",
+            maxHeight: px(200),
+            overflow: "scroll",
+          }}
+        >
+          {results.map((el) => (
+            <Grid
+              container
+              sx={{
+                cursor: "pointer",
+                p: 1,
+                "&:hover": {
+                  color:
+                    mode === "dark" ? Colors.lightgrey : Colors.greyDarkMode,
+                  backgroundColor:
+                    mode === "dark" ? Colors.greyDarkMode : Colors.lightgrey,
+                },
+              }}
+              alignItems="center"
+              onClick={() => {
+                onSelect(el);
+                unFocus();
+              }}
+              key={el.iso_3166_1}
+            >
+              <Grid item xs={3}>
+                <Avatar
+                  src={`https://flagicons.lipis.dev/flags/1x1/${el.iso_3166_1.toLowerCase()}.svg`}
+                />
+              </Grid>
+              <Grid item xs={9}>
+                <Typography variant="body1">{el.native_name}</Typography>
               </Grid>
             </Grid>
           ))}

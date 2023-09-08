@@ -1,111 +1,13 @@
 import { Grid, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Filter } from "src/models/tmdb/commun/Filter";
-import { Language } from "src/models/Language";
-import {
-  CN,
-  CZ,
-  DE,
-  ES,
-  FR,
-  GB,
-  IN,
-  IT,
-  JP,
-  KR,
-  PT,
-  RU,
-  SE,
-  TR,
-} from "country-flag-icons/react/1x1";
-import { ChipLanguage } from "../Chip";
-
-export const LANGUAGESORIGIN: Array<Language> = [
-  {
-    id: "en-GB",
-    name: "English",
-    flag: <GB title="English UK" />,
-    language: "en",
-  },
-  {
-    id: "fr-FR",
-    name: "Français",
-    flag: <FR title="France" />,
-    language: "fr",
-  },
-  {
-    id: "es-ES",
-    name: "Español",
-    flag: <ES title="Español" />,
-    language: "es",
-  },
-  {
-    id: "de-DE",
-    name: "Deutsch",
-    flag: <DE title="Deutsch" />,
-    language: "de",
-  },
-  {
-    id: "ja-JP",
-    name: "Japanese",
-    flag: <JP title="Japanese" />,
-    language: "jp",
-  },
-  {
-    id: "pt-PT",
-    name: "Portuguese",
-    flag: <PT title="Portuguese " />,
-    language: "pt",
-  },
-  {
-    id: "zh-CN",
-    name: "Chinese",
-    flag: <CN title="Chinese " />,
-    language: "zh",
-  },
-  {
-    id: "it-IT",
-    name: "Italian",
-    flag: <IT title="Italian " />,
-    language: "it",
-  },
-  {
-    id: "ru-RU",
-    name: "Russian",
-    flag: <RU title="Russian" />,
-    language: "ru",
-  },
-  {
-    id: "ko-KR",
-    name: "Korean",
-    flag: <KR title="Korean" />,
-    language: "ko",
-  },
-  {
-    id: "hi-IN",
-    name: "India",
-    flag: <IN title="India" />,
-    language: "hi",
-  },
-  {
-    id: "sv-SE",
-    name: "Swedish",
-    flag: <SE title="Swedish" />,
-    language: "sv",
-  },
-  {
-    id: "cs-CZ",
-    name: "Czech",
-    flag: <CZ title="Czech" />,
-    language: "cs",
-  },
-  {
-    id: "tr-TR",
-    name: "Turkish",
-    flag: <TR title="Turkish" />,
-    language: "tr",
-  },
-];
+import { UserContext } from "src/App";
+import { getCountries } from "src/api/country";
+import { Country } from "src/models/Country";
+import { Filter } from "src/models/commun/Filter";
+import { sortByNativeName } from "src/utils/sort";
+import { ChipLanguageOriginFilter } from "../Chip";
+import { AutocompleteInputCountries } from "../Input";
 
 interface Props {
   filter: Filter;
@@ -114,37 +16,70 @@ interface Props {
 export const OriginCountryFilter = ({ filter, onChange }: Props) => {
   const { t } = useTranslation();
 
-  const languagesSelect = filter.origincountry;
+  const { language } = useContext(UserContext);
 
-  const selectLanguage = (value: Language) => {
-    let newValue: Array<string> = [...languagesSelect];
-    if (newValue.includes(value.language)) {
-      newValue = newValue.filter((el) => el !== value.language);
+  const [search, setSearch] = useState("");
+  const [countries, setCountries] = useState<Array<Country>>([]);
+  const [results, setResults] = useState<Array<Country>>([]);
+
+  useEffect(() => {
+    getCountries(language.iso_639_1).then((res) => {
+      const resSort = res.sort(sortByNativeName);
+      setCountries(resSort);
+      setResults(resSort);
+    });
+  }, [language]);
+
+  useEffect(() => {
+    if (search !== "") {
+      setResults(
+        [...countries].filter((el) => el.native_name.includes(search))
+      );
     } else {
-      newValue.push(value.language);
+      setResults([...countries]);
     }
-    let newFilter: Filter = { ...filter, origincountry: newValue };
-    onChange(newFilter);
+  }, [search]);
+
+  const deleteCountry = (id: string) => {
+    let newValue: Array<string> = [...filter.origincountry];
+    newValue = newValue.filter((el) => el !== id);
+    onChange({ ...filter, origincountry: newValue });
+  };
+
+  const onSelectCountry = (value: Country) => {
+    console.log(value);
+    let newValue: Array<string> = [...filter.origincountry];
+    if (!newValue.includes(value.iso_3166_1)) {
+      newValue.push(value.iso_3166_1);
+      onChange({ ...filter, origincountry: newValue });
+    }
+    setSearch("");
   };
 
   return (
     <Grid container spacing={1} alignItems="center">
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={3}>
         <Typography variant="h2">{t("commun.origincountry")}</Typography>
       </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={1}>
-          {LANGUAGESORIGIN.map((language) => (
-            <Grid item key={language.id}>
-              <ChipLanguage
-                language={language}
-                active={languagesSelect.includes(language.iso)}
-                onClick={() => selectLanguage(language)}
-              />
-            </Grid>
-          ))}
-        </Grid>
+      <Grid item xs={12} sm={9}>
+        <AutocompleteInputCountries
+          clear={() => setSearch("")}
+          value={search}
+          onChange={(value) => setSearch(value)}
+          placeholder={t("commun.searchorigincountry")}
+          results={results}
+          onSelect={(value) => onSelectCountry(value)}
+        />
       </Grid>
+
+      {filter.origincountry.map((iso) => (
+        <Grid item key={iso}>
+          <ChipLanguageOriginFilter
+            iso={iso}
+            onDelete={() => deleteCountry(iso)}
+          />
+        </Grid>
+      ))}
     </Grid>
   );
 };

@@ -14,16 +14,15 @@ import Routes from "./routes";
 import "moment/dist/locale/fr";
 import "moment/dist/locale/de";
 import "moment/dist/locale/es";
-import { AuthProviderSupabase } from "./context/AuthProviderSupabase";
-import { getLanguages } from "./api/supabase/language";
 import { Language } from "./models/Language";
+import { getLanguages } from "./api/language";
+import { sortByName } from "./utils/sort";
+import { resources } from "./i18n/config";
 
 const DEFAULT_LANGUAGE: Language = {
-  id: 2,
-  iso: "fr-FR",
-  name: "Français",
-  abbreviation: "fr",
-  image: "fr.svg",
+  iso_639_1: "en",
+  english_name: "English",
+  name: "English",
 };
 
 export const UserContext = createContext<{
@@ -47,8 +46,14 @@ function App() {
   const [languages, setLanguages] = useState<Array<Language>>([]);
 
   const searchAllLanguage = async () => {
-    const { data } = await getLanguages();
-    setLanguages(data as Array<Language>);
+    getLanguages().then((res) => {
+      const isoLanguageTranslate = Object.keys(resources);
+      setLanguages(
+        res
+          .filter((el) => isoLanguageTranslate.includes(el.iso_639_1))
+          .sort(sortByName)
+      );
+    });
   };
 
   useEffect(() => {
@@ -70,8 +75,8 @@ function App() {
 
   useEffect(() => {
     if (language) {
-      moment.locale(language.abbreviation);
-      changeLanguage(language.id.toString());
+      moment.locale(language.iso_639_1);
+      changeLanguage(language.iso_639_1);
       localStorage.setItem("language", JSON.stringify(language));
     }
   }, [language]);
@@ -183,18 +188,16 @@ function App() {
   );
 
   return (
-    <AuthProviderSupabase>
-      <UserContext.Provider
-        value={{ mode, languages, language, setLanguage, setMode }}
-      >
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <BrowserRouter>
-            <Routes />
-          </BrowserRouter>
-        </ThemeProvider>
-      </UserContext.Provider>
-    </AuthProviderSupabase>
+    <UserContext.Provider
+      value={{ mode, languages, language, setLanguage, setMode }}
+    >
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </ThemeProvider>
+    </UserContext.Provider>
   );
 }
 

@@ -13,11 +13,10 @@ import { useTranslation } from "react-i18next";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
-import { Season } from "src/models/tmdb/tv/Season";
+import { Season } from "src/models/tv/Season";
 import { useEffect, useState } from "react";
 import { range } from "src/utils/array";
 import { NavigateEpisodeSkeleton } from "../commun/skeleton/Skeleton";
-import { BASEURLMOVIE } from "src/routes/movieRoutes";
 
 interface Props {
   serieId: number;
@@ -79,7 +78,7 @@ export const EpisodeNavigation = ({
 
     if (newSeason && newEpisode) {
       navigate(
-        `${BASEURLMOVIE}/tv/${serieId}/season/${newSeason.season_number}/episode/${newEpisode}`
+        `/tv/${serieId}/season/${newSeason.season_number}/episode/${newEpisode}`
       );
     }
   };
@@ -105,7 +104,7 @@ export const EpisodeNavigation = ({
 
     if (newSeason && newEpisode) {
       navigate(
-        `${BASEURLMOVIE}/tv/${serieId}/season/${newSeason.season_number}/episode/${newEpisode}`
+        `/tv/${serieId}/season/${newSeason.season_number}/episode/${newEpisode}`
       );
     }
   };
@@ -124,7 +123,7 @@ export const EpisodeNavigation = ({
 
   const navigateTo = () => {
     navigate(
-      `${BASEURLMOVIE}/tv/${serieId}/season/${seasonNavigate}/episode/${episodeNavigate}`
+      `/tv/${serieId}/season/${seasonNavigate}/episode/${episodeNavigate}`
     );
   };
 

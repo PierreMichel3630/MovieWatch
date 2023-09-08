@@ -1,75 +1,52 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+import { important, px } from "csx";
 import { Link, useNavigate } from "react-router-dom";
-import { px } from "csx";
 
-import { AccountMenu } from "./AccountMenu";
-import { NotificationsMenu } from "./NotificationsMenu";
 import { LanguagesMenu } from "./LanguageMenu";
 import { ModeMenu } from "./ModeMenu";
-import { useTranslation } from "react-i18next";
-import { Colors } from "src/style/Colors";
-import { useAuth } from "src/context/AuthProviderSupabase";
 
-import logo from "../../assets/ranking.png";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MovieIcon from "@mui/icons-material/Movie";
+import { SearchInput } from "../commun/Input";
+import { useContext } from "react";
+import { SearchContext } from "src/pages/HomePage";
 
 export const Header = () => {
-  const { user } = useAuth();
-
+  const DEFAULTPAGE = 1;
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { query, setQuery, type } = useContext(SearchContext);
+
+  const submitSearch = () => {
+    navigate({
+      pathname: `/search`,
+      search: `?query=${query}&page=${DEFAULTPAGE}${
+        type ? `&type=${type}` : ""
+      }`,
+    });
+  };
+
+  const clearSearch = () => {
+    setQuery("");
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" sx={{ boxShadow: "none" }}>
-        <Toolbar id="toolbar">
-          <Link to="/" style={{ display: "flex", gap: px(10) }}>
-            <img src={logo} width={30} height={30} />
-            <Typography
-              variant="h2"
-              sx={{ display: { xs: "none", sm: "flex" } }}
-            >
-              RankAllOrNothing
-            </Typography>
+        <Toolbar id="toolbar" sx={{ p: important(px(0)), gap: px(8) }}>
+          <Link to="/">
+            <IconButton>
+              <MovieIcon fontSize="large" />
+            </IconButton>
           </Link>
+          <SearchInput
+            onChange={(value) => setQuery(value)}
+            submit={submitSearch}
+            value={query}
+            clear={clearSearch}
+          />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
             <ModeMenu />
             <LanguagesMenu />
-            <NotificationsMenu />
-            {user ? (
-              <AccountMenu user={user} />
-            ) : (
-              <>
-                <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                  <Button
-                    variant="outlined"
-                    startIcon={<AccountCircleIcon />}
-                    onClick={() => navigate("login")}
-                  >
-                    <Typography variant="body1">{t("header.login")}</Typography>
-                  </Button>
-                </Box>
-                <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                  <IconButton
-                    aria-label="connection"
-                    color="inherit"
-                    onClick={() => navigate("login")}
-                  >
-                    <AccountCircleIcon
-                      sx={{ fill: Colors.blue, width: 30, height: 30 }}
-                    />
-                  </IconButton>
-                </Box>
-              </>
-            )}
           </Box>
         </Toolbar>
       </AppBar>

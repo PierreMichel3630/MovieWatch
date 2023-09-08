@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { percent } from "csx";
 import { useTranslation } from "react-i18next";
-import { EpisodeDetail } from "src/models/tmdb/tv/EpisodeDetail";
+import { EpisodeDetail } from "src/models/tv/EpisodeDetail";
 import { style } from "typestyle";
 import { EpisodeSkeleton } from "../commun/skeleton/Skeleton";
 

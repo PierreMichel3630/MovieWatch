@@ -1,4 +1,3 @@
-import { useContext, useState } from "react";
 import {
   Box,
   IconButton,
@@ -7,19 +6,10 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { percent } from "csx";
-
-import { style } from "typestyle";
+import { useContext, useState } from "react";
 import { UserContext } from "src/App";
 import { Language } from "src/models/Language";
-import { BUCKET_LANGUAGE, getUrlPublic } from "src/api/supabase/storage";
-
-const divFlagCss = style({
-  width: 24,
-  height: 24,
-  borderRadius: percent(50),
-  overflow: "hidden",
-});
+import { AvatarLanguage } from "../commun/Avatar";
 
 export const LanguagesMenu = () => {
   const { language, setLanguage, languages } = useContext(UserContext);
@@ -48,10 +38,7 @@ export const LanguagesMenu = () => {
             color="inherit"
             onClick={handleOpenMenu}
           >
-            <img
-              className={divFlagCss}
-              src={getUrlPublic(BUCKET_LANGUAGE, language.image)}
-            />
+            <AvatarLanguage iso={language.iso_639_1} />
           </IconButton>
           <Menu
             sx={{ mt: "45px" }}
@@ -69,18 +56,14 @@ export const LanguagesMenu = () => {
             open={Boolean(anchor)}
             onClose={handleCloseMenu}
           >
-            {languages.map((language) => (
-              <MenuItem
-                key={language.id}
-                onClick={() => selectLanguage(language)}
-              >
-                <ListItemIcon>
-                  <img
-                    className={divFlagCss}
-                    src={getUrlPublic(BUCKET_LANGUAGE, language.image)}
-                  />
+            {languages.map((el) => (
+              <MenuItem key={el.iso_639_1} onClick={() => selectLanguage(el)}>
+                <ListItemIcon sx={{ mr: 2 }}>
+                  <AvatarLanguage iso={el.iso_639_1} />
                 </ListItemIcon>
-                <ListItemText>{language.name}</ListItemText>
+                <ListItemText>
+                  {el.name !== "" ? el.name : el.english_name}
+                </ListItemText>
               </MenuItem>
             ))}
           </Menu>
