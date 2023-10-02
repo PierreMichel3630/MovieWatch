@@ -1,14 +1,14 @@
 import { Alert, Chip, Grid, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { Review } from "src/models/commun/Review";
-import { getBreakpoint } from "src/utils/mediaQuery";
-import { PhotoSkeleton } from "./commun/skeleton/Skeleton";
-import { ReviewMessage } from "./commun/ReviewMessage";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { UserContext } from "src/App";
+import { Review } from "src/models/commun/Review";
 import { Colors } from "src/style/Colors";
+import { getBreakpoint } from "src/utils/mediaQuery";
 import { isAllPropertiesFalse, isAllPropertiesTrue } from "src/utils/object";
 import { AvatarLanguage } from "./commun/Avatar";
-import { UserContext } from "src/App";
+import { ReviewMessage } from "./commun/ReviewMessage";
+import { ReviewSkeleton } from "./commun/skeleton/Skeleton";
 
 interface Props {
   reviews: Array<Review>;
@@ -23,10 +23,10 @@ export const ReviewBlock = ({ reviews, isLoading }: Props) => {
   const breakpoint = getBreakpoint();
   const cols = {
     xs: 1,
-    sm: 2,
-    md: 2,
-    lg: 3,
-    xl: 3,
+    sm: 1,
+    md: 1,
+    lg: 1,
+    xl: 1,
   }[breakpoint];
   const itemPerLine = cols * NUMBERLINESHOW;
 
@@ -201,7 +201,7 @@ export const ReviewBlock = ({ reviews, isLoading }: Props) => {
       {isLoading ? (
         Array.from(new Array(itemPerLine)).map((_, index) => (
           <Grid key={index} item xs={12 / cols}>
-            <PhotoSkeleton />
+            <ReviewSkeleton />
           </Grid>
         ))
       ) : reviews.length > 0 ? (
