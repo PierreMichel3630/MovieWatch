@@ -37,6 +37,7 @@
     "noresultmovie": "Non è stato fornito alcun film.",
     "noresultserie": "Non è stata fornita alcuna serie.",
     "noresultvideo": "Non è stato fornito alcun video.",
+    "noresultreview": "Non è stata pubblicata alcuna recensione.",
     "origincountry": "Paese di origine",
     "over": "Sopra",
     "persons": "Persone",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Pagina Scopri"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Eccellente",
+      "good": "Bene",
+      "average": "MEDIA",
+      "bad": "Povero"
     }
   }
 }

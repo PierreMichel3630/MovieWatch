@@ -37,6 +37,7 @@
     "noresultmovie": "Inga filmer har tillhandahållits.",
     "noresultserie": "Ingen serie har tillhandahållits.",
     "noresultvideo": "Inga videor har tillhandahållits.",
+    "noresultreview": "Inga recensioner har publicerats.",
     "origincountry": "Ursprungsland",
     "over": "Över",
     "persons": "människor",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Upptäck sida"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excellent",
+      "good": "Bra",
+      "average": "GENOMSNITT",
+      "bad": "Fattig"
     }
   }
 }

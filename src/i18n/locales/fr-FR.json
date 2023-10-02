@@ -35,6 +35,7 @@
     "noresultepisode": "Aucun épisode ne correspond à votre recherche.",
     "noresultimage": "Aucune image n'a été renseignée.",
     "noresultmovie": "Aucun film n'a été renseigné.",
+    "noresultreview": "Aucune critique n'a été renseignée.",
     "noresultserie": "Aucune série n'a été renseignée.",
     "noresultvideo": "Aucune vidéo n'a été renseignée.",
     "origincountry": "Pays d'origine",
@@ -46,6 +47,7 @@
     "profile": "Profil",
     "rankuser": "Note des utilisateurs",
     "results": "Résultats",
+    "review": "Critiques",
     "runtime": "Durée",
     "searchactor": "Rechercher un acteur",
     "searchactororperson": "Rechercher un acteur ou personnage",
@@ -87,6 +89,14 @@
   "pages": {
     "discover": {
       "title": "Discover Page"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excellent",
+      "good": "Bon",
+      "average": "Moyen",
+      "bad": "Médiocre"
     }
   }
 }

@@ -37,6 +37,7 @@
     "noresultmovie": "Níor cuireadh aon scannán ar fáil.",
     "noresultserie": "Níl aon sraith curtha ar fáil.",
     "noresultvideo": "Níor cuireadh físeáin ar bith ar fáil.",
+    "noresultreview": "Níl aon léirmheasanna postáilte.",
     "origincountry": "Tír thionscnaimh",
     "over": "Thar",
     "persons": "Daoine",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Faigh amach Leathanach"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Ar fheabhas",
+      "good": "Maith",
+      "average": "MEABHRÁN",
+      "bad": "bocht"
     }
   }
 }

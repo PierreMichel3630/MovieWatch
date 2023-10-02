@@ -37,6 +37,7 @@
     "noresultmovie": "لم يتم توفير أي أفلام.",
     "noresultserie": "لم يتم توفير أي سلسلة.",
     "noresultvideo": "لم يتم تقديم أي مقاطع فيديو.",
+    "noresultreview": "لم يتم نشر أي تعليقات.",
     "origincountry": "بلد المنشأ",
     "over": "زيادة",
     "persons": "الناس",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "اكتشف الصفحة"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "ممتاز",
+      "good": "جيد",
+      "average": "متوسط",
+      "bad": "فقير"
     }
   }
 }

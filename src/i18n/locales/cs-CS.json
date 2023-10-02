@@ -37,6 +37,7 @@
     "noresultmovie": "Nebyly poskytnuty žádné filmy.",
     "noresultserie": "Nebyla poskytnuta žádná série.",
     "noresultvideo": "Nebyla poskytnuta žádná videa.",
+    "noresultreview": "Nebyly zveřejněny žádné recenze.",
     "origincountry": "Země původu",
     "over": "Přes",
     "persons": "Lidé",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Objevit stránku"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Vynikající",
+      "good": "Dobrý",
+      "average": "PRŮMĚRNÝ",
+      "bad": "Chudý"
     }
   }
 }

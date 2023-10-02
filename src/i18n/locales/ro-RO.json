@@ -37,6 +37,7 @@
     "noresultmovie": "Nu au fost furnizate filme.",
     "noresultserie": "Nu a fost furnizată nicio serie.",
     "noresultvideo": "Nu au fost furnizate videoclipuri.",
+    "noresultreview": "Nu au fost postate recenzii.",
     "origincountry": "Țara de origine",
     "over": "Peste",
     "persons": "oameni",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Pagina de descoperire"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelent",
+      "good": "Bun",
+      "average": "IN MEDIE",
+      "bad": "Sărac"
     }
   }
 }

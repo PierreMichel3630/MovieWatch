@@ -37,6 +37,7 @@
     "noresultmovie": "Nebuvo pateikta jokių filmų.",
     "noresultserie": "Nebuvo pateikta jokia serija.",
     "noresultvideo": "Vaizdo įrašų nepateikta.",
+    "noresultreview": "Jokių atsiliepimų nepaskelbta.",
     "origincountry": "Kilmės šalis",
     "over": "Baigėsi",
     "persons": "Žmonės",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Atraskite puslapį"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Puikiai",
+      "good": "Gerai",
+      "average": "VIDUTINIS",
+      "bad": "Vargšas"
     }
   }
 }

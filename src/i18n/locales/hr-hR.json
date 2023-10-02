@@ -37,6 +37,7 @@
     "noresultmovie": "Nijedan film nije dostavljen.",
     "noresultserie": "Nije dostavljena nijedna serija.",
     "noresultvideo": "Nisu dostavljeni video zapisi.",
+    "noresultreview": "Nema objavljenih recenzija.",
     "origincountry": "Zemlja podrijetla",
     "over": "Nad",
     "persons": "narod",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Stranica za otkrivanje"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Izvrsno",
+      "good": "Dobro",
+      "average": "PROSJEČAN",
+      "bad": "Jadno"
     }
   }
 }

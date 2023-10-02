@@ -37,6 +37,7 @@
     "noresultmovie": "Noben film ni na voljo.",
     "noresultserie": "Zagotovljena ni bila nobena serija.",
     "noresultvideo": "Ni videoposnetkov.",
+    "noresultreview": "Nobena ocena ni bila objavljena.",
     "origincountry": "Država izvora",
     "over": "konec",
     "persons": "Ljudje",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Odkrijte stran"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Odlično",
+      "good": "Dobro",
+      "average": "POVPREČJE",
+      "bad": "Ubogi"
     }
   }
 }

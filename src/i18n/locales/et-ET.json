@@ -37,6 +37,7 @@
     "noresultmovie": "Filme pole pakutud.",
     "noresultserie": "Sarja pole pakutud.",
     "noresultvideo": "Ühtegi videot pole esitatud.",
+    "noresultreview": "Ühtegi arvustust pole postitatud.",
     "origincountry": "Päritoluriik",
     "over": "Läbi",
     "persons": "Inimesed",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Avastage leht"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Suurepärane",
+      "good": "Hea",
+      "average": "KESKMINE",
+      "bad": "Vaene"
     }
   }
 }

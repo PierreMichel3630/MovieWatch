@@ -37,6 +37,7 @@
     "noresultmovie": "Không có phim nào được cung cấp.",
     "noresultserie": "Không có loạt đã được cung cấp.",
     "noresultvideo": "Không có video đã được cung cấp.",
+    "noresultreview": "Không có review nào được đăng.",
     "origincountry": "Nước xuất xứ",
     "over": "Qua",
     "persons": "Mọi người",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Trang khám phá"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Xuất sắc",
+      "good": "Tốt",
+      "average": "TRUNG BÌNH",
+      "bad": "Nghèo"
     }
   }
 }

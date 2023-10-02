@@ -37,6 +37,7 @@
     "noresultmovie": "Hiçbir film sağlanmadı.",
     "noresultserie": "Herhangi bir seri sağlanmamıştır.",
     "noresultvideo": "Hiçbir video sağlanmadı.",
+    "noresultreview": "Hiçbir yorum yayınlanmadı.",
     "origincountry": "Menşei ülke",
     "over": "Üzerinde",
     "persons": "İnsanlar",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Sayfayı Keşfet"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Harika",
+      "good": "İyi",
+      "average": "ORTALAMA",
+      "bad": "Fakir"
     }
   }
 }

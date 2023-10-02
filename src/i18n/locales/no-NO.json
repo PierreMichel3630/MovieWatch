@@ -37,6 +37,7 @@
     "noresultmovie": "Ingen filmer er levert.",
     "noresultserie": "Ingen serie er gitt.",
     "noresultvideo": "Ingen videoer er gitt.",
+    "noresultreview": "Ingen anmeldelser er lagt ut.",
     "origincountry": "Opprinnelsesland",
     "over": "Over",
     "persons": "Mennesker",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Oppdag siden"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Utmerket",
+      "good": "Flink",
+      "average": "GJENNOMSNITT",
+      "bad": "Dårlig"
     }
   }
 }

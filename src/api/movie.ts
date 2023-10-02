@@ -3,8 +3,12 @@ import { getRequestOptions } from "./commun";
 import { Credits } from "src/models/commun/Credits";
 import { Images } from "src/models/commun/Images";
 import { Videos } from "src/models/commun/Videos";
-import { SearchResult } from "src/models/commun/SearchResult";
+import {
+  SearchResult,
+  SearchResultGeneric,
+} from "src/models/commun/SearchResult";
 import { TimeTrending } from "src/models/enum";
+import { Review } from "src/models/commun/Review";
 
 // MOVIE
 
@@ -21,6 +25,14 @@ export const getMovieCredit = (
   language: string
 ): Promise<Credits> => {
   const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=${language}`;
+  return fetch(url, getRequestOptions).then((res) => res.json());
+};
+
+export const getMovieReview = (
+  id: number,
+  language: string
+): Promise<SearchResultGeneric<Review>> => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews?language=${language}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 

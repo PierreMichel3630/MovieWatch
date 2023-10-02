@@ -37,6 +37,7 @@
     "noresultmovie": "Es wurden keine Filme bereitgestellt.",
     "noresultserie": "Es wurde keine Serie bereitgestellt.",
     "noresultvideo": "Es wurden keine Videos bereitgestellt.",
+    "noresultreview": "Es wurden keine Bewertungen veröffentlicht.",
     "origincountry": "Herkunftsland",
     "over": "Über",
     "persons": "Menschen",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Seite entdecken"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Exzellent",
+      "good": "Gut",
+      "average": "DURCHSCHNITT",
+      "bad": "Arm"
     }
   }
 }

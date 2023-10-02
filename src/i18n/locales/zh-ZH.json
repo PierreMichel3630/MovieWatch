@@ -37,6 +37,7 @@
     "noresultmovie": "没有提供任何电影。",
     "noresultserie": "尚未提供系列。",
     "noresultvideo": "没有提供视频。",
+    "noresultreview": "尚未发布任何评论。",
     "origincountry": "原产地",
     "over": "超过",
     "persons": "人们",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "发现页面"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "出色的",
+      "good": "好的",
+      "average": "平均的",
+      "bad": "贫穷的"
     }
   }
 }

@@ -37,6 +37,7 @@
     "noresultmovie": "Heç bir film təqdim edilməyib.",
     "noresultserie": "Heç bir seriya verilməyib.",
     "noresultvideo": "Heç bir video təqdim edilməyib.",
+    "noresultreview": "Rəylər dərc edilməyib.",
     "origincountry": "Mənşə ölkəsi",
     "over": "Bitdi",
     "persons": "Xalq",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Səhifəni kəşf edin"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Əla",
+      "good": "Yaxşı",
+      "average": "ORTA",
+      "bad": "Yazıq"
     }
   }
 }

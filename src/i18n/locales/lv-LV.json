@@ -37,6 +37,7 @@
     "noresultmovie": "Nav nodrošināta neviena filma.",
     "noresultserie": "Nav nodrošināta neviena sērija.",
     "noresultvideo": "Videoklipi nav sniegti.",
+    "noresultreview": "Atsauksmes nav publicētas.",
     "origincountry": "Izcelsmes valsts",
     "over": "Beigās",
     "persons": "Cilvēki",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Atklājiet lapu"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Lieliski",
+      "good": "Labi",
+      "average": "VIDĒJS",
+      "bad": "Nabadzīgs"
     }
   }
 }

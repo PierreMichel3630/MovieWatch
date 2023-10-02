@@ -37,6 +37,7 @@
     "noresultmovie": "कोई मूवी उपलब्ध नहीं कराई गई है.",
     "noresultserie": "कोई श्रृंखला प्रदान नहीं की गई है.",
     "noresultvideo": "कोई वीडियो उपलब्ध नहीं कराया गया है.",
+    "noresultreview": "कोई समीक्षा पोस्ट नहीं की गई है।",
     "origincountry": "उद्गम देश",
     "over": "ऊपर",
     "persons": "लोग",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "पेज खोजें"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "उत्कृष्ट",
+      "good": "अच्छा",
+      "average": "औसत",
+      "bad": "गरीब"
     }
   }
 }

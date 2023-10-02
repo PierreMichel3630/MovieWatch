@@ -37,6 +37,7 @@
     "noresultmovie": "映画は提供されていません。",
     "noresultserie": "シリーズは提供されていません。",
     "noresultvideo": "動画は提供されていません。",
+    "noresultreview": "レビューは投稿されていません。",
     "origincountry": "原産国",
     "over": "以上",
     "persons": "人々",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "ページを発見する"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "素晴らしい",
+      "good": "良い",
+      "average": "平均",
+      "bad": "貧しい"
     }
   }
 }

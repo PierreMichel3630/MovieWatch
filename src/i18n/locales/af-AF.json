@@ -37,6 +37,7 @@
     "noresultmovie": "Geen flieks is verskaf nie.",
     "noresultserie": "Geen reeks is verskaf nie.",
     "noresultvideo": "Geen video's is verskaf nie.",
+    "noresultreview": "Geen resensies is geplaas nie.",
     "origincountry": "Land van oorsprong",
     "over": "verby",
     "persons": "Mense",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Ontdek Bladsy"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Uitstekend",
+      "good": "Goed",
+      "average": "GEMIDDELDE",
+      "bad": "Arm"
     }
   }
 }

@@ -3,12 +3,19 @@ import { percent, viewHeight } from "csx";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
-import { getMovieDetails, getMovieImage, getMovieVideo } from "src/api/movie";
+import {
+  getMovieDetails,
+  getMovieImage,
+  getMovieReview,
+  getMovieVideo,
+} from "src/api/movie";
 import { PhotosBlock } from "src/components/PhotosBlock";
+import { ReviewBlock } from "src/components/ReviewBlock";
 import { VideosBlock } from "src/components/VideosBlock";
 import { CastsBlockMovie } from "src/components/movie/CastsBlockMovie";
 import { HeaderMovie } from "src/components/movie/HeaderMovie";
 import { Image } from "src/models/commun/Image";
+import { Review } from "src/models/commun/Review";
 import { Video } from "src/models/commun/Video";
 import { ImageType } from "src/models/enum";
 import { MovieDetails } from "src/models/movie/MovieDetails";
@@ -22,10 +29,12 @@ export const MoviePage = () => {
   const [detail, setDetail] = useState<undefined | MovieDetails>(undefined);
   const [images, setImages] = useState<Array<Image>>([]);
   const [videos, setVideos] = useState<Array<Video>>([]);
+  const [reviews, setReviews] = useState<Array<Review>>([]);
 
   const [isLoadingImage, setIsLoadingImage] = useState(true);
   const [isLoadingVideo, setIsLoadingVideo] = useState(true);
   const [isLoadingDetail, setIsLoadingDetail] = useState(true);
+  const [isLoadingReview, setIsLoadingReview] = useState(true);
 
   const breakpoint = getBreakpoint();
   const isSmallScreen = breakpoint === "xs" || breakpoint === "sm";
@@ -93,6 +102,28 @@ export const MoviePage = () => {
     }
   }, [id, language]);
 
+  useEffect(() => {
+    setIsLoadingReview(true);
+    if (id) {
+      Promise.all([
+        getMovieReview(Number(id), language.iso_639_1),
+        getMovieReview(Number(id), "us"),
+      ]).then((res) => {
+        setReviews([
+          ...res[0].results.map((el) => ({
+            ...el,
+            language: language.iso_639_1,
+          })),
+          ...res[1].results.map((el) => ({
+            ...el,
+            language: "en",
+          })),
+        ]);
+        setIsLoadingReview(false);
+      });
+    }
+  }, [id, language]);
+
   return (
     <Grid container>
       <Grid item xs={12} className={backdropCss}>
@@ -122,6 +153,11 @@ export const MoviePage = () => {
       <Grid item xs={12}>
         <Container maxWidth="lg" sx={{ marginTop: 2 }}>
           <VideosBlock videos={videos} isLoading={isLoadingVideo} />
+        </Container>
+      </Grid>
+      <Grid item xs={12}>
+        <Container maxWidth="lg" sx={{ marginTop: 2 }}>
+          <ReviewBlock reviews={reviews} isLoading={isLoadingReview} />
         </Container>
       </Grid>
     </Grid>

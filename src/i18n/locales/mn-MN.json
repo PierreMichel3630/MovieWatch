@@ -37,6 +37,7 @@
     "noresultmovie": "Ямар ч кино үзүүлээгүй.",
     "noresultserie": "Ямар ч цуврал үзүүлээгүй.",
     "noresultvideo": "Ямар ч видео оруулаагүй байна.",
+    "noresultreview": "Шүүмж нийтлэгдсэнгүй.",
     "origincountry": "Гарал үүслийн улс",
     "over": "Дууслаа",
     "persons": "Хүмүүс",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Discover хуудас"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Маш сайн",
+      "good": "Сайн байна",
+      "average": "ДУНДЖ",
+      "bad": "Хөөрхий"
     }
   }
 }

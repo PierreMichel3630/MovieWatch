@@ -37,6 +37,7 @@
     "noresultmovie": "No movies have been provided.",
     "noresultserie": "No series has been provided.",
     "noresultvideo": "No videos have been provided.",
+    "noresultreview": "No reviews have been provided.",
     "origincountry": "Country of origin",
     "over": "Over",
     "persons": "People",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Discover Page"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "average": "Average",
+      "bad": "Bad"
     }
   }
 }

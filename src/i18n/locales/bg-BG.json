@@ -37,6 +37,7 @@
     "noresultmovie": "Не са предоставени филми.",
     "noresultserie": "Не е предоставена серия.",
     "noresultvideo": "Не са предоставени видеоклипове.",
+    "noresultreview": "Няма публикувани отзиви.",
     "origincountry": "Страна на произход",
     "over": "Над",
     "persons": "хора",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Страница за откриване"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Отлично",
+      "good": "добре",
+      "average": "СРЕДНО АРИТМЕТИЧНО",
+      "bad": "беден"
     }
   }
 }

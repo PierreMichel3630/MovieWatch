@@ -37,6 +37,7 @@
     "noresultmovie": "Nem biztosítottak filmeket.",
     "noresultserie": "Nem adtak meg sorozatot.",
     "noresultvideo": "Nem adtak meg videókat.",
+    "noresultreview": "Nem tettek közzé értékelést.",
     "origincountry": "Származási ország",
     "over": "Felett",
     "persons": "Emberek",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Fedezze fel az oldalt"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Kiváló",
+      "good": "Jó",
+      "average": "ÁTLAGOS",
+      "bad": "Szegény"
     }
   }
 }

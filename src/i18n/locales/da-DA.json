@@ -37,6 +37,7 @@
     "noresultmovie": "Der er ikke leveret nogen film.",
     "noresultserie": "Der er ikke angivet nogen serier.",
     "noresultvideo": "Der er ikke leveret nogen videoer.",
+    "noresultreview": "Ingen anmeldelser er blevet udgivet.",
     "origincountry": "Oprindelsesland",
     "over": "Over",
     "persons": "Mennesker",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Opdag side"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Fremragende",
+      "good": "godt",
+      "average": "GENNEMSNIT",
+      "bad": "Fattige"
     }
   }
 }

@@ -36,7 +36,7 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
   const breakpoint = getBreakpoint();
   const cols = {
     xs: 12,
-    sm: 6,
+    sm: 12,
     md: 6,
     lg: 6,
     xl: 6,
@@ -100,7 +100,7 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
       ) : videos.length > 0 ? (
         <>
           {videosDisplay.map((video) => (
-            <Grid key={video.id} item xs={12} sm={6}>
+            <Grid key={video.id} item xs={12} sm={12} md={6}>
               <iframe
                 width="100%"
                 height="480"
@@ -112,7 +112,7 @@ export const VideosBlock = ({ videos, isLoading = false }: Props) => {
               />
             </Grid>
           ))}
-          {videosFilter.length > cols * NUMBERLINESHOW && (
+          {videosFilter.length > (cols / 12) * NUMBERLINESHOW && (
             <Grid
               item
               xs={12}

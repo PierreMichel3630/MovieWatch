@@ -37,6 +37,7 @@
     "noresultmovie": "Neboli poskytnuté žiadne filmy.",
     "noresultserie": "Nebola poskytnutá žiadna séria.",
     "noresultvideo": "Neboli poskytnuté žiadne videá.",
+    "noresultreview": "Neboli uverejnené žiadne recenzie.",
     "origincountry": "Krajina pôvodu",
     "over": "Koniec",
     "persons": "Ľudia",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Objaviť stránku"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Výborne",
+      "good": "Dobre",
+      "average": "PRIEMERNÝ",
+      "bad": "Chudobný"
     }
   }
 }

@@ -37,6 +37,7 @@
     "noresultmovie": "Er zijn geen films aangeboden.",
     "noresultserie": "Er is geen serie opgegeven.",
     "noresultvideo": "Er zijn geen video's verstrekt.",
+    "noresultreview": "Er zijn geen beoordelingen geplaatst.",
     "origincountry": "Land van herkomst",
     "over": "Over",
     "persons": "Mensen",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Ontdek pagina"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Uitstekend",
+      "good": "Goed",
+      "average": "GEMIDDELD",
+      "bad": "Arm"
     }
   }
 }

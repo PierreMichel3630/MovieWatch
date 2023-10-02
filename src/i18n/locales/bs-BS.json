@@ -37,6 +37,7 @@
     "noresultmovie": "Nijedan film nije dostavljen.",
     "noresultserie": "Nijedna serija nije dostavljena.",
     "noresultvideo": "Nijedan videozapis nije dostavljen.",
+    "noresultreview": "Nije objavljena nijedna recenzija.",
     "origincountry": "Zemlja porijekla",
     "over": "Gotovo",
     "persons": "Ljudi",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Otkrijte stranicu"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Odlično",
+      "good": "Dobro",
+      "average": "PROSJEČNO",
+      "bad": "Jadno"
     }
   }
 }

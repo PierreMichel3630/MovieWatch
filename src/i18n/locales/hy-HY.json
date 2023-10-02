@@ -37,6 +37,7 @@
     "noresultmovie": "Ֆիլմեր չեն տրամադրվել։",
     "noresultserie": "Ոչ մի շարք չի տրամադրվել։",
     "noresultvideo": "Տեսանյութեր չեն տրամադրվել։",
+    "noresultreview": "Կարծիքներ չեն հրապարակվել:",
     "origincountry": "Ծագման երկիր",
     "over": "Ավարտվել է",
     "persons": "Ժողովուրդ",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Բացահայտեք էջը"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Գերազանց",
+      "good": "Լավ",
+      "average": "ՄԻՋԻՆ",
+      "bad": "Խեղճ"
     }
   }
 }

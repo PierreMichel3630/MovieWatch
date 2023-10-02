@@ -37,6 +37,7 @@
     "noresultmovie": "No se han proporcionado películas.",
     "noresultserie": "No se ha proporcionado ninguna serie.",
     "noresultvideo": "No se han proporcionado vídeos.",
+    "noresultreview": "Ninguna evaluación se ha publicado.",
     "origincountry": "País de origen",
     "over": "Encima",
     "persons": "Gente",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Descubrir Página"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelente",
+      "good": "Bien",
+      "average": "PROMEDIO",
+      "bad": "Pobre"
     }
   }
 }

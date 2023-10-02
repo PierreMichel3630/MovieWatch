@@ -37,6 +37,7 @@
     "noresultmovie": "Nie udostępniono żadnych filmów.",
     "noresultserie": "Nie podano żadnego serialu.",
     "noresultvideo": "Nie udostępniono żadnych filmów.",
+    "noresultreview": "Nie opublikowano żadnych recenzji.",
     "origincountry": "Kraj pochodzenia",
     "over": "Nad",
     "persons": "Ludzie",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Odkryj stronę"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Doskonały",
+      "good": "Dobry",
+      "average": "PRZECIĘTNY",
+      "bad": "Słaby"
     }
   }
 }

@@ -37,6 +37,7 @@
     "noresultmovie": "Tidak ada film yang disediakan.",
     "noresultserie": "Tidak ada seri yang disediakan.",
     "noresultvideo": "Tidak ada video yang disediakan.",
+    "noresultreview": "Belum ada ulasan yang diposting.",
     "origincountry": "Negara Asal",
     "over": "Lebih",
     "persons": "Rakyat",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Temukan Halaman"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Bagus sekali",
+      "good": "Bagus",
+      "average": "RATA-RATA",
+      "bad": "Miskin"
     }
   }
 }

@@ -37,6 +37,7 @@
     "noresultmovie": "Nenhum filme foi fornecido.",
     "noresultserie": "Nenhuma série foi fornecida.",
     "noresultvideo": "Nenhum vídeo foi fornecido.",
+    "noresultreview": "Nenhum comentário foi postado.",
     "origincountry": "País de origem",
     "over": "Sobre",
     "persons": "Pessoas",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Página Descobrir"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelente",
+      "good": "Bom",
+      "average": "MÉDIA",
+      "bad": "Pobre"
     }
   }
 }

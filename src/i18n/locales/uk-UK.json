@@ -37,6 +37,7 @@
     "noresultmovie": "Немає фільмів.",
     "noresultserie": "Жодної серії не надано.",
     "noresultvideo": "Відео не надано.",
+    "noresultreview": "Відгуки не опубліковано.",
     "origincountry": "Країна народження",
     "over": "закінчено",
     "persons": "Люди",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "Сторінка відкриття"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Чудово",
+      "good": "добре",
+      "average": "СЕРЕДНЯ",
+      "bad": "Бідний"
     }
   }
 }

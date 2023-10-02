@@ -37,6 +37,7 @@
     "noresultmovie": "제공된 영화가 없습니다.",
     "noresultserie": "제공된 시리즈가 없습니다.",
     "noresultvideo": "제공된 동영상이 없습니다.",
+    "noresultreview": "등록된 리뷰가 없습니다.",
     "origincountry": "원산지",
     "over": "위에",
     "persons": "사람들",
@@ -87,6 +88,14 @@
   "pages": {
     "discover": {
       "title": "검색 페이지"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "훌륭한",
+      "good": "좋은",
+      "average": "평균",
+      "bad": "가난한"
     }
   }
 }
