@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Потражите филм, серију, глумца..."
+    }
+  },
+  "commun": {
+    "add": "Додати",
+    "after": "После",
+    "all": "Све",
+    "actors": "Глумци",
+    "backdrop": "Валлпапер",
+    "before": "пре него што",
+    "biography": "Био",
+    "birthday": "Датум рођења",
+    "cancel": "Поништити, отказати",
+    "cast": "Цаст",
+    "datenotknow": "Датум изласка непознат",
+    "deathday": "Датум смрти",
+    "episode": "епизода",
+    "episodes": "Епизоде",
+    "episodeprev": "Претходна епизода",
+    "episodenext": "Следећа епизода",
+    "exact": "Једнако",
+    "filter": "Филтер",
+    "genre": "Жанр",
+    "gueststars": "Гости звезде",
+    "knowfor": "Познат по",
+    "logo": "Лого",
+    "minutes": "минута",
+    "min": "мин",
+    "movies": "Филмови",
+    "noresult": "Нема резултата који одговарају вашој претрази.",
+    "noresultactor": "Ниједан глумац није обезбеђен.",
+    "noresultepisode": "Ниједна епизода не одговара вашој претрази.",
+    "noresultimage": "Слика није дата.",
+    "noresultmovie": "Није обезбеђен ниједан филм.",
+    "noresultserie": "Ниједна серија није обезбеђена.",
+    "noresultvideo": "Ниједан видео снимак није обезбеђен.",
+    "noresultreview": "Није објављена ниједна рецензија.",
+    "origincountry": "Земља порекла",
+    "over": "Готово",
+    "persons": "Људи",
+    "photos": "Слике",
+    "placeofbirth": "Место рођења",
+    "poster": "Плакат",
+    "profile": "Профил",
+    "rankuser": "Рејтинг",
+    "results": "Резултати",
+    "runtime": "Трајање",
+    "searchactor": "Потражите глумца",
+    "searchactororperson": "Потражите глумца или лика",
+    "searchmovie": "Потражите филм",
+    "searchserie": "Потражите серију",
+    "searchorigincountry": "Претражите земљу порекла",
+    "season": "Годишње доба",
+    "seasons": "Годишња доба",
+    "seeMore": "Прикажи више",
+    "seeLess": "Прикажи мање",
+    "series": "Сериес",
+    "sort": "Врста",
+    "summary": "Резиме",
+    "today": "Данас",
+    "trailer": "Приколица",
+    "trendingmovie": "Трендинг Филмс",
+    "trendingserie": "Трендинг Сериес",
+    "type": "Тип",
+    "under": "Мање од",
+    "upcoming": "Долази ускоро",
+    "videos": "Видеос",
+    "vote": "Гласајте",
+    "week": "Недеља",
+    "withgenres": "Са жанром",
+    "withoutgenres": "Без жанра",
+    "year": "Година",
+    "years": "Године"
+  },
+  "sort": {
+    "popularityAsc": "Популарност -/",
+    "popularityDesc": "Популарност /-",
+    "voteaverageAsc": "Оцене -/",
+    "voteaverageDesc": "Оцене /-",
+    "primaryreleasedateAsc": "Датум изласка -/",
+    "primaryreleasedateDesc": "Датум изласка  /-",
+    "titleAsc": "Наслов од А-З",
+    "titleDesc": "Наслов од З-А"
+  },
+  "pages": {
+    "discover": {
+      "title": "Откријте страницу"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Одлично",
+      "good": "Добро",
+      "average": "ПРОСЕК",
+      "bad": "Јадно"
+    }
+  }
+}

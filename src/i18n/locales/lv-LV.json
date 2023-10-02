@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Meklē filmu, seriālu, aktieri..."
+    }
+  },
+  "commun": {
+    "add": "Pievienot",
+    "after": "Pēc",
+    "all": "Visi",
+    "actors": "Aktieri",
+    "backdrop": "Tapetes",
+    "before": "Pirms tam",
+    "biography": "Bio",
+    "birthday": "Dzimšanas datums",
+    "cancel": "Atcelt",
+    "cast": "Cast",
+    "datenotknow": "Izdošanas datums nav zināms",
+    "deathday": "Nāves datums",
+    "episode": "epizode",
+    "episodes": "Epizodes",
+    "episodeprev": "Iepriekšējā sērija",
+    "episodenext": "Nākamā sērija",
+    "exact": "Vienāds ar",
+    "filter": "Filtrs",
+    "genre": "Žanrs",
+    "gueststars": "Viesu zvaigznes",
+    "knowfor": "Pazīstams ar",
+    "logo": "Logotips",
+    "minutes": "minūtes",
+    "min": "min",
+    "movies": "Filmas",
+    "noresult": "Jūsu meklējumam neatbilst neviens rezultāts.",
+    "noresultactor": "Neviens aktieris nav nodrošināts.",
+    "noresultepisode": "Neviena sērija neatbilst jūsu meklēšanas vaicājumam.",
+    "noresultimage": "Attēls nav sniegts.",
+    "noresultmovie": "Nav nodrošināta neviena filma.",
+    "noresultserie": "Nav nodrošināta neviena sērija.",
+    "noresultvideo": "Videoklipi nav sniegti.",
+    "noresultreview": "Atsauksmes nav publicētas.",
+    "origincountry": "Izcelsmes valsts",
+    "over": "Beigās",
+    "persons": "Cilvēki",
+    "photos": "Bildes",
+    "placeofbirth": "Dzimšanas vieta",
+    "poster": "Plakāts",
+    "profile": "Profils",
+    "rankuser": "Lietotāju vērtējums",
+    "results": "Rezultāti",
+    "runtime": "Ilgums",
+    "searchactor": "Meklēt aktieri",
+    "searchactororperson": "Meklējiet aktieri vai tēlu",
+    "searchmovie": "Meklēt filmu",
+    "searchserie": "Meklēt sēriju",
+    "searchorigincountry": "Meklēt izcelsmes valsti",
+    "season": "Sezona",
+    "seasons": "Gadalaiki",
+    "seeMore": "Parādīt vairāk",
+    "seeLess": "Rādīt mazāk",
+    "series": "sērija",
+    "sort": "Kārtot",
+    "summary": "Kopsavilkums",
+    "today": "Šodien",
+    "trailer": "Treileris",
+    "trendingmovie": "Tendences filmas",
+    "trendingserie": "Tendences sērija",
+    "type": "Tips",
+    "under": "Mazāk nekā",
+    "upcoming": "Drīzumā",
+    "videos": "Videoklipi",
+    "vote": "Balsot",
+    "week": "nedēļa",
+    "withgenres": "Ar žanru",
+    "withoutgenres": "Bez žanra",
+    "year": "gads",
+    "years": "Gadiem"
+  },
+  "sort": {
+    "popularityAsc": "Popularitāte -/",
+    "popularityDesc": "Popularitāte /-",
+    "voteaverageAsc": "Vērtējumi -/",
+    "voteaverageDesc": "Vērtējumi /-",
+    "primaryreleasedateAsc": "Izdošanas datums -/",
+    "primaryreleasedateDesc": "Izdošanas datums  /-",
+    "titleAsc": "Nosaukums no A-Z",
+    "titleDesc": "Nosaukums no Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Atklājiet lapu"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Lieliski",
+      "good": "Labi",
+      "average": "VIDĒJS",
+      "bad": "Nabadzīgs"
+    }
+  }
+}

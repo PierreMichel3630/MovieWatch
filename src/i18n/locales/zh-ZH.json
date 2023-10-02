@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "搜索电影、电视剧、演员..."
+    }
+  },
+  "commun": {
+    "add": "添加",
+    "after": "后",
+    "all": "全部",
+    "actors": "演员",
+    "backdrop": "墙纸",
+    "before": "前",
+    "biography": "简介",
+    "birthday": "出生日期",
+    "cancel": "取消",
+    "cast": "投掷",
+    "datenotknow": "发布日期未知",
+    "deathday": "死亡日期",
+    "episode": "插曲",
+    "episodes": "剧集数",
+    "episodeprev": "上一集",
+    "episodenext": "下一集",
+    "exact": "等于",
+    "filter": "筛选",
+    "genre": "类型",
+    "gueststars": "客串明星",
+    "knowfor": "闻名",
+    "logo": "标识",
+    "minutes": "分钟",
+    "min": "分钟",
+    "movies": "电影",
+    "noresult": "没有结果与您的搜索相符。",
+    "noresultactor": "没有提供演员。",
+    "noresultepisode": "没有符合您搜索条件的剧集。",
+    "noresultimage": "未提供图像。",
+    "noresultmovie": "没有提供任何电影。",
+    "noresultserie": "尚未提供系列。",
+    "noresultvideo": "没有提供视频。",
+    "noresultreview": "尚未发布任何评论。",
+    "origincountry": "原产地",
+    "over": "超过",
+    "persons": "人们",
+    "photos": "图片",
+    "placeofbirth": "出生地",
+    "poster": "海报",
+    "profile": "轮廓",
+    "rankuser": "用户评分",
+    "results": "结果",
+    "runtime": "期间",
+    "searchactor": "寻找演员",
+    "searchactororperson": "搜索演员或角色",
+    "searchmovie": "搜索电影",
+    "searchserie": "搜索系列",
+    "searchorigincountry": "搜索原籍国",
+    "season": "季节",
+    "seasons": "季节",
+    "seeMore": "展示更多",
+    "seeLess": "显示较少",
+    "series": "系列",
+    "sort": "种类",
+    "summary": "概括",
+    "today": "今天",
+    "trailer": "预告片",
+    "trendingmovie": "热门电影",
+    "trendingserie": "热门系列",
+    "type": "类型",
+    "under": "少于",
+    "upcoming": "即将推出",
+    "videos": "视频",
+    "vote": "投票",
+    "week": "星期",
+    "withgenres": "与流派",
+    "withoutgenres": "无流派",
+    "year": "年",
+    "years": "年"
+  },
+  "sort": {
+    "popularityAsc": "人气-/",
+    "popularityDesc": "人气 /-",
+    "voteaverageAsc": "收视率-/",
+    "voteaverageDesc": "收视率 /-",
+    "primaryreleasedateAsc": "发布日期 -/",
+    "primaryreleasedateDesc": "发布日期  /-",
+    "titleAsc": "标题从A到Z",
+    "titleDesc": "标题从 Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "发现页面"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "出色的",
+      "good": "好的",
+      "average": "平均的",
+      "bad": "贫穷的"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Poiščite film, serijo, igralca ..."
+    }
+  },
+  "commun": {
+    "add": "Dodaj",
+    "after": "Po",
+    "all": "Vse",
+    "actors": "Igralci",
+    "backdrop": "Tapeta",
+    "before": "prej",
+    "biography": "Bio",
+    "birthday": "Datum rojstva",
+    "cancel": "Prekliči",
+    "cast": "Cast",
+    "datenotknow": "Datum izdaje ni znan",
+    "deathday": "Datum smrti",
+    "episode": "Epizoda",
+    "episodes": "Epizode",
+    "episodeprev": "Prejšnja epizoda",
+    "episodenext": "Naslednja epizoda",
+    "exact": "Enako",
+    "filter": "Filter",
+    "genre": "Žanr",
+    "gueststars": "Gostujoče zvezde",
+    "knowfor": "Znan po",
+    "logo": "Logotip",
+    "minutes": "minut",
+    "min": "min",
+    "movies": "Filmi",
+    "noresult": "Noben rezultat se ne ujema z vašim iskanjem.",
+    "noresultactor": "Igralec ni naveden.",
+    "noresultepisode": "Nobena epizoda ne ustreza vašemu iskanju.",
+    "noresultimage": "Zagotovljena ni bila nobena slika.",
+    "noresultmovie": "Noben film ni na voljo.",
+    "noresultserie": "Zagotovljena ni bila nobena serija.",
+    "noresultvideo": "Ni videoposnetkov.",
+    "noresultreview": "Nobena ocena ni bila objavljena.",
+    "origincountry": "Država izvora",
+    "over": "konec",
+    "persons": "Ljudje",
+    "photos": "Slike",
+    "placeofbirth": "Kraj rojstva",
+    "poster": "Plakat",
+    "profile": "Profil",
+    "rankuser": "Ocena uporabnika",
+    "results": "Rezultati",
+    "runtime": "Trajanje",
+    "searchactor": "Iskanje igralca",
+    "searchactororperson": "Poiščite igralca ali lik",
+    "searchmovie": "Poiščite film",
+    "searchserie": "Poiščite serijo",
+    "searchorigincountry": "Išči izvorno državo",
+    "season": "Sezona",
+    "seasons": "letni časi",
+    "seeMore": "Pokaži več",
+    "seeLess": "Prikaži manj",
+    "series": "serija",
+    "sort": "Razvrsti",
+    "summary": "Povzetek",
+    "today": "Danes",
+    "trailer": "Napovednik",
+    "trendingmovie": "Priljubljeni filmi",
+    "trendingserie": "Serija v trendu",
+    "type": "Vrsta",
+    "under": "Manj kot",
+    "upcoming": "Prihaja kmalu",
+    "videos": "Videoposnetki",
+    "vote": "Glasujte",
+    "week": "teden",
+    "withgenres": "Z žanrom",
+    "withoutgenres": "Brez žanra",
+    "year": "leto",
+    "years": "leta"
+  },
+  "sort": {
+    "popularityAsc": "Priljubljenost -/",
+    "popularityDesc": "Priljubljenost /-",
+    "voteaverageAsc": "Ocene -/",
+    "voteaverageDesc": "Ocene /-",
+    "primaryreleasedateAsc": "Datum izdaje -/",
+    "primaryreleasedateDesc": "Datum izdaje  /-",
+    "titleAsc": "Naslov od A do Ž",
+    "titleDesc": "Naslov od Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Odkrijte stran"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Odlično",
+      "good": "Dobro",
+      "average": "POVPREČJE",
+      "bad": "Ubogi"
+    }
+  }
+}

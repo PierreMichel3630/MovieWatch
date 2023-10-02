@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Кино, цуврал, жүжигчин хайх..."
+    }
+  },
+  "commun": {
+    "add": "Нэмэх",
+    "after": "Дараа нь",
+    "all": "Бүгд",
+    "actors": "Жүжигчид",
+    "backdrop": "Дэлгэцийн зураг",
+    "before": "Өмнө нь",
+    "biography": "Био",
+    "birthday": "Төрсөн өдөр",
+    "cancel": "Цуцлах",
+    "cast": "Жүжигчин",
+    "datenotknow": "Гарсан огноо тодорхойгүй",
+    "deathday": "Нас барсан өдөр",
+    "episode": "анги",
+    "episodes": "Ангиуд",
+    "episodeprev": "Өмнөх анги",
+    "episodenext": "Дараагийн анги",
+    "exact": "Тэнцүү",
+    "filter": "Шүүлтүүр",
+    "genre": "Төрөл",
+    "gueststars": "Зочин одод",
+    "knowfor": "гэдгээрээ алдартай",
+    "logo": "Лого",
+    "minutes": "минут",
+    "min": "мин",
+    "movies": "Кинонууд",
+    "noresult": "Таны хайлтад тохирох илэрц алга.",
+    "noresultactor": "Жүжигчин өгөөгүй.",
+    "noresultepisode": "Таны хайлтанд тохирох анги алга.",
+    "noresultimage": "Ямар ч зураг өгөөгүй байна.",
+    "noresultmovie": "Ямар ч кино үзүүлээгүй.",
+    "noresultserie": "Ямар ч цуврал үзүүлээгүй.",
+    "noresultvideo": "Ямар ч видео оруулаагүй байна.",
+    "noresultreview": "Шүүмж нийтлэгдсэнгүй.",
+    "origincountry": "Гарал үүслийн улс",
+    "over": "Дууслаа",
+    "persons": "Хүмүүс",
+    "photos": "Зураг",
+    "placeofbirth": "Төрсөн газар",
+    "poster": "Зурагт хуудас",
+    "profile": "Профайл",
+    "rankuser": "Хэрэглэгчийн үнэлгээ",
+    "results": "Үр дүн",
+    "runtime": "Үргэлжлэх хугацаа",
+    "searchactor": "Жүжигчин хайх",
+    "searchactororperson": "Жүжигчин эсвэл дүрийг хайж олох",
+    "searchmovie": "Кино хайх",
+    "searchserie": "Цуврал хайх",
+    "searchorigincountry": "Гарал үүслийн улсыг хайх",
+    "season": "Улирал",
+    "seasons": "Улирал",
+    "seeMore": "Дэлгэрэнгүй харуулах",
+    "seeLess": "Бага харуулах",
+    "series": "Цуврал",
+    "sort": "Эрэмбэлэх",
+    "summary": "Дүгнэлт",
+    "today": "Өнөөдөр",
+    "trailer": "Чиргүүл",
+    "trendingmovie": "Тренд кинонууд",
+    "trendingserie": "Тренд болсон цуврал",
+    "type": "Төрөл",
+    "under": "Түүнээс бага",
+    "upcoming": "Тун удахгүй",
+    "videos": "Видеонууд",
+    "vote": "Санал өгөх",
+    "week": "Долоо хоног",
+    "withgenres": "Жанртай",
+    "withoutgenres": "Төрөлгүйгээр",
+    "year": "Жил",
+    "years": "Он жилүүд"
+  },
+  "sort": {
+    "popularityAsc": "Алдартай байдал -/",
+    "popularityDesc": "Алдартай байдал /-",
+    "voteaverageAsc": "Үнэлгээ -/",
+    "voteaverageDesc": "Үнэлгээ /-",
+    "primaryreleasedateAsc": "Гарсан огноо -/",
+    "primaryreleasedateDesc": "Гарсан огноо /-",
+    "titleAsc": "A-Z хүртэлх гарчиг",
+    "titleDesc": "Z-A хүртэлх гарчиг"
+  },
+  "pages": {
+    "discover": {
+      "title": "Discover хуудас"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Маш сайн",
+      "good": "Сайн байна",
+      "average": "ДУНДЖ",
+      "bad": "Хөөрхий"
+    }
+  }
+}

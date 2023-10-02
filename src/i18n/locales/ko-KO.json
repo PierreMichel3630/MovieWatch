@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "영화, 시리즈, 배우를 검색하세요..."
+    }
+  },
+  "commun": {
+    "add": "추가하다",
+    "after": "후에",
+    "all": "모두",
+    "actors": "배우",
+    "backdrop": "벽지",
+    "before": "전에",
+    "biography": "바이오",
+    "birthday": "생일",
+    "cancel": "취소",
+    "cast": "깁스",
+    "datenotknow": "출시일 미정",
+    "deathday": "사망일",
+    "episode": "삽화",
+    "episodes": "에피소드",
+    "episodeprev": "이전 에피소드",
+    "episodenext": "다음 에피소드",
+    "exact": "동일",
+    "filter": "필터",
+    "genre": "장르",
+    "gueststars": "게스트 스타",
+    "knowfor": "알려진",
+    "logo": "심벌 마크",
+    "minutes": "분",
+    "min": "분",
+    "movies": "영화",
+    "noresult": "검색어와 일치하는 결과가 없습니다.",
+    "noresultactor": "배우가 제공되지 않았습니다.",
+    "noresultepisode": "검색어와 일치하는 에피소드가 없습니다.",
+    "noresultimage": "제공된 이미지가 없습니다.",
+    "noresultmovie": "제공된 영화가 없습니다.",
+    "noresultserie": "제공된 시리즈가 없습니다.",
+    "noresultvideo": "제공된 동영상이 없습니다.",
+    "noresultreview": "등록된 리뷰가 없습니다.",
+    "origincountry": "원산지",
+    "over": "위에",
+    "persons": "사람들",
+    "photos": "영화",
+    "placeofbirth": "출생지",
+    "poster": "포스터",
+    "profile": "프로필",
+    "rankuser": "사용자 평가",
+    "results": "결과",
+    "runtime": "지속",
+    "searchactor": "배우 검색",
+    "searchactororperson": "배우 또는 캐릭터 검색",
+    "searchmovie": "영화 검색",
+    "searchserie": "시리즈 검색",
+    "searchorigincountry": "원산지 국가 검색",
+    "season": "계절",
+    "seasons": "계절",
+    "seeMore": "자세히보기",
+    "seeLess": "간략히 보기",
+    "series": "시리즈",
+    "sort": "종류",
+    "summary": "요약",
+    "today": "오늘",
+    "trailer": "트레일러",
+    "trendingmovie": "인기 영화",
+    "trendingserie": "인기 시리즈",
+    "type": "유형",
+    "under": "미만",
+    "upcoming": "곧 출시 예정",
+    "videos": "비디오",
+    "vote": "투표",
+    "week": "주",
+    "withgenres": "장르별",
+    "withoutgenres": "장르 없음",
+    "year": "년도",
+    "years": "연령"
+  },
+  "sort": {
+    "popularityAsc": "인기 -/",
+    "popularityDesc": "인기도 /-",
+    "voteaverageAsc": "평가 -/",
+    "voteaverageDesc": "평점 /-",
+    "primaryreleasedateAsc": "출시일 -/",
+    "primaryreleasedateDesc": "출시일  /-",
+    "titleAsc": "A-Z의 제목",
+    "titleDesc": "Z-A의 제목"
+  },
+  "pages": {
+    "discover": {
+      "title": "검색 페이지"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "훌륭한",
+      "good": "좋은",
+      "average": "평균",
+      "bad": "가난한"
+    }
+  }
+}

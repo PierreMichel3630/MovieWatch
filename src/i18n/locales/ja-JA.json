@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "映画、シリーズ、俳優を検索..."
+    }
+  },
+  "commun": {
+    "add": "追加",
+    "after": "後",
+    "all": "全て",
+    "actors": "俳優",
+    "backdrop": "壁紙",
+    "before": "前に",
+    "biography": "バイオ",
+    "birthday": "生年月日",
+    "cancel": "キャンセル",
+    "cast": "キャスト",
+    "datenotknow": "発売日不明",
+    "deathday": "死亡日",
+    "episode": "エピソード",
+    "episodes": "エピソード",
+    "episodeprev": "前のエピソード",
+    "episodenext": "次のエピソード",
+    "exact": "に等しい",
+    "filter": "フィルター",
+    "genre": "ジャンル",
+    "gueststars": "ゲスト出演者",
+    "knowfor": "で知られている",
+    "logo": "ロゴ",
+    "minutes": "分",
+    "min": "分",
+    "movies": "映画",
+    "noresult": "検索に一致する結果はありません。",
+    "noresultactor": "俳優は提供されていません。",
+    "noresultepisode": "検索に一致するエピソードはありません。",
+    "noresultimage": "画像は提供されていません。",
+    "noresultmovie": "映画は提供されていません。",
+    "noresultserie": "シリーズは提供されていません。",
+    "noresultvideo": "動画は提供されていません。",
+    "noresultreview": "レビューは投稿されていません。",
+    "origincountry": "原産国",
+    "over": "以上",
+    "persons": "人々",
+    "photos": "ピクチャー",
+    "placeofbirth": "出生地",
+    "poster": "ポスター",
+    "profile": "プロフィール",
+    "rankuser": "ユーザー評価",
+    "results": "結果",
+    "runtime": "間隔",
+    "searchactor": "俳優を探す",
+    "searchactororperson": "俳優またはキャラクターを検索する",
+    "searchmovie": "映画を検索する",
+    "searchserie": "シリーズを探す",
+    "searchorigincountry": "原産国を検索する",
+    "season": "季節",
+    "seasons": "季節",
+    "seeMore": "もっと見せる",
+    "seeLess": "表示を少なくする",
+    "series": "シリーズ",
+    "sort": "選別",
+    "summary": "まとめ",
+    "today": "今日",
+    "trailer": "トレーラー",
+    "trendingmovie": "話題の映画",
+    "trendingserie": "トレンドシリーズ",
+    "type": "タイプ",
+    "under": "未満",
+    "upcoming": "近日公開",
+    "videos": "動画",
+    "vote": "投票する",
+    "week": "週",
+    "withgenres": "ジャンルあり",
+    "withoutgenres": "ジャンルなし",
+    "year": "年",
+    "years": "年"
+  },
+  "sort": {
+    "popularityAsc": "人気 -/",
+    "popularityDesc": "人気 /-",
+    "voteaverageAsc": "評価 -/",
+    "voteaverageDesc": "評価 /-",
+    "primaryreleasedateAsc": "発売日 -/",
+    "primaryreleasedateDesc": "発売日  /-",
+    "titleAsc": "タイトルのAからZまで",
+    "titleDesc": "Z-Aからのタイトル"
+  },
+  "pages": {
+    "discover": {
+      "title": "ページを発見する"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "素晴らしい",
+      "good": "良い",
+      "average": "平均",
+      "bad": "貧しい"
+    }
+  }
+}

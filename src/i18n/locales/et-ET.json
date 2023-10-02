@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Otsige filmi, seriaali, näitlejat..."
+    }
+  },
+  "commun": {
+    "add": "Lisama",
+    "after": "Pärast",
+    "all": "Kõik",
+    "actors": "Näitlejad",
+    "backdrop": "Tapeet",
+    "before": "Enne",
+    "biography": "Bio",
+    "birthday": "Sünnikuupäev",
+    "cancel": "Tühista",
+    "cast": "Cast",
+    "datenotknow": "Väljalaskekuupäev teadmata",
+    "deathday": "Surmakuupäev",
+    "episode": "episood",
+    "episodes": "Episoodid",
+    "episodeprev": "Eelmine osa",
+    "episodenext": "Järgmine episood",
+    "exact": "Võrdne",
+    "filter": "Filter",
+    "genre": "Žanr",
+    "gueststars": "Külalistähed",
+    "knowfor": "Tuntud selle poolest",
+    "logo": "Logo",
+    "minutes": "minutit",
+    "min": "min",
+    "movies": "Filmid",
+    "noresult": "Ükski tulemus ei vasta teie otsingule.",
+    "noresultactor": "Näitlejat ei pakutud.",
+    "noresultepisode": "Teie otsingule ei vasta ükski episood.",
+    "noresultimage": "Ühtegi pilti pole esitatud.",
+    "noresultmovie": "Filme pole pakutud.",
+    "noresultserie": "Sarja pole pakutud.",
+    "noresultvideo": "Ühtegi videot pole esitatud.",
+    "noresultreview": "Ühtegi arvustust pole postitatud.",
+    "origincountry": "Päritoluriik",
+    "over": "Läbi",
+    "persons": "Inimesed",
+    "photos": "Pildid",
+    "placeofbirth": "Sünnikoht",
+    "poster": "Plakat",
+    "profile": "Profiil",
+    "rankuser": "Kasutaja hinnang",
+    "results": "Tulemused",
+    "runtime": "Kestus",
+    "searchactor": "Otsige näitlejat",
+    "searchactororperson": "Otsige näitlejat või tegelast",
+    "searchmovie": "Otsige filmi",
+    "searchserie": "Otsige sarja",
+    "searchorigincountry": "Otsi päritoluriiki",
+    "season": "Hooaeg",
+    "seasons": "Aastaajad",
+    "seeMore": "Näita rohkem",
+    "seeLess": "Näita vähem",
+    "series": "seeria",
+    "sort": "Sorteeri",
+    "summary": "Kokkuvõte",
+    "today": "Täna",
+    "trailer": "Treiler",
+    "trendingmovie": "Populaarsed filmid",
+    "trendingserie": "Trendikas seeria",
+    "type": "Tüüp",
+    "under": "Vähem kui",
+    "upcoming": "Tulekul",
+    "videos": "Videod",
+    "vote": "hääletada",
+    "week": "Nädal",
+    "withgenres": "Koos žanriga",
+    "withoutgenres": "Ilma žanrita",
+    "year": "aasta",
+    "years": "Aastaid"
+  },
+  "sort": {
+    "popularityAsc": "Populaarsus -/",
+    "popularityDesc": "Populaarsus /-",
+    "voteaverageAsc": "Hinnangud -/",
+    "voteaverageDesc": "Hinnangud /-",
+    "primaryreleasedateAsc": "Väljalaske kuupäev -/",
+    "primaryreleasedateDesc": "Väljalaske kuupäev  /-",
+    "titleAsc": "Pealkiri A-Z",
+    "titleDesc": "Pealkiri Z-A-st"
+  },
+  "pages": {
+    "discover": {
+      "title": "Avastage leht"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Suurepärane",
+      "good": "Hea",
+      "average": "KESKMINE",
+      "bad": "Vaene"
+    }
+  }
+}

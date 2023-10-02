@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Търсете филм, сериал, актьор..."
+    }
+  },
+  "commun": {
+    "add": "Добавете",
+    "after": "След",
+    "all": "всичко",
+    "actors": "Актьори",
+    "backdrop": "Тапет",
+    "before": "Преди",
+    "biography": "био",
+    "birthday": "Дата на раждане",
+    "cancel": "Отказ",
+    "cast": "Актьорски състав",
+    "datenotknow": "Дата на издаване неизвестна",
+    "deathday": "Дата на смъртта",
+    "episode": "епизод",
+    "episodes": "епизоди",
+    "episodeprev": "Предишен епизод",
+    "episodenext": "Следващ епизод",
+    "exact": "Равна на",
+    "filter": "Филтър",
+    "genre": "Жанр",
+    "gueststars": "Гост звезди",
+    "knowfor": "Известен за",
+    "logo": "Лого",
+    "minutes": "минути",
+    "min": "мин",
+    "movies": "филми",
+    "noresult": "Няма резултати, отговарящи на вашето търсене.",
+    "noresultactor": "Не е предоставен актьор.",
+    "noresultepisode": "Няма епизоди, отговарящи на вашето търсене.",
+    "noresultimage": "Не е предоставено изображение.",
+    "noresultmovie": "Не са предоставени филми.",
+    "noresultserie": "Не е предоставена серия.",
+    "noresultvideo": "Не са предоставени видеоклипове.",
+    "noresultreview": "Няма публикувани отзиви.",
+    "origincountry": "Страна на произход",
+    "over": "Над",
+    "persons": "хора",
+    "photos": "Снимки",
+    "placeofbirth": "Място на раждане",
+    "poster": "Постер",
+    "profile": "Профил",
+    "rankuser": "Потребителска оценка",
+    "results": "Резултати",
+    "runtime": "Продължителност",
+    "searchactor": "Търсене на актьор",
+    "searchactororperson": "Потърсете актьор или персонаж",
+    "searchmovie": "Търсене на филм",
+    "searchserie": "Търсене на серия",
+    "searchorigincountry": "Търсете страната на произход",
+    "season": "Сезон",
+    "seasons": "Сезони",
+    "seeMore": "Покажи повече",
+    "seeLess": "Покажи по-малко",
+    "series": "Серия",
+    "sort": "Вид",
+    "summary": "Резюме",
+    "today": "Днес",
+    "trailer": "Ремарке",
+    "trendingmovie": "Набиращи популярност филми",
+    "trendingserie": "Набиращи популярност серии",
+    "type": "Тип",
+    "under": "По-малко от",
+    "upcoming": "Очаквайте скоро",
+    "videos": "Видеоклипове",
+    "vote": "Гласувайте",
+    "week": "седмица",
+    "withgenres": "С жанр",
+    "withoutgenres": "Без жанр",
+    "year": "година",
+    "years": "години"
+  },
+  "sort": {
+    "popularityAsc": "Популярност -/",
+    "popularityDesc": "Популярност /-",
+    "voteaverageAsc": "Оценки -/",
+    "voteaverageDesc": "Оценки /-",
+    "primaryreleasedateAsc": "Дата на излизане -/",
+    "primaryreleasedateDesc": "Дата на излизане  /-",
+    "titleAsc": "Заглавие от А до Я",
+    "titleDesc": "Заглавие от Я-А"
+  },
+  "pages": {
+    "discover": {
+      "title": "Страница за откриване"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Отлично",
+      "good": "добре",
+      "average": "СРЕДНО АРИТМЕТИЧНО",
+      "bad": "беден"
+    }
+  }
+}

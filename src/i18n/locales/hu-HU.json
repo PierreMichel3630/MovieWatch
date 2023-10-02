@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Keress filmet, sorozatot, színészt..."
+    }
+  },
+  "commun": {
+    "add": "Hozzáadás",
+    "after": "Után",
+    "all": "Minden",
+    "actors": "Színészek",
+    "backdrop": "Tapéta",
+    "before": "Előtt",
+    "biography": "Bio",
+    "birthday": "Születési dátum",
+    "cancel": "Megszünteti",
+    "cast": "Öntvény",
+    "datenotknow": "Megjelenés dátuma ismeretlen",
+    "deathday": "Halál dátuma",
+    "episode": "epizód",
+    "episodes": "Epizódok",
+    "episodeprev": "Előző epizód",
+    "episodenext": "Következő rész",
+    "exact": "Egyenlő",
+    "filter": "Szűrő",
+    "genre": "Műfaj",
+    "gueststars": "Vendégszereplők",
+    "knowfor": "Ismert",
+    "logo": "Logó",
+    "minutes": "percek",
+    "min": "min",
+    "movies": "Filmek",
+    "noresult": "Egyetlen találat sem felel meg a keresésnek.",
+    "noresultactor": "Színészt nem biztosítottak.",
+    "noresultepisode": "Egyetlen epizód sem felel meg a keresésnek.",
+    "noresultimage": "Nem adtak meg képet.",
+    "noresultmovie": "Nem biztosítottak filmeket.",
+    "noresultserie": "Nem adtak meg sorozatot.",
+    "noresultvideo": "Nem adtak meg videókat.",
+    "noresultreview": "Nem tettek közzé értékelést.",
+    "origincountry": "Származási ország",
+    "over": "Felett",
+    "persons": "Emberek",
+    "photos": "Képek",
+    "placeofbirth": "Születési hely",
+    "poster": "Poszter",
+    "profile": "Profil",
+    "rankuser": "Felhasználói értékelés",
+    "results": "Eredmények",
+    "runtime": "Időtartam",
+    "searchactor": "Keress egy színészt",
+    "searchactororperson": "Keressen egy színészt vagy karaktert",
+    "searchmovie": "Keressen egy filmet",
+    "searchserie": "Keressen egy sorozatot",
+    "searchorigincountry": "Származási ország keresése",
+    "season": "Évad",
+    "seasons": "Évszakok",
+    "seeMore": "Mutass többet",
+    "seeLess": "Mutass kevesebbet",
+    "series": "Sorozat",
+    "sort": "Fajta",
+    "summary": "Összegzés",
+    "today": "Ma",
+    "trailer": "Filmelőzetes",
+    "trendingmovie": "Felkapott filmek",
+    "trendingserie": "Felkapott sorozat",
+    "type": "típus",
+    "under": "Kevesebb, mint",
+    "upcoming": "Hamarosan",
+    "videos": "Videók",
+    "vote": "Szavazás",
+    "week": "Hét",
+    "withgenres": "Műfajjal",
+    "withoutgenres": "Műfaj nélkül",
+    "year": "Év",
+    "years": "Évek"
+  },
+  "sort": {
+    "popularityAsc": "Népszerűség -/",
+    "popularityDesc": "Népszerűség /-",
+    "voteaverageAsc": "Értékelések -/",
+    "voteaverageDesc": "Értékelések /-",
+    "primaryreleasedateAsc": "Kiadási dátum -/",
+    "primaryreleasedateDesc": "Kiadási dátum  /-",
+    "titleAsc": "Cím A-Z-ig",
+    "titleDesc": "Cím Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Fedezze fel az oldalt"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Kiváló",
+      "good": "Jó",
+      "average": "ÁTLAGOS",
+      "bad": "Szegény"
+    }
+  }
+}

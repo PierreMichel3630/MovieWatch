@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Søk etter en film, en serie, en skuespiller..."
+    }
+  },
+  "commun": {
+    "add": "Legg til",
+    "after": "Etter",
+    "all": "Alle",
+    "actors": "Skuespillere",
+    "backdrop": "Bakgrunn",
+    "before": "Før",
+    "biography": "Bio",
+    "birthday": "Fødselsdato",
+    "cancel": "Avbryt",
+    "cast": "Cast",
+    "datenotknow": "Utgivelsesdato ukjent",
+    "deathday": "Dødsdato",
+    "episode": "episode",
+    "episodes": "Episoder",
+    "episodeprev": "Forrige episode",
+    "episodenext": "Neste episode",
+    "exact": "Lik",
+    "filter": "Filter",
+    "genre": "Sjanger",
+    "gueststars": "Gjestestjerner",
+    "knowfor": "Kjent for",
+    "logo": "Logo",
+    "minutes": "minutter",
+    "min": "min",
+    "movies": "Filmer",
+    "noresult": "Ingen resultater samsvarer med søket ditt.",
+    "noresultactor": "Ingen skuespiller er oppgitt.",
+    "noresultepisode": "Ingen episoder samsvarer med søket ditt.",
+    "noresultimage": "Det er ikke gitt noe bilde.",
+    "noresultmovie": "Ingen filmer er levert.",
+    "noresultserie": "Ingen serie er gitt.",
+    "noresultvideo": "Ingen videoer er gitt.",
+    "noresultreview": "Ingen anmeldelser er lagt ut.",
+    "origincountry": "Opprinnelsesland",
+    "over": "Over",
+    "persons": "Mennesker",
+    "photos": "Bilder",
+    "placeofbirth": "Fødselssted",
+    "poster": "Plakat",
+    "profile": "Profil",
+    "rankuser": "Bruker vurdering",
+    "results": "Resultater",
+    "runtime": "Varighet",
+    "searchactor": "Søk etter en skuespiller",
+    "searchactororperson": "Søk etter en skuespiller eller karakter",
+    "searchmovie": "Søk etter en film",
+    "searchserie": "Søk etter en serie",
+    "searchorigincountry": "Søk opprinnelsesland",
+    "season": "Årstid",
+    "seasons": "Årstider",
+    "seeMore": "Vis mer",
+    "seeLess": "Vis mindre",
+    "series": "Serie",
+    "sort": "Sortere",
+    "summary": "Sammendrag",
+    "today": "I dag",
+    "trailer": "Tilhenger",
+    "trendingmovie": "Populære filmer",
+    "trendingserie": "Trendende serie",
+    "type": "Type",
+    "under": "Mindre enn",
+    "upcoming": "Kommer snart",
+    "videos": "Videoer",
+    "vote": "Stemme",
+    "week": "Uke",
+    "withgenres": "Med sjanger",
+    "withoutgenres": "Uten sjanger",
+    "year": "År",
+    "years": "år"
+  },
+  "sort": {
+    "popularityAsc": "Popularitet -/",
+    "popularityDesc": "Popularitet /-",
+    "voteaverageAsc": "Vurderinger -/",
+    "voteaverageDesc": "Vurderinger /-",
+    "primaryreleasedateAsc": "Utgivelsesdato -/",
+    "primaryreleasedateDesc": "Utgivelsesdato  /-",
+    "titleAsc": "Tittel fra A-Å",
+    "titleDesc": "Tittel fra Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Oppdag siden"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Utmerket",
+      "good": "Flink",
+      "average": "GJENNOMSNITT",
+      "bad": "Dårlig"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Cuardaigh scannán, sraith, aisteoir..."
+    }
+  },
+  "commun": {
+    "add": "Cuir",
+    "after": "Tar éis",
+    "all": "Gach",
+    "actors": "Aisteoirí",
+    "backdrop": "Cúlbhrat",
+    "before": "Roimh",
+    "biography": "Bith",
+    "birthday": "Dáta breithe",
+    "cancel": "Cealaigh",
+    "cast": "Caitheadh",
+    "datenotknow": "Dáta eisiúna anaithnid",
+    "deathday": "Dáta báis",
+    "episode": "eachtra",
+    "episodes": "Eipeasóid",
+    "episodeprev": "Eipeasóid roimhe seo",
+    "episodenext": "Eipeasóid seo chugainn",
+    "exact": "Cothrom le",
+    "filter": "Scagaire",
+    "genre": "Seánra",
+    "gueststars": "Réaltaí aoi",
+    "knowfor": "Ar a dtugtar le haghaidh",
+    "logo": "Lógó",
+    "minutes": "nóiméad",
+    "min": "nóim",
+    "movies": "Scannáin",
+    "noresult": "Níl aon torthaí ag teacht le do chuardach.",
+    "noresultactor": "Níl aon aisteoir curtha ar fáil.",
+    "noresultepisode": "Níl aon eipeasóid ag teacht le do chuardach.",
+    "noresultimage": "Níor soláthraíodh aon íomhá.",
+    "noresultmovie": "Níor cuireadh aon scannán ar fáil.",
+    "noresultserie": "Níl aon sraith curtha ar fáil.",
+    "noresultvideo": "Níor cuireadh físeáin ar bith ar fáil.",
+    "noresultreview": "Níl aon léirmheasanna postáilte.",
+    "origincountry": "Tír thionscnaimh",
+    "over": "Thar",
+    "persons": "Daoine",
+    "photos": "Pictiúirí",
+    "placeofbirth": "Áit bhreithe",
+    "poster": "Póstaer",
+    "profile": "Próifíl",
+    "rankuser": "Rátáil úsáideora",
+    "results": "Torthaí",
+    "runtime": "Fad",
+    "searchactor": "Cuardaigh aisteoir",
+    "searchactororperson": "Cuardaigh aisteoir nó carachtar",
+    "searchmovie": "Cuardaigh scannán",
+    "searchserie": "Cuardaigh le haghaidh sraith",
+    "searchorigincountry": "Cuardaigh tír thionscnaimh",
+    "season": "Séasúr",
+    "seasons": "Séasúir",
+    "seeMore": "Taispeáin níos mó",
+    "seeLess": "Taispeáin níos lú",
+    "series": "Sraith",
+    "sort": "Sórtáil",
+    "summary": "Achoimre",
+    "today": "Inniu",
+    "trailer": "Leantóir",
+    "trendingmovie": "Scannáin Treochtaí",
+    "trendingserie": "Sraith Treocht",
+    "type": "Cineál",
+    "under": "Níos lú ná",
+    "upcoming": "Ag teacht go luath",
+    "videos": "Físeáin",
+    "vote": "Vóta",
+    "week": "Seachtain",
+    "withgenres": "Le seánra",
+    "withoutgenres": "Gan seánra",
+    "year": "Bliain",
+    "years": "Blianta"
+  },
+  "sort": {
+    "popularityAsc": "Éileamh -/",
+    "popularityDesc": "Éileamh /-",
+    "voteaverageAsc": "Rátálacha -/",
+    "voteaverageDesc": "Rátálacha /-",
+    "primaryreleasedateAsc": "Dáta scaoilte -/",
+    "primaryreleasedateDesc": "Dáta scaoilte  /-",
+    "titleAsc": "Teideal ó A-Z",
+    "titleDesc": "Teideal ó Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Faigh amach Leathanach"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Ar fheabhas",
+      "good": "Maith",
+      "average": "MEABHRÁN",
+      "bad": "bocht"
+    }
+  }
+}

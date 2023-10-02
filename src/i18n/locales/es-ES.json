@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Buscar una película, una serie, un actor..."
+    }
+  },
+  "commun": {
+    "add": "Agregar",
+    "after": "Después",
+    "all": "Todo",
+    "actors": "actores",
+    "backdrop": "Fondo de pantalla",
+    "before": "Antes",
+    "biography": "Biografía",
+    "birthday": "Fecha de nacimiento",
+    "cancel": "Cancelar",
+    "cast": "Elenco",
+    "datenotknow": "Fecha de lanzamiento desconocida",
+    "deathday": "Fecha de muerte",
+    "episode": "episodio",
+    "episodes": "Episodios",
+    "episodeprev": "Episodio anterior",
+    "episodenext": "Siguiente episodio",
+    "exact": "Igual a",
+    "filter": "Filtrar",
+    "genre": "Género",
+    "gueststars": "Estrellas invitadas",
+    "knowfor": "Conocido por",
+    "logo": "Logo",
+    "minutes": "minutos",
+    "min": "mín.",
+    "movies": "Película (s",
+    "noresult": "Ningún resultado coincide con su búsqueda.",
+    "noresultactor": "No se ha proporcionado ningún actor.",
+    "noresultepisode": "Ningún episodio coincide con tu búsqueda.",
+    "noresultimage": "No se ha proporcionado ninguna imagen.",
+    "noresultmovie": "No se han proporcionado películas.",
+    "noresultserie": "No se ha proporcionado ninguna serie.",
+    "noresultvideo": "No se han proporcionado vídeos.",
+    "noresultreview": "Ninguna evaluación se ha publicado.",
+    "origincountry": "País de origen",
+    "over": "Encima",
+    "persons": "Gente",
+    "photos": "Fotos",
+    "placeofbirth": "Lugar de nacimiento",
+    "poster": "Póster",
+    "profile": "Perfil",
+    "rankuser": "Opiniones de los usuarios",
+    "results": "Resultados",
+    "runtime": "Duración",
+    "searchactor": "buscar un actor",
+    "searchactororperson": "Buscar un actor o personaje",
+    "searchmovie": "buscar una película",
+    "searchserie": "buscar una serie",
+    "searchorigincountry": "País de origen de la búsqueda",
+    "season": "Estación",
+    "seasons": "Estaciones",
+    "seeMore": "Mostrar más",
+    "seeLess": "Muestra menos",
+    "series": "Serie",
+    "sort": "Clasificar",
+    "summary": "Resumen",
+    "today": "Hoy",
+    "trailer": "Remolque",
+    "trendingmovie": "Películas de moda",
+    "trendingserie": "Serie de tendencias",
+    "type": "Tipo",
+    "under": "Menos que",
+    "upcoming": "Muy pronto",
+    "videos": "Vídeos",
+    "vote": "Votar",
+    "week": "Semana",
+    "withgenres": "Con genero",
+    "withoutgenres": "Sin genero",
+    "year": "Año",
+    "years": "Años"
+  },
+  "sort": {
+    "popularityAsc": "Popularidad -/+",
+    "popularityDesc": "Popularidad +/-",
+    "voteaverageAsc": "Calificaciones -/+",
+    "voteaverageDesc": "Calificaciones +/-",
+    "primaryreleasedateAsc": "Fecha de lanzamiento -/+",
+    "primaryreleasedateDesc": "Fecha de lanzamiento +/-",
+    "titleAsc": "Título de A-Z",
+    "titleDesc": "Título de Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Descubrir Página"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelente",
+      "good": "Bien",
+      "average": "PROMEDIO",
+      "bad": "Pobre"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "कोई फ़िल्म, कोई सीरीज़, कोई अभिनेता खोजें..."
+    }
+  },
+  "commun": {
+    "add": "जोड़ना",
+    "after": "बाद",
+    "all": "सभी",
+    "actors": "अभिनेताओं",
+    "backdrop": "वॉलपेपर",
+    "before": "पहले",
+    "biography": "जैव",
+    "birthday": "जन्म की तारीख",
+    "cancel": "रद्द करना",
+    "cast": "ढालना",
+    "datenotknow": "रिलीज की तारीख अज्ञात",
+    "deathday": "मृत्यु तिथि",
+    "episode": "एपिसोड",
+    "episodes": "एपिसोड",
+    "episodeprev": "पिछला एपिसोड",
+    "episodenext": "अगले प्रकरण",
+    "exact": "के बराबर",
+    "filter": "फ़िल्टर",
+    "genre": "शैली",
+    "gueststars": "अतिथि सितारे",
+    "knowfor": "के लिए जाना जाता है",
+    "logo": "प्रतीक चिन्ह",
+    "minutes": "मिनट",
+    "min": "मिन",
+    "movies": "फिल्में",
+    "noresult": "कोई भी परिणाम आपकी खोज से मेल नहीं खाता.",
+    "noresultactor": "कोई अभिनेता उपलब्ध नहीं कराया गया है.",
+    "noresultepisode": "कोई भी एपिसोड आपकी खोज से मेल नहीं खाता.",
+    "noresultimage": "कोई छवि प्रदान नहीं की गई है.",
+    "noresultmovie": "कोई मूवी उपलब्ध नहीं कराई गई है.",
+    "noresultserie": "कोई श्रृंखला प्रदान नहीं की गई है.",
+    "noresultvideo": "कोई वीडियो उपलब्ध नहीं कराया गया है.",
+    "noresultreview": "कोई समीक्षा पोस्ट नहीं की गई है।",
+    "origincountry": "उद्गम देश",
+    "over": "ऊपर",
+    "persons": "लोग",
+    "photos": "चित्रों",
+    "placeofbirth": "जन्म स्थान",
+    "poster": "पोस्टर",
+    "profile": "प्रोफ़ाइल",
+    "rankuser": "प्रयोक्ता श्रेणी",
+    "results": "परिणाम",
+    "runtime": "अवधि",
+    "searchactor": "एक अभिनेता की तलाश करें",
+    "searchactororperson": "किसी अभिनेता या पात्र की खोज करें",
+    "searchmovie": "कोई फ़िल्म खोजें",
+    "searchserie": "एक शृंखला खोजें",
+    "searchorigincountry": "मूल देश खोजें",
+    "season": "मौसम",
+    "seasons": "मौसम के",
+    "seeMore": "और दिखाओ",
+    "seeLess": "कम दिखाएं",
+    "series": "शृंखला",
+    "sort": "क्रम से लगाना",
+    "summary": "सारांश",
+    "today": "आज",
+    "trailer": "ट्रेलर",
+    "trendingmovie": "ट्रेंडिंग फ़िल्में",
+    "trendingserie": "ट्रेंडिंग सीरीज",
+    "type": "प्रकार",
+    "under": "से कम",
+    "upcoming": "जल्द आ रहा है",
+    "videos": "वीडियो",
+    "vote": "वोट",
+    "week": "सप्ताह",
+    "withgenres": "शैली के साथ",
+    "withoutgenres": "बिना शैली के",
+    "year": "वर्ष",
+    "years": "साल"
+  },
+  "sort": {
+    "popularityAsc": "लोकप्रियता-/",
+    "popularityDesc": "लोकप्रियता/-",
+    "voteaverageAsc": "रेटिंग -/",
+    "voteaverageDesc": "रेटिंग/-",
+    "primaryreleasedateAsc": "रिलीज़ की तारीख -/",
+    "primaryreleasedateDesc": "रिलीज़ की तारीख  /-",
+    "titleAsc": "A-Z से शीर्षक",
+    "titleDesc": "Z-A से शीर्षक"
+  },
+  "pages": {
+    "discover": {
+      "title": "पेज खोजें"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "उत्कृष्ट",
+      "good": "अच्छा",
+      "average": "औसत",
+      "bad": "गरीब"
+    }
+  }
+}

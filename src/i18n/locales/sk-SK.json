@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Hľadaj film, seriál, herca..."
+    }
+  },
+  "commun": {
+    "add": "Pridať",
+    "after": "Po",
+    "all": "Všetky",
+    "actors": "Herci",
+    "backdrop": "Tapeta",
+    "before": "Predtým",
+    "biography": "Bio",
+    "birthday": "Dátum narodenia",
+    "cancel": "Zrušiť",
+    "cast": "Obsadenie",
+    "datenotknow": "Dátum vydania neznámy",
+    "deathday": "Dátum úmrtia",
+    "episode": "epizóda",
+    "episodes": "Epizódy",
+    "episodeprev": "Predchádzajúca epizóda",
+    "episodenext": "Ďalšia epizóda",
+    "exact": "Rovná",
+    "filter": "Filter",
+    "genre": "Žáner",
+    "gueststars": "Hosťujúce hviezdy",
+    "knowfor": "Známy pre",
+    "logo": "Logo",
+    "minutes": "minút",
+    "min": "min",
+    "movies": "Filmy",
+    "noresult": "Vášmu vyhľadávaniu nezodpovedajú žiadne výsledky.",
+    "noresultactor": "Nebol poskytnutý žiadny herec.",
+    "noresultepisode": "Vášmu vyhľadávaniu nezodpovedajú žiadne epizódy.",
+    "noresultimage": "Nebol poskytnutý žiadny obrázok.",
+    "noresultmovie": "Neboli poskytnuté žiadne filmy.",
+    "noresultserie": "Nebola poskytnutá žiadna séria.",
+    "noresultvideo": "Neboli poskytnuté žiadne videá.",
+    "noresultreview": "Neboli uverejnené žiadne recenzie.",
+    "origincountry": "Krajina pôvodu",
+    "over": "Koniec",
+    "persons": "Ľudia",
+    "photos": "Obrázky",
+    "placeofbirth": "Miesto narodenia",
+    "poster": "plagát",
+    "profile": "Profil",
+    "rankuser": "Užívateľské hodnotenie",
+    "results": "Výsledky",
+    "runtime": "Trvanie",
+    "searchactor": "Hľadajte herca",
+    "searchactororperson": "Vyhľadajte herca alebo postavu",
+    "searchmovie": "Vyhľadajte film",
+    "searchserie": "Vyhľadajte sériu",
+    "searchorigincountry": "Vyhľadajte krajinu pôvodu",
+    "season": "Sezóna",
+    "seasons": "Ročné obdobia",
+    "seeMore": "Zobraziť viac",
+    "seeLess": "Ukážte menej",
+    "series": "séria",
+    "sort": "Triediť",
+    "summary": "Zhrnutie",
+    "today": "Dnes",
+    "trailer": "Trailer",
+    "trendingmovie": "Populárne filmy",
+    "trendingserie": "Populárna séria",
+    "type": "Typ",
+    "under": "Menej ako",
+    "upcoming": "Už čoskoro",
+    "videos": "Videá",
+    "vote": "Hlasujte",
+    "week": "týždeň",
+    "withgenres": "So žánrom",
+    "withoutgenres": "Bez žánru",
+    "year": "rok",
+    "years": "rokov"
+  },
+  "sort": {
+    "popularityAsc": "Popularita -/",
+    "popularityDesc": "Popularita /-",
+    "voteaverageAsc": "Hodnotenia -/",
+    "voteaverageDesc": "Hodnotenia /-",
+    "primaryreleasedateAsc": "Dátum vydania -/",
+    "primaryreleasedateDesc": "Dátum vydania  /-",
+    "titleAsc": "Titul od A-Z",
+    "titleDesc": "Titul od Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Objaviť stránku"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Výborne",
+      "good": "Dobre",
+      "average": "PRIEMERNÝ",
+      "bad": "Chudobný"
+    }
+  }
+}

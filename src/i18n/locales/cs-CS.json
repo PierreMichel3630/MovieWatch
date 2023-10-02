@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Hledej film, seriál, herce..."
+    }
+  },
+  "commun": {
+    "add": "Přidat",
+    "after": "Po",
+    "all": "Všechno",
+    "actors": "Herci",
+    "backdrop": "Tapeta na zeď",
+    "before": "Před",
+    "biography": "Bio",
+    "birthday": "Datum narození",
+    "cancel": "zrušení",
+    "cast": "Obsazení",
+    "datenotknow": "Datum vydání neznámé",
+    "deathday": "Datum úmrtí",
+    "episode": "epizoda",
+    "episodes": "Epizody",
+    "episodeprev": "Předchozí epizoda",
+    "episodenext": "Další epizoda",
+    "exact": "Rovná",
+    "filter": "Filtr",
+    "genre": "Žánr",
+    "gueststars": "Hostující hvězdy",
+    "knowfor": "Známý jako",
+    "logo": "Logo",
+    "minutes": "minut",
+    "min": "min",
+    "movies": "Filmy",
+    "noresult": "Vašemu hledání neodpovídají žádné výsledky.",
+    "noresultactor": "Nebyl poskytnut žádný herec.",
+    "noresultepisode": "Vašemu vyhledávání neodpovídají žádné epizody.",
+    "noresultimage": "Nebyl poskytnut žádný obrázek.",
+    "noresultmovie": "Nebyly poskytnuty žádné filmy.",
+    "noresultserie": "Nebyla poskytnuta žádná série.",
+    "noresultvideo": "Nebyla poskytnuta žádná videa.",
+    "noresultreview": "Nebyly zveřejněny žádné recenze.",
+    "origincountry": "Země původu",
+    "over": "Přes",
+    "persons": "Lidé",
+    "photos": "obrázky",
+    "placeofbirth": "Místo narození",
+    "poster": "Plakát",
+    "profile": "Profil",
+    "rankuser": "Uživatelské hodnocení",
+    "results": "Výsledek",
+    "runtime": "Doba trvání",
+    "searchactor": "Hledat herce",
+    "searchactororperson": "Hledejte herce nebo postavu",
+    "searchmovie": "Vyhledejte film",
+    "searchserie": "Vyhledejte seriál",
+    "searchorigincountry": "Vyhledejte zemi původu",
+    "season": "Sezóna",
+    "seasons": "Roční období",
+    "seeMore": "Zobrazit více",
+    "seeLess": "Ukaž méně",
+    "series": "Série",
+    "sort": "Seřadit",
+    "summary": "souhrn",
+    "today": "Dnes",
+    "trailer": "Upoutávka",
+    "trendingmovie": "Trendy filmy",
+    "trendingserie": "Trendy série",
+    "type": "Typ",
+    "under": "Méně než",
+    "upcoming": "Již brzy",
+    "videos": "videa",
+    "vote": "Hlasování",
+    "week": "Týden",
+    "withgenres": "S žánrem",
+    "withoutgenres": "Bez žánru",
+    "year": "Rok",
+    "years": "let"
+  },
+  "sort": {
+    "popularityAsc": "Popularita -/",
+    "popularityDesc": "Popularita /-",
+    "voteaverageAsc": "Hodnocení -/",
+    "voteaverageDesc": "Hodnocení /-",
+    "primaryreleasedateAsc": "Datum vydání -/",
+    "primaryreleasedateDesc": "Datum vydání  /-",
+    "titleAsc": "Titul od A do Z",
+    "titleDesc": "Titul od Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Objevit stránku"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Vynikající",
+      "good": "Dobrý",
+      "average": "PRŮMĚRNÝ",
+      "bad": "Chudý"
+    }
+  }
+}

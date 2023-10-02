@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Zoek een film, een serie, een acteur..."
+    }
+  },
+  "commun": {
+    "add": "Toevoegen",
+    "after": "Na",
+    "all": "Alle",
+    "actors": "Acteurs",
+    "backdrop": "Behang",
+    "before": "Voor",
+    "biography": "Bio",
+    "birthday": "Geboortedatum",
+    "cancel": "Annuleren",
+    "cast": "Vorm",
+    "datenotknow": "Releasedatum onbekend",
+    "deathday": "Sterfdatum",
+    "episode": "aflevering",
+    "episodes": "Afleveringen",
+    "episodeprev": "Vorige aflevering",
+    "episodenext": "Volgende aflevering",
+    "exact": "Gelijk aan",
+    "filter": "Filter",
+    "genre": "Genre",
+    "gueststars": "Gast sterren",
+    "knowfor": "Bekend om",
+    "logo": "Logo",
+    "minutes": "minuten",
+    "min": "min",
+    "movies": "Films",
+    "noresult": "Er zijn geen resultaten die overeenkomen met uw zoekopdracht.",
+    "noresultactor": "Er is geen acteur opgegeven.",
+    "noresultepisode": "Er zijn geen afleveringen die overeenkomen met je zoekopdracht.",
+    "noresultimage": "Er is geen afbeelding opgegeven.",
+    "noresultmovie": "Er zijn geen films aangeboden.",
+    "noresultserie": "Er is geen serie opgegeven.",
+    "noresultvideo": "Er zijn geen video's verstrekt.",
+    "noresultreview": "Er zijn geen beoordelingen geplaatst.",
+    "origincountry": "Land van herkomst",
+    "over": "Over",
+    "persons": "Mensen",
+    "photos": "Afbeeldingen",
+    "placeofbirth": "Geboorteplaats",
+    "poster": "Poster",
+    "profile": "Profiel",
+    "rankuser": "Gebruikersbeoordeling",
+    "results": "Resultaten",
+    "runtime": "Duur",
+    "searchactor": "Zoek een acteur",
+    "searchactororperson": "Zoek naar een acteur of personage",
+    "searchmovie": "Zoek een film",
+    "searchserie": "Zoek een serie",
+    "searchorigincountry": "Zoek land van herkomst",
+    "season": "Seizoen",
+    "seasons": "Seizoenen",
+    "seeMore": "Laat meer zien",
+    "seeLess": "Laat minder zien",
+    "series": "Serie",
+    "sort": "Soort",
+    "summary": "Samenvatting",
+    "today": "Vandaag",
+    "trailer": "Aanhangwagen",
+    "trendingmovie": "Populaire films",
+    "trendingserie": "Trending-serie",
+    "type": "Type",
+    "under": "Minder dan",
+    "upcoming": "Binnenkort beschikbaar",
+    "videos": "Videos",
+    "vote": "Stemmen",
+    "week": "Week",
+    "withgenres": "Met genre",
+    "withoutgenres": "Zonder genre",
+    "year": "Jaar",
+    "years": "Jaren"
+  },
+  "sort": {
+    "popularityAsc": "Populariteit -/",
+    "popularityDesc": "Populariteit /-",
+    "voteaverageAsc": "Waarderingen -/",
+    "voteaverageDesc": "Waarderingen  /-",
+    "primaryreleasedateAsc": "Datum van publicatie -/",
+    "primaryreleasedateDesc": "Datum van publicatie  /-",
+    "titleAsc": "Titel van A-Z",
+    "titleDesc": "Titel uit Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Ontdek pagina"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Uitstekend",
+      "good": "Goed",
+      "average": "GEMIDDELD",
+      "bad": "Arm"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Soek vir 'n film, 'n reeks, 'n akteur..."
+    }
+  },
+  "commun": {
+    "add": "Voeg by",
+    "after": "Na",
+    "all": "Almal",
+    "actors": "Akteurs",
+    "backdrop": "Muurpapier",
+    "before": "Voorheen",
+    "biography": "Bio",
+    "birthday": "Geboortedatum",
+    "cancel": "Kanselleer",
+    "cast": "Gooi",
+    "datenotknow": "Vrystellingsdatum onbekend",
+    "deathday": "Sterfdatum",
+    "episode": "episode",
+    "episodes": "Episodes",
+    "episodeprev": "Vorige episode",
+    "episodenext": "Volgende episode",
+    "exact": "Gelyk aan",
+    "filter": "Filter",
+    "genre": "Genre",
+    "gueststars": "Gassterre",
+    "knowfor": "Bekend vir",
+    "logo": "Logo",
+    "minutes": "minute",
+    "min": "min",
+    "movies": "Films",
+    "noresult": "Geen resultate pas by jou soektog nie.",
+    "noresultactor": "Geen akteur is verskaf nie.",
+    "noresultepisode": "Geen episodes pas by jou soektog nie.",
+    "noresultimage": "Geen beeld is verskaf nie.",
+    "noresultmovie": "Geen flieks is verskaf nie.",
+    "noresultserie": "Geen reeks is verskaf nie.",
+    "noresultvideo": "Geen video's is verskaf nie.",
+    "noresultreview": "Geen resensies is geplaas nie.",
+    "origincountry": "Land van oorsprong",
+    "over": "verby",
+    "persons": "Mense",
+    "photos": "Prente",
+    "placeofbirth": "Plek van geboorte",
+    "poster": "Plakkaat",
+    "profile": "Profiel",
+    "rankuser": "Gebruikersgradering",
+    "results": "Resultate",
+    "runtime": "Duur",
+    "searchactor": "Soek 'n akteur",
+    "searchactororperson": "Soek vir 'n akteur of karakter",
+    "searchmovie": "Soek vir 'n fliek",
+    "searchserie": "Soek vir 'n reeks",
+    "searchorigincountry": "Soek oorsprong land",
+    "season": "Seisoen",
+    "seasons": "Seisoene",
+    "seeMore": "Wys meer",
+    "seeLess": "Wys minder",
+    "series": "Reeks",
+    "sort": "Sorteer",
+    "summary": "Opsomming",
+    "today": "Vandag",
+    "trailer": "Sleepwa",
+    "trendingmovie": "Gewilde films",
+    "trendingserie": "Trending reeks",
+    "type": "Tik",
+    "under": "Minder as",
+    "upcoming": "Kom binnekort",
+    "videos": "Video's",
+    "vote": "Stem",
+    "week": "Week",
+    "withgenres": "Met genre",
+    "withoutgenres": "Sonder genre",
+    "year": "Jaar",
+    "years": "Jare"
+  },
+  "sort": {
+    "popularityAsc": "Gewildheid -/",
+    "popularityDesc": "Gewildheid /-",
+    "voteaverageAsc": "Graderings -/",
+    "voteaverageDesc": "Graderings /-",
+    "primaryreleasedateAsc": "Vrystellingsdatum -/",
+    "primaryreleasedateDesc": "Vrystellingsdatum /-",
+    "titleAsc": "Titel van A-Z",
+    "titleDesc": "Titel uit Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Ontdek Bladsy"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Uitstekend",
+      "good": "Goed",
+      "average": "GEMIDDELDE",
+      "bad": "Arm"
+    }
+  }
+}

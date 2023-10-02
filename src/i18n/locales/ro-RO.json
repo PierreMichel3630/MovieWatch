@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Caută un film, un serial, un actor..."
+    }
+  },
+  "commun": {
+    "add": "Adăuga",
+    "after": "După",
+    "all": "Toate",
+    "actors": "Actori",
+    "backdrop": "Tapet",
+    "before": "Inainte de",
+    "biography": "bio",
+    "birthday": "Data nașterii",
+    "cancel": "Anulare",
+    "cast": "Distribuție",
+    "datenotknow": "Data lansării necunoscută",
+    "deathday": "Data mortii",
+    "episode": "episod",
+    "episodes": "Episoade",
+    "episodeprev": "Episodul anterior",
+    "episodenext": "Episodul urmator",
+    "exact": "Egal cu",
+    "filter": "Filtru",
+    "genre": "Gen",
+    "gueststars": "Vedete invitate",
+    "knowfor": "Cunoscut pentru",
+    "logo": "Siglă",
+    "minutes": "minute",
+    "min": "min",
+    "movies": "Filme",
+    "noresult": "Niciun rezultat nu corespunde căutării dvs.",
+    "noresultactor": "Nu a fost furnizat niciun actor.",
+    "noresultepisode": "Niciun episod nu corespunde căutării tale.",
+    "noresultimage": "Nu a fost furnizată nicio imagine.",
+    "noresultmovie": "Nu au fost furnizate filme.",
+    "noresultserie": "Nu a fost furnizată nicio serie.",
+    "noresultvideo": "Nu au fost furnizate videoclipuri.",
+    "noresultreview": "Nu au fost postate recenzii.",
+    "origincountry": "Țara de origine",
+    "over": "Peste",
+    "persons": "oameni",
+    "photos": "Poze",
+    "placeofbirth": "Locul nașterii",
+    "poster": "Poster",
+    "profile": "Profil",
+    "rankuser": "Evaluarea utilizatorului",
+    "results": "Rezultate",
+    "runtime": "Durată",
+    "searchactor": "Caută un actor",
+    "searchactororperson": "Căutați un actor sau un personaj",
+    "searchmovie": "Caută un film",
+    "searchserie": "Caută o serie",
+    "searchorigincountry": "Căutați țara de origine",
+    "season": "Sezon",
+    "seasons": "anotimpuri",
+    "seeMore": "Afișați mai multe",
+    "seeLess": "Arata mai putin",
+    "series": "Serie",
+    "sort": "Fel",
+    "summary": "rezumat",
+    "today": "Astăzi",
+    "trailer": "Remorcă",
+    "trendingmovie": "Filme în tendințe",
+    "trendingserie": "Seria de tendințe",
+    "type": "Tip",
+    "under": "Mai puțin decât",
+    "upcoming": "In curand",
+    "videos": "Videoclipuri",
+    "vote": "Vot",
+    "week": "Săptămână",
+    "withgenres": "Cu genul",
+    "withoutgenres": "Fara gen",
+    "year": "An",
+    "years": "Ani"
+  },
+  "sort": {
+    "popularityAsc": "Popularitate -/",
+    "popularityDesc": "Popularitate /-",
+    "voteaverageAsc": "Evaluări -/",
+    "voteaverageDesc": "Evaluări /-",
+    "primaryreleasedateAsc": "Data de lansare -/",
+    "primaryreleasedateDesc": "Data de lansare  /-",
+    "titleAsc": "Titlu de la A la Z",
+    "titleDesc": "Titlul din Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Pagina de descoperire"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelent",
+      "good": "Bun",
+      "average": "IN MEDIE",
+      "bad": "Sărac"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Suche nach einem Film, einer Serie, einem Schauspieler..."
+    }
+  },
+  "commun": {
+    "add": "Hinzufügen",
+    "after": "Nach",
+    "all": "Alle",
+    "actors": "Schauspieler",
+    "backdrop": "Hintergrund",
+    "before": "Vor",
+    "biography": "Bio",
+    "birthday": "Geburtsdatum",
+    "cancel": "Stornieren",
+    "cast": "Gießen",
+    "datenotknow": "Erscheinungsdatum unbekannt",
+    "deathday": "Sterbedatum",
+    "episode": "Folge",
+    "episodes": "Episoden",
+    "episodeprev": "Vorherige Folge",
+    "episodenext": "Nächste Folge",
+    "exact": "Gleich",
+    "filter": "Filter",
+    "genre": "Genre",
+    "gueststars": "Gaststars",
+    "knowfor": "Bekannt für",
+    "logo": "Logo",
+    "minutes": "Protokoll",
+    "min": "Mindest",
+    "movies": "Filme",
+    "noresult": "Keine Ergebnisse entsprechen Ihrer Suche.",
+    "noresultactor": "Es wurde kein Schauspieler angegeben.",
+    "noresultepisode": "Keine Episoden entsprechen Ihrer Suche.",
+    "noresultimage": "Es wurde kein Bild bereitgestellt.",
+    "noresultmovie": "Es wurden keine Filme bereitgestellt.",
+    "noresultserie": "Es wurde keine Serie bereitgestellt.",
+    "noresultvideo": "Es wurden keine Videos bereitgestellt.",
+    "noresultreview": "Es wurden keine Bewertungen veröffentlicht.",
+    "origincountry": "Herkunftsland",
+    "over": "Über",
+    "persons": "Menschen",
+    "photos": "Bilder",
+    "placeofbirth": "Geburtsort",
+    "poster": "Poster",
+    "profile": "Profil",
+    "rankuser": "Benutzer-Bewertung",
+    "results": "Ergebnisse",
+    "runtime": "Dauer",
+    "searchactor": "Suche nach einem Schauspieler",
+    "searchactororperson": "Suchen Sie nach einem Schauspieler oder einer Figur",
+    "searchmovie": "Suchen Sie nach einem Film",
+    "searchserie": "Suchen Sie nach einer Serie",
+    "searchorigincountry": "Herkunftsland suchen",
+    "season": "Jahreszeit",
+    "seasons": "Jahreszeiten",
+    "seeMore": "Zeig mehr",
+    "seeLess": "Zeige weniger",
+    "series": "Serie",
+    "sort": "Sortieren",
+    "summary": "Zusammenfassung",
+    "today": "Heute",
+    "trailer": "Anhänger",
+    "trendingmovie": "Trendfilme",
+    "trendingserie": "Trendserie",
+    "type": "Typ",
+    "under": "Weniger als",
+    "upcoming": "Demnächst",
+    "videos": "Videos",
+    "vote": "Abstimmung",
+    "week": "Woche",
+    "withgenres": "Mit Genre",
+    "withoutgenres": "Ohne Genre",
+    "year": "Jahr",
+    "years": "Jahre"
+  },
+  "sort": {
+    "popularityAsc": "Beliebtheit -/",
+    "popularityDesc": "Beliebtheit /-",
+    "voteaverageAsc": "Bewertungen -/",
+    "voteaverageDesc": "Bewertungen /-",
+    "primaryreleasedateAsc": "Veröffentlichungsdatum -/",
+    "primaryreleasedateDesc": "Veröffentlichungsdatum  /-",
+    "titleAsc": "Titel von A-Z",
+    "titleDesc": "Titel von Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Seite entdecken"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Exzellent",
+      "good": "Gut",
+      "average": "DURCHSCHNITT",
+      "bad": "Arm"
+    }
+  }
+}

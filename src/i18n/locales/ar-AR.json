@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "ابحث عن فيلم، مسلسل، ممثل..."
+    }
+  },
+  "commun": {
+    "add": "يضيف",
+    "after": "بعد",
+    "all": "الجميع",
+    "actors": "ممثلين",
+    "backdrop": "ورق الجدران",
+    "before": "قبل",
+    "biography": "السيرة الذاتية",
+    "birthday": "تاريخ الميلاد",
+    "cancel": "يلغي",
+    "cast": "يقذف",
+    "datenotknow": "تاريخ الإصدار غير معروف",
+    "deathday": "تاريخ الوفاة",
+    "episode": "حلقة",
+    "episodes": "الحلقات",
+    "episodeprev": "الحلقة السابقة",
+    "episodenext": "الحلقة القادمة",
+    "exact": "يساوي",
+    "filter": "منقي",
+    "genre": "النوع",
+    "gueststars": "ضيف النجوم",
+    "knowfor": "معروف ب",
+    "logo": "شعار",
+    "minutes": "دقائق",
+    "min": "دقيقة",
+    "movies": "أفلام",
+    "noresult": "لا توجد نتائج تطابق بحثك.",
+    "noresultactor": "لم يتم توفير أي ممثل.",
+    "noresultepisode": "لا توجد حلقات تطابق بحثك.",
+    "noresultimage": "لم يتم تقديم أي صورة.",
+    "noresultmovie": "لم يتم توفير أي أفلام.",
+    "noresultserie": "لم يتم توفير أي سلسلة.",
+    "noresultvideo": "لم يتم تقديم أي مقاطع فيديو.",
+    "noresultreview": "لم يتم نشر أي تعليقات.",
+    "origincountry": "بلد المنشأ",
+    "over": "زيادة",
+    "persons": "الناس",
+    "photos": "الصور",
+    "placeofbirth": "مكان الميلاد",
+    "poster": "ملصق",
+    "profile": "حساب تعريفي",
+    "rankuser": "تقييم المستخدم",
+    "results": "نتائج",
+    "runtime": "مدة",
+    "searchactor": "ابحث عن ممثل",
+    "searchactororperson": "ابحث عن ممثل أو شخصية",
+    "searchmovie": "ابحث عن فيلم",
+    "searchserie": "ابحث عن سلسلة",
+    "searchorigincountry": "البحث عن بلد المنشأ",
+    "season": "موسم",
+    "seasons": "مواسم",
+    "seeMore": "أظهر المزيد",
+    "seeLess": "عرض أقل",
+    "series": "مسلسل",
+    "sort": "نوع",
+    "summary": "ملخص",
+    "today": "اليوم",
+    "trailer": "جَرَّار",
+    "trendingmovie": "الأفلام الرائجة",
+    "trendingserie": "سلسلة تتجه",
+    "type": "يكتب",
+    "under": "أقل من",
+    "upcoming": "قريباً",
+    "videos": "أشرطة فيديو",
+    "vote": "تصويت",
+    "week": "أسبوع",
+    "withgenres": "مع النوع",
+    "withoutgenres": "بدون النوع",
+    "year": "سنة",
+    "years": "سنين"
+  },
+  "sort": {
+    "popularityAsc": "الشعبية -/",
+    "popularityDesc": "الشعبية /-",
+    "voteaverageAsc": "التقييمات -/",
+    "voteaverageDesc": "التقييمات /-",
+    "primaryreleasedateAsc": "تاريخ الافراج عنه -/",
+    "primaryreleasedateDesc": "تاريخ الافراج عنه  /-",
+    "titleAsc": "العنوان من الألف إلى الياء",
+    "titleDesc": "العنوان من Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "اكتشف الصفحة"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "ممتاز",
+      "good": "جيد",
+      "average": "متوسط",
+      "bad": "فقير"
+    }
+  }
+}

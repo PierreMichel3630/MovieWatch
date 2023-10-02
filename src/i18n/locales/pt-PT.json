@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Procure um filme, uma série, um ator..."
+    }
+  },
+  "commun": {
+    "add": "Adicionar",
+    "after": "Depois",
+    "all": "Todos",
+    "actors": "Atores",
+    "backdrop": "Papel de parede",
+    "before": "Antes",
+    "biography": "Biografia",
+    "birthday": "Data de nascimento",
+    "cancel": "Cancelar",
+    "cast": "Elenco",
+    "datenotknow": "Data de lançamento desconhecida",
+    "deathday": "Data da morte",
+    "episode": "episódio",
+    "episodes": "Episódios",
+    "episodeprev": "Episódio anterior",
+    "episodenext": "Próximo episódio",
+    "exact": "Igual a",
+    "filter": "Filtro",
+    "genre": "Gênero",
+    "gueststars": "Estrelas convidadas",
+    "knowfor": "Conhecido por",
+    "logo": "Logotipo",
+    "minutes": "minutos",
+    "min": "min",
+    "movies": "Filmes",
+    "noresult": "Nenhum resultado corresponde à sua pesquisa.",
+    "noresultactor": "Nenhum ator foi fornecido.",
+    "noresultepisode": "Nenhum episódio corresponde à sua pesquisa.",
+    "noresultimage": "Nenhuma imagem foi fornecida.",
+    "noresultmovie": "Nenhum filme foi fornecido.",
+    "noresultserie": "Nenhuma série foi fornecida.",
+    "noresultvideo": "Nenhum vídeo foi fornecido.",
+    "noresultreview": "Nenhum comentário foi postado.",
+    "origincountry": "País de origem",
+    "over": "Sobre",
+    "persons": "Pessoas",
+    "photos": "Fotos",
+    "placeofbirth": "Local de nascimento",
+    "poster": "Poster",
+    "profile": "Perfil",
+    "rankuser": "Avaliação do utilizador",
+    "results": "Resultados",
+    "runtime": "Duração",
+    "searchactor": "Procure um ator",
+    "searchactororperson": "Procure um ator ou personagem",
+    "searchmovie": "Procure um filme",
+    "searchserie": "Procure uma série",
+    "searchorigincountry": "Pesquisar país de origem",
+    "season": "Temporada",
+    "seasons": "Temporadas",
+    "seeMore": "Mostre mais",
+    "seeLess": "Mostre menos",
+    "series": "Series",
+    "sort": "Organizar",
+    "summary": "Resumo",
+    "today": "Hoje",
+    "trailer": "Reboque",
+    "trendingmovie": "Filmes populares",
+    "trendingserie": "Série de tendências",
+    "type": "Tipo",
+    "under": "Menor que",
+    "upcoming": "Em breve",
+    "videos": "Vídeos",
+    "vote": "Voto",
+    "week": "Semana",
+    "withgenres": "Com gênero",
+    "withoutgenres": "Sem gênero",
+    "year": "Ano",
+    "years": "Anos"
+  },
+  "sort": {
+    "popularityAsc": "Popularidade -/",
+    "popularityDesc": "Popularidade /-",
+    "voteaverageAsc": "Avaliações -/",
+    "voteaverageDesc": "Avaliações /-",
+    "primaryreleasedateAsc": "Data de lançamento -/",
+    "primaryreleasedateDesc": "Data de lançamento  /-",
+    "titleAsc": "Título de A-Z",
+    "titleDesc": "Título de Z-A"
+  },
+  "pages": {
+    "discover": {
+      "title": "Página Descobrir"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Excelente",
+      "good": "Bom",
+      "average": "MÉDIA",
+      "bad": "Pobre"
+    }
+  }
+}

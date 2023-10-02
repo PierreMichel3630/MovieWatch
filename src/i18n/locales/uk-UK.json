@@ -1,0 +1,101 @@
+{
+  "header": {
+    "search": {
+      "input": "Пошук фільму, серіалу, актора..."
+    }
+  },
+  "commun": {
+    "add": "додати",
+    "after": "Після",
+    "all": "все",
+    "actors": "Актори",
+    "backdrop": "Шпалери",
+    "before": "Раніше",
+    "biography": "біографія",
+    "birthday": "Дата народження",
+    "cancel": "Скасувати",
+    "cast": "акторський склад",
+    "datenotknow": "Дата виходу невідома",
+    "deathday": "Дата смерті",
+    "episode": "епізод",
+    "episodes": "епізоди",
+    "episodeprev": "Попередній епізод",
+    "episodenext": "Наступний епізод",
+    "exact": "Дорівнює",
+    "filter": "фільтр",
+    "genre": "Жанр",
+    "gueststars": "Запрошені зірки",
+    "knowfor": "Відомий за",
+    "logo": "логотип",
+    "minutes": "хвилин",
+    "min": "хв",
+    "movies": "фільми",
+    "noresult": "Немає результатів, що відповідають вашому пошуку.",
+    "noresultactor": "Актора не вказано.",
+    "noresultepisode": "Немає епізодів, які відповідають вашому пошуку.",
+    "noresultimage": "Зображення не надано.",
+    "noresultmovie": "Немає фільмів.",
+    "noresultserie": "Жодної серії не надано.",
+    "noresultvideo": "Відео не надано.",
+    "noresultreview": "Відгуки не опубліковано.",
+    "origincountry": "Країна народження",
+    "over": "закінчено",
+    "persons": "Люди",
+    "photos": "Картинки",
+    "placeofbirth": "Місце народження",
+    "poster": "Плакат",
+    "profile": "Профіль",
+    "rankuser": "Оцінка користувача",
+    "results": "Результати",
+    "runtime": "Тривалість",
+    "searchactor": "Пошук актора",
+    "searchactororperson": "Пошук актора або персонажа",
+    "searchmovie": "Пошук фільму",
+    "searchserie": "Пошук серії",
+    "searchorigincountry": "Пошук країни походження",
+    "season": "Сезон",
+    "seasons": "Пори року",
+    "seeMore": "Показати більше",
+    "seeLess": "Показувати менше",
+    "series": "Серія",
+    "sort": "Сортувати",
+    "summary": "Резюме",
+    "today": "Сьогодні",
+    "trailer": "Трейлер",
+    "trendingmovie": "Популярні фільми",
+    "trendingserie": "Трендові серії",
+    "type": "Тип",
+    "under": "Менше ніж",
+    "upcoming": "Незабаром",
+    "videos": "Відео",
+    "vote": "Голосуйте",
+    "week": "тиждень",
+    "withgenres": "З жанром",
+    "withoutgenres": "Без жанру",
+    "year": "рік",
+    "years": "років"
+  },
+  "sort": {
+    "popularityAsc": "Популярність -/",
+    "popularityDesc": "Популярність /-",
+    "voteaverageAsc": "Оцінки -/",
+    "voteaverageDesc": "Оцінки /-",
+    "primaryreleasedateAsc": "Дата випуску -/",
+    "primaryreleasedateDesc": "Дата випуску /-",
+    "titleAsc": "Назва від А до Я",
+    "titleDesc": "Назва від Я-А"
+  },
+  "pages": {
+    "discover": {
+      "title": "Сторінка відкриття"
+    }
+  },
+  "review": {
+    "ranking": {
+      "excellent": "Чудово",
+      "good": "добре",
+      "average": "СЕРЕДНЯ",
+      "bad": "Бідний"
+    }
+  }
+}
