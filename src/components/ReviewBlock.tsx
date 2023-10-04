@@ -104,32 +104,36 @@ export const ReviewBlock = ({ reviews, isLoading }: Props) => {
           <Grid item xs="auto">
             <Typography variant="h2">{t("commun.review")}</Typography>
           </Grid>
-          <Grid item>
-            <Chip
-              label="English"
-              avatar={<AvatarLanguage iso="en" />}
-              variant={filterLanguage.english ? "filled" : "outlined"}
-              onClick={() =>
-                setFilterLanguage((prev) => ({
-                  ...prev,
-                  english: !prev.english,
-                }))
-              }
-            />
-          </Grid>
-          <Grid item>
-            <Chip
-              label={language.name}
-              avatar={<AvatarLanguage iso={language.iso_639_1} />}
-              variant={filterLanguage.locale ? "filled" : "outlined"}
-              onClick={() =>
-                setFilterLanguage((prev) => ({
-                  ...prev,
-                  locale: !prev.locale,
-                }))
-              }
-            />
-          </Grid>
+          {language.iso_639_1 !== "en" && (
+            <>
+              <Grid item>
+                <Chip
+                  label="English"
+                  avatar={<AvatarLanguage iso="en" />}
+                  variant={filterLanguage.english ? "filled" : "outlined"}
+                  onClick={() =>
+                    setFilterLanguage((prev) => ({
+                      ...prev,
+                      english: !prev.english,
+                    }))
+                  }
+                />
+              </Grid>
+              <Grid item>
+                <Chip
+                  label={language.name ? language.name : language.english_name}
+                  avatar={<AvatarLanguage iso={language.iso_639_1} />}
+                  variant={filterLanguage.locale ? "filled" : "outlined"}
+                  onClick={() =>
+                    setFilterLanguage((prev) => ({
+                      ...prev,
+                      locale: !prev.locale,
+                    }))
+                  }
+                />
+              </Grid>
+            </>
+          )}
           <Grid item>
             <Chip
               label={t("review.ranking.excellent")}

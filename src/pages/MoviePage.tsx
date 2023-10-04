@@ -105,22 +105,34 @@ export const MoviePage = () => {
   useEffect(() => {
     setIsLoadingReview(true);
     if (id) {
-      Promise.all([
-        getMovieReview(Number(id), language.iso_639_1),
-        getMovieReview(Number(id), "us"),
-      ]).then((res) => {
-        setReviews([
-          ...res[0].results.map((el) => ({
-            ...el,
-            language: language.iso_639_1,
-          })),
-          ...res[1].results.map((el) => ({
-            ...el,
-            language: "en",
-          })),
-        ]);
-        setIsLoadingReview(false);
-      });
+      if (language.iso_639_1 === "en") {
+        getMovieReview(Number(id), language.iso_639_1).then((res) => {
+          setReviews([
+            ...res.results.map((el) => ({
+              ...el,
+              language: language.iso_639_1,
+            })),
+          ]);
+          setIsLoadingReview(false);
+        });
+      } else {
+        Promise.all([
+          getMovieReview(Number(id), language.iso_639_1),
+          getMovieReview(Number(id), "en"),
+        ]).then((res) => {
+          setReviews([
+            ...res[0].results.map((el) => ({
+              ...el,
+              language: language.iso_639_1,
+            })),
+            ...res[1].results.map((el) => ({
+              ...el,
+              language: "en",
+            })),
+          ]);
+          setIsLoadingReview(false);
+        });
+      }
     }
   }, [id, language]);
 
