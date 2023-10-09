@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Բացահայտեք էջը"
+      "title": "Բացահայտեք"
+    },
+    "home": {
+      "title": "տուն"
+    },
+    "search": {
+      "title": "Հետազոտություն"
+    },
+    "trendingsearch": {
+      "title": "Թրենդային որոնում"
     }
   },
   "review": {

@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Discover Page"
+      "title": "Discover"
+    },
+    "home": {
+      "title": "Home"
+    },
+    "search": {
+      "title": "Research"
+    },
+    "trendingsearch": {
+      "title": "Trending Search"
     }
   },
   "review": {

@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Temukan Halaman"
+      "title": "Menemukan"
+    },
+    "home": {
+      "title": "Rumah"
+    },
+    "search": {
+      "title": "Riset"
+    },
+    "trendingsearch": {
+      "title": "Pencarian Trending"
     }
   },
   "review": {

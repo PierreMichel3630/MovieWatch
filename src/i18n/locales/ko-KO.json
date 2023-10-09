@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "검색 페이지"
+      "title": "발견하다"
+    },
+    "home": {
+      "title": "집"
+    },
+    "search": {
+      "title": "연구"
+    },
+    "trendingsearch": {
+      "title": "인기 검색어"
     }
   },
   "review": {

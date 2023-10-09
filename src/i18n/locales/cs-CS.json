@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Objevit stránku"
+      "title": "Objevit"
+    },
+    "home": {
+      "title": "Domov"
+    },
+    "search": {
+      "title": "Výzkum"
+    },
+    "trendingsearch": {
+      "title": "Trendy ve vyhledávání"
     }
   },
   "review": {

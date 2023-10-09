@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Ontdek pagina"
+      "title": "Ontdekken"
+    },
+    "home": {
+      "title": "Thuis"
+    },
+    "search": {
+      "title": "Onderzoek"
+    },
+    "trendingsearch": {
+      "title": "Trending zoeken"
     }
   },
   "review": {

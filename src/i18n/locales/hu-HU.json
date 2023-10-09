@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Fedezze fel az oldalt"
+      "title": "Felfedez"
+    },
+    "home": {
+      "title": "itthon"
+    },
+    "search": {
+      "title": "Kutatás"
+    },
+    "trendingsearch": {
+      "title": "Felkapott keresés"
     }
   },
   "review": {

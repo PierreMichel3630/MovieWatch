@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Atraskite puslapį"
+      "title": "Atrasti"
+    },
+    "home": {
+      "title": "Namai"
+    },
+    "search": {
+      "title": "Tyrimas"
+    },
+    "trendingsearch": {
+      "title": "Populiari paieška"
     }
   },
   "review": {

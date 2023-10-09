@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
 import { getPersonDetails, getPersonImage } from "src/api/person";
@@ -43,6 +44,11 @@ export const PersonPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>
+          {detail ? `${detail.name} - MovieSerieSearch` : "MovieSerieSearch"}
+        </title>
+      </Helmet>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <HeaderPerson detail={detail} isLoading={isLoading} />

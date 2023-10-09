@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Atklājiet lapu"
+      "title": "Atklājiet"
+    },
+    "home": {
+      "title": "Mājas"
+    },
+    "search": {
+      "title": "Pētījumi"
+    },
+    "trendingsearch": {
+      "title": "Populārā meklēšana"
     }
   },
   "review": {

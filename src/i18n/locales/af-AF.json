@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Ontdek Bladsy"
+      "title": "Ontdek"
+    },
+    "home": {
+      "title": "Tuis"
+    },
+    "search": {
+      "title": "Navorsing"
+    },
+    "trendingsearch": {
+      "title": "Gewilde soektog"
     }
   },
   "review": {

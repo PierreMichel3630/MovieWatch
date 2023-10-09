@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Откройте для себя страницу"
+      "title": "Обнаружить"
+    },
+    "home": {
+      "title": "Дом"
+    },
+    "search": {
+      "title": "Исследовать"
+    },
+    "trendingsearch": {
+      "title": "Популярный поиск"
     }
   },
   "review": {

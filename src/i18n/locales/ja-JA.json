@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "ページを発見する"
+      "title": "発見する"
+    },
+    "home": {
+      "title": "家"
+    },
+    "search": {
+      "title": "研究"
+    },
+    "trendingsearch": {
+      "title": "トレンド検索"
     }
   },
   "review": {

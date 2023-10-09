@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Trang khám phá"
+      "title": "Phát hiện"
+    },
+    "home": {
+      "title": "Trang chủ"
+    },
+    "search": {
+      "title": "Nghiên cứu"
+    },
+    "trendingsearch": {
+      "title": "Tìm kiếm theo xu hướng"
     }
   },
   "review": {

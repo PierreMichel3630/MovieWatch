@@ -26,6 +26,7 @@ import { dicoverAll } from "src/api/commun";
 import { SortMenu } from "src/components/commun/sort/SortMenu";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import { Helmet } from "react-helmet-async";
 
 export const DiscoverPage = () => {
   const params = useQuery();
@@ -200,6 +201,9 @@ export const DiscoverPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>{`${t("pages.discover.title")} - MovieSerieSearch`}</title>
+      </Helmet>
       <Grid container spacing={1}>
         <Grid
           item

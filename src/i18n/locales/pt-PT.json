@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Página Descobrir"
+      "title": "Descobrir"
+    },
+    "home": {
+      "title": "Lar"
+    },
+    "search": {
+      "title": "Pesquisar"
+    },
+    "trendingsearch": {
+      "title": "Tendências de pesquisa"
     }
   },
   "review": {

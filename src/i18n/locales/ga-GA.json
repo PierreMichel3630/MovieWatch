@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Faigh amach Leathanach"
+      "title": "Faigh amach"
+    },
+    "home": {
+      "title": "Baile"
+    },
+    "search": {
+      "title": "Taighde"
+    },
+    "trendingsearch": {
+      "title": "Cuardach Trending"
     }
   },
   "review": {

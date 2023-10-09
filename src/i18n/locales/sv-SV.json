@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Upptäck sida"
+      "title": "Upptäck"
+    },
+    "home": {
+      "title": "Hem"
+    },
+    "search": {
+      "title": "Forskning"
+    },
+    "trendingsearch": {
+      "title": "Populär sökning"
     }
   },
   "review": {

@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Odkrijte stran"
+      "title": "Odkrij"
+    },
+    "home": {
+      "title": "domov"
+    },
+    "search": {
+      "title": "Raziskovanje"
+    },
+    "trendingsearch": {
+      "title": "Iskanje v trendu"
     }
   },
   "review": {

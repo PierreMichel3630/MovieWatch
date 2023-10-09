@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Oppdag siden"
+      "title": "Oppdage"
+    },
+    "home": {
+      "title": "Hjem"
+    },
+    "search": {
+      "title": "Forskning"
+    },
+    "trendingsearch": {
+      "title": "Populært søk"
     }
   },
   "review": {

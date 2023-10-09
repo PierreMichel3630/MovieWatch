@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { percent, viewHeight } from "csx";
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
 import {
@@ -138,6 +139,11 @@ export const MoviePage = () => {
 
   return (
     <Grid container>
+      <Helmet>
+        <title>
+          {detail ? `${detail.title} - MovieSerieSearch` : "MovieSerieSearch"}
+        </title>
+      </Helmet>
       <Grid item xs={12} className={backdropCss}>
         <Container maxWidth="lg" sx={{ position: "relative" }}>
           <HeaderMovie

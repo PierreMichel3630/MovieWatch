@@ -88,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "पेज खोजें"
+      "title": "खोज करना"
+    },
+    "home": {
+      "title": "घर"
+    },
+    "search": {
+      "title": "अनुसंधान"
+    },
+    "trendingsearch": {
+      "title": "ट्रेंडिंग सर्च"
     }
   },
   "review": {
