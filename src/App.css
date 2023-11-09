@@ -1,1 +1,7 @@
+.MuiPopover-paper {
+  border-radius: 15px !important;
+}
 
+.MuiPopover-root {
+  border-radius: 15px !important;
+}
