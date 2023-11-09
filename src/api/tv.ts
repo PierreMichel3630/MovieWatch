@@ -5,15 +5,27 @@ import { SeasonDetail } from "src/models/tv/SeasonDetail";
 import { EpisodeDetail } from "src/models/tv/EpisodeDetail";
 import { EpisodeImage } from "src/models/tv/EpisodeImage";
 import { Videos } from "src/models/commun/Videos";
-import { SearchResult } from "src/models/commun/SearchResult";
+import {
+  SearchResult,
+  SearchResultGeneric,
+} from "src/models/commun/SearchResult";
 import { TvAggregateCredits } from "src/models/tv/TvAggregateCredits";
 import { TimeTrending } from "src/models/enum";
+import { Review } from "src/models/commun/Review";
 
 export const getTvDetails = (
   id: number,
   language: string
 ): Promise<SerieDetails> => {
   const url = `https://api.themoviedb.org/3/tv/${id}?language=${language}`;
+  return fetch(url, getRequestOptions).then((res) => res.json());
+};
+
+export const getTvReview = (
+  id: number,
+  language: string
+): Promise<SearchResultGeneric<Review>> => {
+  const url = `https://api.themoviedb.org/3/tv/${id}/reviews?language=${language}`;
   return fetch(url, getRequestOptions).then((res) => res.json());
 };
 

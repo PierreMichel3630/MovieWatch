@@ -46,6 +46,7 @@
     "poster": "Plakat",
     "profile": "Profiil",
     "rankuser": "Kasutaja hinnang",
+    "review": "Arvustused",
     "results": "Tulemused",
     "runtime": "Kestus",
     "searchactor": "Otsige näitlejat",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Avastage leht"
+      "title": "Avastage"
+    },
+    "home": {
+      "title": "Kodu"
+    },
+    "search": {
+      "title": "Uurimine"
+    },
+    "trendingsearch": {
+      "title": "Trendikas otsing"
     }
   },
   "review": {

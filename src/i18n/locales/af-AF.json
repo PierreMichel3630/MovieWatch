@@ -46,6 +46,7 @@
     "poster": "Plakkaat",
     "profile": "Profiel",
     "rankuser": "Gebruikersgradering",
+    "review": "Resensies",
     "results": "Resultate",
     "runtime": "Duur",
     "searchactor": "Soek 'n akteur",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Ontdek Bladsy"
+      "title": "Ontdek"
+    },
+    "home": {
+      "title": "Tuis"
+    },
+    "search": {
+      "title": "Navorsing"
+    },
+    "trendingsearch": {
+      "title": "Gewilde soektog"
     }
   },
   "review": {

@@ -46,6 +46,7 @@
     "poster": "Affisch",
     "profile": "Profil",
     "rankuser": "Användarbetyg",
+    "review": "Recensioner",
     "results": "Resultat",
     "runtime": "Varaktighet",
     "searchactor": "Sök efter en skådespelare",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Upptäck sida"
+      "title": "Upptäck"
+    },
+    "home": {
+      "title": "Hem"
+    },
+    "search": {
+      "title": "Forskning"
+    },
+    "trendingsearch": {
+      "title": "Populär sökning"
     }
   },
   "review": {

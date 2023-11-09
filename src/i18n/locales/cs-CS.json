@@ -46,6 +46,7 @@
     "poster": "Plakát",
     "profile": "Profil",
     "rankuser": "Uživatelské hodnocení",
+    "review": "Recenze",
     "results": "Výsledek",
     "runtime": "Doba trvání",
     "searchactor": "Hledat herce",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Objevit stránku"
+      "title": "Objevit"
+    },
+    "home": {
+      "title": "Domov"
+    },
+    "search": {
+      "title": "Výzkum"
+    },
+    "trendingsearch": {
+      "title": "Trendy ve vyhledávání"
     }
   },
   "review": {

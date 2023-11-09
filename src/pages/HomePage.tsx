@@ -1,6 +1,6 @@
 import { Container, Fab, Grid } from "@mui/material";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { UserContext } from "src/App";
 import { getMovieGenre, getTvGenre } from "src/api/commun";
 import { Genre } from "src/models/commun/Genre";
@@ -11,6 +11,8 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { ScrollTop } from "src/components/commun/ScrollTop";
 import { Footer } from "src/components/footer/Footer";
 import { Header } from "src/components/header/Header";
+import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 export const SearchContext = createContext<{
   type: MediaType | undefined;
@@ -29,6 +31,8 @@ export const SearchContext = createContext<{
 export const HomePage = () => {
   const params = useQuery();
   const { language } = useContext(UserContext);
+  const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   const [query, setQuery] = useState(
     params.has("query") ? (params.get("query") as string) : ""
@@ -50,8 +54,19 @@ export const HomePage = () => {
     });
   }, [language]);
 
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
   return (
     <SearchContext.Provider value={{ type, setType, query, genres, setQuery }}>
+      <Helmet>
+        <title>{`${t("pages.home.title")} - MovieSerieSearch`}</title>
+      </Helmet>
       <Grid container>
         <Grid item xs={12}>
           <Container maxWidth="lg">

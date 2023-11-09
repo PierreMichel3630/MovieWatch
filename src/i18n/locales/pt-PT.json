@@ -46,6 +46,7 @@
     "poster": "Poster",
     "profile": "Perfil",
     "rankuser": "Avaliação do utilizador",
+    "review": "Avaliações",
     "results": "Resultados",
     "runtime": "Duração",
     "searchactor": "Procure um ator",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Página Descobrir"
+      "title": "Descobrir"
+    },
+    "home": {
+      "title": "Lar"
+    },
+    "search": {
+      "title": "Pesquisar"
+    },
+    "trendingsearch": {
+      "title": "Tendências de pesquisa"
     }
   },
   "review": {

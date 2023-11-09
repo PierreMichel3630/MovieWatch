@@ -46,6 +46,7 @@
     "poster": "Plakat",
     "profile": "Profil",
     "rankuser": "Brugerbedømmelse",
+    "review": "Anmeldelser",
     "results": "Resultater",
     "runtime": "Varighed",
     "searchactor": "Søg efter en skuespiller",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Opdag side"
+      "title": "Opdage"
+    },
+    "home": {
+      "title": "Hjem"
+    },
+    "search": {
+      "title": "Forskning"
+    },
+    "trendingsearch": {
+      "title": "Trending søgning"
     }
   },
   "review": {

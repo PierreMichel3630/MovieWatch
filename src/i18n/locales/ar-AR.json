@@ -46,6 +46,7 @@
     "poster": "ملصق",
     "profile": "حساب تعريفي",
     "rankuser": "تقييم المستخدم",
+    "review": "التعليقات",
     "results": "نتائج",
     "runtime": "مدة",
     "searchactor": "ابحث عن ممثل",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "اكتشف الصفحة"
+      "title": "يكتشف"
+    },
+    "home": {
+      "title": "بيت"
+    },
+    "search": {
+      "title": "بحث"
+    },
+    "trendingsearch": {
+      "title": "بحث شائع"
     }
   },
   "review": {

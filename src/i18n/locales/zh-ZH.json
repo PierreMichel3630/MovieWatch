@@ -46,6 +46,7 @@
     "poster": "海报",
     "profile": "轮廓",
     "rankuser": "用户评分",
+    "review": "评论",
     "results": "结果",
     "runtime": "期间",
     "searchactor": "寻找演员",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "发现页面"
+      "title": "发现"
+    },
+    "home": {
+      "title": "家"
+    },
+    "search": {
+      "title": "研究"
+    },
+    "trendingsearch": {
+      "title": "热门搜索"
     }
   },
   "review": {

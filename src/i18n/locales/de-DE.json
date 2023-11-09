@@ -46,6 +46,7 @@
     "poster": "Poster",
     "profile": "Profil",
     "rankuser": "Benutzer-Bewertung",
+    "review": "Rezensionen",
     "results": "Ergebnisse",
     "runtime": "Dauer",
     "searchactor": "Suche nach einem Schauspieler",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Seite entdecken"
+      "title": "Entdecken"
+    },
+    "home": {
+      "title": "Heim"
+    },
+    "search": {
+      "title": "Forschung"
+    },
+    "trendingsearch": {
+      "title": "Trendsuche"
     }
   },
   "review": {

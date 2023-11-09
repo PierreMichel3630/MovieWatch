@@ -46,6 +46,7 @@
     "poster": "Poster",
     "profile": "Profile",
     "rankuser": "User rating",
+    "review": "Reviews",
     "results": "Results",
     "runtime": "Duration",
     "searchactor": "Search for an actor",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Discover Page"
+      "title": "Discover"
+    },
+    "home": {
+      "title": "Home"
+    },
+    "search": {
+      "title": "Research"
+    },
+    "trendingsearch": {
+      "title": "Trending Search"
     }
   },
   "review": {

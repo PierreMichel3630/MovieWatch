@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
 import { MediaType } from "src/models/enum";
 import { SearchContext } from "./HomePage";
+import { Helmet } from "react-helmet-async";
 
 export const SearchPage = () => {
   const params = useQuery();
@@ -74,6 +75,9 @@ export const SearchPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>{`${t("pages.search.title")} - MovieSerieSearch`}</title>
+      </Helmet>
       <Grid container spacing={2}>
         {isNoResult ? (
           <Grid item xs={12}>

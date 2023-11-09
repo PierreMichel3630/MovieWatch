@@ -16,6 +16,7 @@ import { MovieSearchElement } from "src/models/movie/MovieSearchElement";
 import { PersonSearchElement } from "src/models/person/PersonSearchElement";
 import { TvSearchElement } from "src/models/tv/TvSearchElement";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
+import { Helmet } from "react-helmet-async";
 
 const divFilterCss = style({
   marginLeft: 15,
@@ -42,6 +43,10 @@ export const TrendingSearchPage = () => {
   >([]);
   const [totalPage, setTotalPage] = useState<undefined | number>(undefined);
   const [isNoResult, setIsNoResult] = useState(false);
+
+  useEffect(() => {
+    document.title = `${t("pages.trendingsearch.title")} - MovieSerieSearch`;
+  }, []);
 
   const search = () => {
     if (type === MediaType.tv) {
@@ -96,6 +101,9 @@ export const TrendingSearchPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>{`${t("pages.trendingsearch.title")} - MovieSerieSearch`}</title>
+      </Helmet>
       <Grid container spacing={1}>
         <Grid item xs={12} className={divFilterCss}>
           <Chip

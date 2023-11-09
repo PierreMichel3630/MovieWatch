@@ -46,6 +46,7 @@
     "poster": "Manifesto",
     "profile": "Profilo",
     "rankuser": "Voto dell'utente",
+    "review": "Recensioni",
     "results": "Risultati",
     "runtime": "Durata",
     "searchactor": "Cerca un attore",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Pagina Scopri"
+      "title": "Scoprire"
+    },
+    "home": {
+      "title": "Casa"
+    },
+    "search": {
+      "title": "Ricerca"
+    },
+    "trendingsearch": {
+      "title": "Ricerca di tendenza"
     }
   },
   "review": {

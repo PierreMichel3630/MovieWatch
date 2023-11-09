@@ -46,6 +46,7 @@
     "poster": "Plakat",
     "profile": "Profil",
     "rankuser": "Ocena uporabnika",
+    "review": "Ocene",
     "results": "Rezultati",
     "runtime": "Trajanje",
     "searchactor": "Iskanje igralca",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Odkrijte stran"
+      "title": "Odkrij"
+    },
+    "home": {
+      "title": "domov"
+    },
+    "search": {
+      "title": "Raziskovanje"
+    },
+    "trendingsearch": {
+      "title": "Iskanje v trendu"
     }
   },
   "review": {

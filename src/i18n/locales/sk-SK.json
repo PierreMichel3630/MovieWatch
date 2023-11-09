@@ -46,6 +46,7 @@
     "poster": "plagát",
     "profile": "Profil",
     "rankuser": "Užívateľské hodnotenie",
+    "review": "Recenzie",
     "results": "Výsledky",
     "runtime": "Trvanie",
     "searchactor": "Hľadajte herca",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Objaviť stránku"
+      "title": "Objavte"
+    },
+    "home": {
+      "title": "Domov"
+    },
+    "search": {
+      "title": "Výskum"
+    },
+    "trendingsearch": {
+      "title": "Populárne vyhľadávanie"
     }
   },
   "review": {

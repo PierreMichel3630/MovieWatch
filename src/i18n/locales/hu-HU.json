@@ -46,6 +46,7 @@
     "poster": "Poszter",
     "profile": "Profil",
     "rankuser": "Felhasználói értékelés",
+    "review": "Vélemények",
     "results": "Eredmények",
     "runtime": "Időtartam",
     "searchactor": "Keress egy színészt",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Fedezze fel az oldalt"
+      "title": "Felfedez"
+    },
+    "home": {
+      "title": "itthon"
+    },
+    "search": {
+      "title": "Kutatás"
+    },
+    "trendingsearch": {
+      "title": "Felkapott keresés"
     }
   },
   "review": {

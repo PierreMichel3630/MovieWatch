@@ -46,6 +46,7 @@
     "poster": "Плакат",
     "profile": "Профил",
     "rankuser": "Рејтинг",
+    "review": "Коментара",
     "results": "Резултати",
     "runtime": "Трајање",
     "searchactor": "Потражите глумца",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Откријте страницу"
+      "title": "Откријте"
+    },
+    "home": {
+      "title": "Кућа"
+    },
+    "search": {
+      "title": "Истраживања"
+    },
+    "trendingsearch": {
+      "title": "Претрага у тренду"
     }
   },
   "review": {

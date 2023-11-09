@@ -46,6 +46,7 @@
     "poster": "Plakat",
     "profile": "Profil",
     "rankuser": "Ocena użytkownika",
+    "review": "Opinie",
     "results": "Wyniki",
     "runtime": "Czas trwania",
     "searchactor": "Szukaj aktora",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Odkryj stronę"
+      "title": "Odkryć"
+    },
+    "home": {
+      "title": "Dom"
+    },
+    "search": {
+      "title": "Badania"
+    },
+    "trendingsearch": {
+      "title": "Wyszukiwanie trendów"
     }
   },
   "review": {

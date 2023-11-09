@@ -46,6 +46,7 @@
     "poster": "Poster",
     "profile": "Profil",
     "rankuser": "Ocjena korisnika",
+    "review": "Recenzije",
     "results": "Rezultati",
     "runtime": "Trajanje",
     "searchactor": "Potražite glumca",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Otkrijte stranicu"
+      "title": "Otkrijte"
+    },
+    "home": {
+      "title": "Dom"
+    },
+    "search": {
+      "title": "Istraživanja"
+    },
+    "trendingsearch": {
+      "title": "Trending Search"
     }
   },
   "review": {

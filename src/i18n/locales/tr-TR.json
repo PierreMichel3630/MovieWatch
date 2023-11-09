@@ -46,6 +46,7 @@
     "poster": "Afiş",
     "profile": "Profil",
     "rankuser": "Kullanıcı oyu",
+    "review": "Yorumlar",
     "results": "Sonuçlar",
     "runtime": "Süre",
     "searchactor": "Bir aktör arayın",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Sayfayı Keşfet"
+      "title": "Keşfetmek"
+    },
+    "home": {
+      "title": "Ev"
+    },
+    "search": {
+      "title": "Araştırma"
+    },
+    "trendingsearch": {
+      "title": "Trend Olan Arama"
     }
   },
   "review": {

@@ -46,6 +46,7 @@
     "poster": "Áp phích",
     "profile": "Hồ sơ",
     "rankuser": "Đánh giá của người dùng",
+    "review": "Đánh giá",
     "results": "Kết quả",
     "runtime": "Khoảng thời gian",
     "searchactor": "Tìm kiếm diễn viên",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Trang khám phá"
+      "title": "Phát hiện"
+    },
+    "home": {
+      "title": "Trang chủ"
+    },
+    "search": {
+      "title": "Nghiên cứu"
+    },
+    "trendingsearch": {
+      "title": "Tìm kiếm theo xu hướng"
     }
   },
   "review": {

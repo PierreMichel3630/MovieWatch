@@ -1,6 +1,7 @@
 import { Alert, Container, Grid } from "@mui/material";
 import { percent, viewHeight } from "csx";
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { UserContext } from "src/App";
@@ -163,6 +164,13 @@ export const EpisodePage = () => {
 
   return (
     <Grid container>
+      <Helmet>
+        <title>
+          {detail
+            ? `${detail.name} ${t("commun.episodes")} - MovieSerieSearch`
+            : "MovieSerieSearch"}
+        </title>
+      </Helmet>
       <Grid item xs={12} className={backdropCss}>
         <Container maxWidth="lg" sx={{ position: "relative" }}>
           <HeaderSerieEpisode

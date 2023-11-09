@@ -46,6 +46,7 @@
     "poster": "Afişa",
     "profile": "Profil",
     "rankuser": "İstifadəçi reytinqi",
+    "review": "Rəylər",
     "results": "Nəticələr",
     "runtime": "Müddət",
     "searchactor": "Aktyor axtarın",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Səhifəni kəşf edin"
+      "title": "Kəşf etmək"
+    },
+    "home": {
+      "title": "Ev"
+    },
+    "search": {
+      "title": "Araşdırma"
+    },
+    "trendingsearch": {
+      "title": "Trend Axtarış"
     }
   },
   "review": {

@@ -12,6 +12,7 @@ import { MovieSearchElement } from "src/models/movie/MovieSearchElement";
 import { TvSearchElement } from "src/models/tv/TvSearchElement";
 import { MediaType, TimeTrending } from "src/models/enum";
 import { CardSearchSkeleton } from "src/components/commun/skeleton/Skeleton";
+import { Helmet } from "react-helmet-async";
 
 const titleCss = style({
   cursor: "pointer",
@@ -79,6 +80,9 @@ export const TrendingPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>{`${t("pages.home.title")} - MovieSerieSearch`}</title>
+      </Helmet>
       <Grid
         container
         spacing={1}

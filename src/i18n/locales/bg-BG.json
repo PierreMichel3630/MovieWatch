@@ -46,6 +46,7 @@
     "poster": "Постер",
     "profile": "Профил",
     "rankuser": "Потребителска оценка",
+    "review": "Отзиви",
     "results": "Резултати",
     "runtime": "Продължителност",
     "searchactor": "Търсене на актьор",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Страница за откриване"
+      "title": "Открийте"
+    },
+    "home": {
+      "title": "У дома"
+    },
+    "search": {
+      "title": "Проучване"
+    },
+    "trendingsearch": {
+      "title": "Популярно търсене"
     }
   },
   "review": {

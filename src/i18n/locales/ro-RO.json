@@ -46,6 +46,7 @@
     "poster": "Poster",
     "profile": "Profil",
     "rankuser": "Evaluarea utilizatorului",
+    "review": "Recenzii",
     "results": "Rezultate",
     "runtime": "Durată",
     "searchactor": "Caută un actor",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Pagina de descoperire"
+      "title": "Descoperi"
+    },
+    "home": {
+      "title": "Acasă"
+    },
+    "search": {
+      "title": "Cercetare"
+    },
+    "trendingsearch": {
+      "title": "Căutare în tendințe"
     }
   },
   "review": {

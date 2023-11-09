@@ -46,6 +46,7 @@
     "poster": "პოსტერი",
     "profile": "პროფილი",
     "rankuser": "Მომხმარებლის რეიტინგი",
+    "review": "მიმოხილვები",
     "results": "შედეგები",
     "runtime": "ხანგრძლივობა",
     "searchactor": "მსახიობის ძებნა",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "აღმოაჩინეთ გვერდი"
+      "title": "აღმოაჩინეთ"
+    },
+    "home": {
+      "title": "მთავარი"
+    },
+    "search": {
+      "title": "Კვლევა"
+    },
+    "trendingsearch": {
+      "title": "ტრენდული ძიება"
     }
   },
   "review": {

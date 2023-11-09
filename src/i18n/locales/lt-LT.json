@@ -46,6 +46,7 @@
     "poster": "plakatas",
     "profile": "Profilis",
     "rankuser": "Vartotojo reitingas",
+    "review": "Atsiliepimai",
     "results": "Rezultatai",
     "runtime": "Trukmė",
     "searchactor": "Ieškokite aktoriaus",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Atraskite puslapį"
+      "title": "Atrasti"
+    },
+    "home": {
+      "title": "Namai"
+    },
+    "search": {
+      "title": "Tyrimas"
+    },
+    "trendingsearch": {
+      "title": "Populiari paieška"
     }
   },
   "review": {

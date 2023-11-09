@@ -9,6 +9,7 @@ import MovieIcon from "@mui/icons-material/Movie";
 import { SearchInput } from "../commun/Input";
 import { useContext } from "react";
 import { SearchContext } from "src/pages/HomePage";
+import { AppsMenu } from "./AppsMenu";
 
 export const Header = () => {
   const DEFAULTPAGE = 1;
@@ -47,6 +48,7 @@ export const Header = () => {
           <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
             <ModeMenu />
             <LanguagesMenu />
+            <AppsMenu />
           </Box>
         </Toolbar>
       </AppBar>

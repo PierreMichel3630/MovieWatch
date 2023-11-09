@@ -46,6 +46,7 @@
     "poster": "Plakāts",
     "profile": "Profils",
     "rankuser": "Lietotāju vērtējums",
+    "review": "Atsauksmes",
     "results": "Rezultāti",
     "runtime": "Ilgums",
     "searchactor": "Meklēt aktieri",
@@ -87,7 +88,16 @@
   },
   "pages": {
     "discover": {
-      "title": "Atklājiet lapu"
+      "title": "Atklājiet"
+    },
+    "home": {
+      "title": "Mājas"
+    },
+    "search": {
+      "title": "Pētījumi"
+    },
+    "trendingsearch": {
+      "title": "Populārā meklēšana"
     }
   },
   "review": {

@@ -9,8 +9,10 @@ import { SerieDetails } from "src/models/tv/SerieDetails";
 import { SeasonDetail } from "src/models/tv/SeasonDetail";
 import { sortByEpisodeNumber } from "src/utils/sort";
 import { CardEpisodeSkeleton, ChipSkeleton } from "../commun/skeleton/Skeleton";
+import { SeeMoreButton } from "../button/Button";
 
 export const EpisodesBlock = () => {
+  const NUMBERLINESHOW = 2;
   let { id } = useParams();
   const { t } = useTranslation();
   const { language } = useContext(UserContext);
@@ -22,6 +24,7 @@ export const EpisodesBlock = () => {
   );
   const [isLoadingDetail, setIsLoadingDetail] = useState(true);
   const [isLoadingSeason, setIsLoadingSeason] = useState(true);
+  const [seeMore, setSeeMore] = useState(false);
 
   useEffect(() => {
     setIsLoadingDetail(true);
@@ -45,6 +48,14 @@ export const EpisodesBlock = () => {
     }
   }, [selectedSeason, language]);
 
+  const episodes = seasonDetail ? seasonDetail.episodes : [];
+
+  const episodesFilter = seasonDetail
+    ? seeMore
+      ? seasonDetail.episodes
+      : seasonDetail.episodes.slice(0, NUMBERLINESHOW)
+    : [];
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -53,7 +64,7 @@ export const EpisodesBlock = () => {
             <Typography variant="h2">{t("commun.episodes")}</Typography>
           </Grid>
           {isLoadingDetail || detail === undefined
-            ? Array.from(new Array(4)).map((_, index) => (
+            ? Array.from(new Array(2)).map((_, index) => (
                 <Grid item key={index}>
                   <ChipSkeleton />
                 </Grid>
@@ -88,13 +99,28 @@ export const EpisodesBlock = () => {
                   <CardEpisodeSkeleton />
                 </Grid>
               ))
-            : seasonDetail.episodes.sort(sortByEpisodeNumber).map((episode) => (
+            : episodesFilter.sort(sortByEpisodeNumber).map((episode) => (
                 <Grid item key={episode.id} xs={12}>
                   <CardEpisode value={episode} />
                 </Grid>
               ))}
         </Grid>
       </Grid>
+      {episodes.length > NUMBERLINESHOW && (
+        <Grid
+          item
+          xs={12}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <SeeMoreButton
+            seeMore={seeMore}
+            onClick={() => setSeeMore(!seeMore)}
+          />
+        </Grid>
+      )}
     </Grid>
   );
 };

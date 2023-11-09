@@ -1,23 +1,24 @@
-import "./App.css";
-import "./i18n/config";
+import { ThemeProvider, createTheme } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import i18next from "i18next";
 import moment from "moment";
 import { createContext, useEffect, useMemo, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import i18next from "i18next";
-import { ThemeProvider, createTheme } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
+import "./App.css";
+import "./i18n/config";
 
 import { Colors } from "./style/Colors";
 
 import Routes from "./routes";
 
-import "moment/dist/locale/fr";
 import "moment/dist/locale/de";
 import "moment/dist/locale/es";
-import { Language } from "./models/Language";
+import "moment/dist/locale/fr";
 import { getLanguages } from "./api/language";
-import { sortByName } from "./utils/sort";
 import { resources } from "./i18n/config";
+import { Language } from "./models/Language";
+import { sortByName } from "./utils/sort";
+import { Helmet } from "react-helmet-async";
 
 const DEFAULT_LANGUAGE: Language = {
   iso_639_1: "en",
@@ -191,6 +192,11 @@ function App() {
     <UserContext.Provider
       value={{ mode, languages, language, setLanguage, setMode }}
     >
+      <Helmet
+        htmlAttributes={{
+          lang: language.iso_639_1,
+        }}
+      />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
